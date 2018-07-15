@@ -1,12 +1,9 @@
-# Zcash® and Zclassic - Node Open Mining Portal
+# Zero-proof - Node Open Mining Portal
 
-**[Click here for the official - Zcash® and Zclassic Stratum Mining Pool Installation Guide](https://zdeveloper.org/wiki:z-nomp_install)**
+> *NOTE*:
+> We're working on putting together an "official" z-nomp which can be supported by many coins and pools instead of so many running their own flavors. More to come!
 
 This is a Equihash mining pool based off of Node Open Mining Portal.
-
-Donations for development are greatly appreciated!
-  * BTC: 18vHMxVzotQ9EPyESrf7Z1hNM9AwJeVHgD
-  * ZCL: zcXDWbgReztLLXSTUMT2nEumiDM6zTzUXFb7vUnx9JNfJDVqbodyxwEQwgDkFw7Dp128tBU8n8rmVxT43DshmeTEM4LHcdz
 
 #### Production Usage Notice
 This is beta software. All of the following are things that can change and break an existing Z-NOMP setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data. *Only tagged releases are considered stable.*
@@ -14,28 +11,10 @@ This is beta software. All of the following are things that can change and break
 #### Paid Solution
 Usage of this software requires abilities with sysadmin, database admin, coin daemons, and sometimes a bit of programming. Running a production pool can literally be more work than a full-time job. 
 
-
 ### Community / Support
-IRC
-* Support / general discussion join: https://gitter.im/zclassicorg/z-nomp
-
 If your pool uses Z-NOMP let us know and we will list your website here.
 
-### Some pools using Z-NOMP or node-stratum-module:
-
-http://mineflowpool.pl Z-nomp based pool. Custom frontend and API.
-
-http://luckpool.org Zcash Pool with Custom Frontend w/Miner's Jackpot
-
-http://zclassic.miningspeed.com Custom frontend and 0% fee
-
-http://miningpool.io/
-
-https://lucky-mining.com.ua/ Running MPOS and no fee, [vot][zcl][zen][hush][btg].lucky-mining.com.ua <-- Ukraine
-
-Usage
-=====
-
+# Usage
 
 #### Requirements
 * Coin daemon(s) (find the coin's repo and build latest version from source)
@@ -45,11 +24,9 @@ Usage
 ##### Seriously
 Those are legitimate requirements. If you use old versions of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked instructions to get the last stable versions.
 
-
 [**Redis security warning**](http://redis.io/topics/security): be sure firewall access to redis - an easy way is to
 include `bind 127.0.0.1` in your `redis.conf` file. Also it's a good idea to learn about and understand software that
 you are using - a good place to start with redis is [data persistence](http://redis.io/topics/persistence).
-
 
 #### 0) Setting up coin daemon
 Follow the build/install instructions for your coin daemon. Your coin.conf file should end up looking something like this:
@@ -157,7 +134,6 @@ Credits
 * [icecube45](//github.com/icecube45) - helping out with the repo wiki
 * [Fcases](//github.com/Fcases) - ordered me a pizza <3
 * Those that contributed to [node-stratum-pool](//github.com/zone117x/node-stratum-pool#credits)
-
 
 License
 -------
