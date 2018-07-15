@@ -1,25 +1,26 @@
 {
     "enabled": false,
-    "coin": "zclassic.json",
+    "coin": "zcl.json",
 
-    "address": "t1dfrrxCHek2ts987VpZsRmFKBvdcBJ1Cqd",
+    "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
 
-    "zAddress": "ztqgT4xsouCyjHXrFtXnDVgtvPRmURMgHQw2gd39dLdtoYkmPACScHturZjqsNdAPtP6JCLaWmZmYDqbjCMRgdCfQ2vjY2K",
+    "zAddress": "",
     "_comment_zAddress": "a private address used to send coins to tAddress.",
 
-    "tAddress": "tmLqYHEnCiL4dpktEKdAKeRjPdkxNtJVWfb",
+    "tAddress": "",
     "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
 
     "walletInterval": 2.5,
 
     "rewardRecipients": {
+        "": 0.2
     },
 
     "tlsOptions": {
         "enabled": false,
-        "serverKey":"",
-        "serverCert":"",
+        "serverKey": "",
+        "serverCert": "",
         "ca":""
     },
 
@@ -27,7 +28,7 @@
 	"minConf": 10,
         "enabled": true,
         "paymentMode": "prop",
-        "_comment_paymentMode":"prop, pplnt",
+        "_comment_paymentMode": "prop, pplnt",
         "paymentInterval": 20,
         "minimumPayment": 0.1,
         "maxBlocksPerPayment": 3,
@@ -52,6 +53,9 @@
             }
         }
     },
+
+    "poolId": "main",
+    "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
 
     "daemons": [
         {

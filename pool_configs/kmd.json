@@ -1,6 +1,6 @@
 {
-    "enabled":false,
-    "coin": "komodo.json",
+    "enabled": false,
+    "coin": "kmd.json",
 
     "address": "",
     "_comment_address": "pools komodo address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
@@ -15,13 +15,13 @@
     "_comment_walletInterval": "Used to cache komodo coin stats, shielding not performed.",
 
     "rewardRecipients": {
-        "": 1.0
+        "": 0.2
     },
 
     "tlsOptions": {
         "enabled": false,
-        "serverKey":"",
-        "serverCert":"",
+        "serverKey": "",
+        "serverCert": "",
         "ca":""
     },
 
@@ -29,7 +29,7 @@
 	"minConf": 10,
         "enabled": true,
         "paymentMode": "prop",
-        "_comment_paymentMode":"prop, pplnt",
+        "_comment_paymentMode": "prop, pplnt",
         "paymentInterval": 57,
         "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
         "minimumPayment": 0.1,
@@ -44,7 +44,7 @@
 
     "ports": {
         "3857": {
-            "tls":false,
+            "tls": false,
             "diff": 0.05,
             "varDiff": {
                 "minDiff": 0.04,
@@ -55,6 +55,9 @@
             }
         }
     },
+
+    "poolId": "main",
+    "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
 
     "daemons": [
         {

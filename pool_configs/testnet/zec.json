@@ -1,7 +1,7 @@
 
 {
     "enabled": false,
-    "coin": "zcash_testnet.json",
+    "coin": "testnet/zec.json",
 
     "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
@@ -15,15 +15,14 @@
     "walletInterval": 2.5,
 
     "rewardRecipients": {
-        "": 0.2,
-        "": 0.3
+        "": 0.2
     },
 
     "paymentProcessing": {
-	"minConf": 10,
+        "minConf": 10,
         "enabled": false,
         "paymentMode": "prop",
-        "_comment_paymentMode":"prop, pplnt",
+        "_comment_paymentMode": "prop, pplnt",
         "paymentInterval": 20,
         "minimumPayment": 0.1,
         "maxBlocksPerPayment": 1,
@@ -37,9 +36,9 @@
 
     "tlsOptions": {
         "enabled": false,
-        "serverKey":"",
-        "serverCert":"",
-        "ca":""
+        "serverKey": "",
+        "serverCert": "",
+        "ca": ""
     },
 
     "ports": {
@@ -55,6 +54,9 @@
             }
         }
     },
+
+    "poolId": "main",
+    "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
 
     "daemons": [
         {
