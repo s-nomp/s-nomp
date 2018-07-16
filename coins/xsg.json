@@ -1,0 +1,38 @@
+{
+    "name": "snowgem",
+    "symbol": "xsg",
+    "algorithm": "equihash",
+    "requireShielding": true,
+    "payFoundersReward": true,
+    "percentFoundersReward": 5,
+    "maxFoundersRewardBlockHeight": 2106399,
+    "foundersRewardAddressChangeInterval": 105320.95,
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "sngemPoW"
+    },
+    "vFoundersRewardAddress": [
+		"s3d27MhkBRt3ha2UuxhjXaYF4DCnttTMnL1",
+		"s3Wws6Mx3GHJkAe8QkNr4jhW28WU21Fp9gL",
+		"s3QD18CKEA9Cw4kgnssnmk4rbf9Y3rU1uWG",
+		"s3esoTmHdcXdDwCkoGSxC4YkfzBo1ySuher",
+		"s3Q8NwoBv4aq9RRvqjT3LqN9TQnZrS2RdcV",
+		"s3ix12RLstrzFEJKVsbLxCsPuUSjAqs3Bqp",
+		"s3bCvm5zDv9KYFwHxaZjz2eKecEnbdFz98f",
+		"s3UfvUuHahzTmYViL3KrGZeUPug69denBm3",
+		"s3gmzNUmttwDJbUcpmW4gxVqHf3J58fDKpp",
+		"s3YuWMW4Kpij7gW91WHLhjfi5Dwc7dKyPNn",
+		"s3k2MaTdZyFBqyndrHdCDFnET5atCdC4iod",
+		"s3YFHxL9euG89LMgPT5wGka4Ek8XVyw4FWG",
+		"s3TKKkNnvBXphdv4ce84UKePdssWLHGBe1A",
+		"s3PLrY7e7jzzAxnMY7A6GkjhkGc1CVkuEoi",
+		"s3Ug8VAGcUijwD6QMhyFcCYXQEFABaA9VFy",
+		"s3b4DAbbrTb4FPz3mHeyE89fUq6Liqg5vxX",
+		"s3cM379BTJyCe5yJC4jkPn6qJwpZaHK2kXb",
+		"s3TKWLar6bZEHppF4ZR1MbPuBfe33a1bHX9",
+		"s3UpY6Q3T3v3F7MEpNDnV3rTucLEJkkHR4q",
+		"s3eWx3DcwLiusTBfhWu6z7zM4TffaV1Ng9r"
+    ],
+    "peerMagic": "24c82764"
+}
