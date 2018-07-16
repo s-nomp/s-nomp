@@ -1,3 +1,4 @@
-node_modules/
-.idea/
 config.json
+.idea/
+node_modules/
+pool_configs/*.json
