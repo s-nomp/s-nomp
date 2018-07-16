@@ -27,7 +27,7 @@
 	"maxBlocksPerPayment": 3,
 	"daemon": {
         "host": "127.0.0.1",
-        "port": 8232,
+        "port": 8242,
         "user": "testuser",
         "password": "testpass"
         }
@@ -60,7 +60,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 8232,
+            "port": 8242,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
