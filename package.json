@@ -51,7 +51,7 @@
         "stratum-pool": "git+https://github.com/z-nomp/node-stratum-pool.git"
     },
     "engines": {
-        "node": ">=0.10"
+        "node": ">=8.11"
     },
     "scripts": {
         "start": "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/node_modules/stratum-pool/node_modules/equihashverify/build/Release/:$PWD/node_modules/equihashverify/build/Release/ node init.js"
