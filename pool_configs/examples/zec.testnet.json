@@ -11,25 +11,29 @@
     "tAddress": "",
     "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
 
+    "invalidAddress":"",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above",
+
     "walletInterval": 2.5,
+    "_comment_walletInterval": "Used to cache coin stats",
 
     "rewardRecipients": {
         "": 0.2
     },
 
     "paymentProcessing": {
-        "minConf": 10,
         "enabled": false,
+        "minConf": 10,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
-        "paymentInterval": 20,
-        "minimumPayment": 0.1,
-        "maxBlocksPerPayment": 1,
+        "paymentInterval": 120,
+        "minimumPayment": 0.05,
+        "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 19332,
-            "user": "testuser",
-            "password": "testpass"
+            "port": 18233,
+            "user": "rpcuser",
+            "password": "rpcpassword"
         }
     },
 
@@ -41,12 +45,12 @@
     },
 
     "ports": {
-        "3032": {
+        "1234": {
             "diff": 0.05,
             "tls": false,
             "varDiff": {
                 "minDiff": 0.04,
-                "maxDiff": 16,
+                "maxDiff": 36,
                 "targetTime": 15,
                 "retargetTime": 60,
                 "variancePercent": 30
@@ -60,7 +64,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 18232,
+            "port": 18233,
             "user": "rpcuser",
             "password": "rpcpassword"
         }

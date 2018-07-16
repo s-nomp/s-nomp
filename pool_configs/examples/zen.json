@@ -15,6 +15,7 @@
     "_comment_invalidAddress": "Invalid addresses will be converted to the above",
 
     "walletInterval": 2.5,
+    "_comment_walletInterval": "Used to cache coin stats",
 
     "rewardRecipients": {
         "": 0.2
@@ -29,26 +30,27 @@
 
     "paymentProcessing": {
         "enabled": false,
+	    "minConf": 10,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
-        "paymentInterval": 20,
+        "paymentInterval": 120,
         "minimumPayment": 0.1,
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 8231,
+            "port": 9033,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
     },
 
     "ports": {
-        "3032": {
+        "1234": {
             "tls": false,
-            "diff": 2.5,
+            "diff": 0.5,
             "varDiff": {
                 "minDiff": 0.04,
-                "maxDiff": 16,
+                "maxDiff": 36,
                 "targetTime": 15,
                 "retargetTime": 60,
                 "variancePercent": 30
@@ -62,7 +64,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 8231,
+            "port": 9033,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -81,7 +83,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zcl",
+        "database": "zen",
         "checkPassword": true,
         "autoCreateWorker": false
     }

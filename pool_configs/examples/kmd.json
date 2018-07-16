@@ -11,6 +11,9 @@
     "tAddress": "",
     "_comment_tAddress": "set to same as pools komodo address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
 
+    "invalidAddress":"",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above",
+
     "walletInterval": 1,
     "_comment_walletInterval": "Used to cache komodo coin stats, shielding not performed.",
 
@@ -22,33 +25,33 @@
         "enabled": false,
         "serverKey": "",
         "serverCert": "",
-        "ca":""
+        "ca": ""
     },
 
     "paymentProcessing": {
-	"minConf": 10,
         "enabled": true,
+	    "minConf": 10,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
-        "paymentInterval": 57,
+        "paymentInterval": 60,
         "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
         "minimumPayment": 0.1,
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 8232,
-            "user": "username",
-            "password": "password"
+            "port": 7770,
+            "user": "rpcuser",
+            "password": "rpcpassword"
         }
     },
 
     "ports": {
-        "3857": {
+        "1234": {
             "tls": false,
-            "diff": 0.05,
+            "diff": 0.5,
             "varDiff": {
                 "minDiff": 0.04,
-                "maxDiff": 16,
+                "maxDiff": 36,
                 "targetTime": 15,
                 "retargetTime": 60,
                 "variancePercent": 30
@@ -62,9 +65,9 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 8232,
-            "user": "username",
-            "password": "password"
+            "port": 7770,
+            "user": "rpcuser",
+            "password": "rpcpassword"
         }
     ],
 
