@@ -18,18 +18,18 @@
     },
 
     "paymentProcessing": {
-	"minConf": 10,
-        "enabled": false,
-        "paymentMode": "prop",
-        "_comment_paymentMode":"prop, pplnt",
-        "paymentInterval": 20,
-        "minimumPayment": 0.1,
-        "maxBlocksPerPayment": 3,
-        "daemon": {
-            "host": "127.0.0.1",
-            "port": 19332,
-            "user": "testuser",
-            "password": "testpass"
+		"minConf": 10,
+		"enabled": false,
+		"paymentMode": "prop",
+		"_comment_paymentMode":"prop, pplnt",
+		"paymentInterval": 20,
+		"minimumPayment": 0.1,
+		"maxBlocksPerPayment": 3,
+		"daemon": {
+        "host": "127.0.0.1",
+        "port": 8232,
+        "user": "testuser",
+        "password": "testpass"
         }
     },
 
@@ -67,7 +67,7 @@
     ],
 
     "p2p": {
-        "enabled": false,
+		"enabled": false,
         "host": "127.0.0.1",
         "port": 19333,
         "disableTransactions": true
