@@ -30,7 +30,9 @@
     table {
         width: 100%;
     }
-</style> <script type="text/javascript">
+</style> 
+
+<script type="text/javascript">
   $(function () {
     $(document).tooltip({
         content: function () {
@@ -50,7 +52,9 @@
         }
     });
 });
-</script> {{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }} {{ for(var pool in it.stats.pools) { }} <table>
+</script> 
+{{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }} {{ for(var pool in it.stats.pools) { }} 
+<table>
     <thead>
     <tr>
         <th>Blocks</th>
@@ -60,7 +64,8 @@
         <th>Amount</th>
     </tr>
     </thead>
-      {{ for(var p in it.stats.pools[pool].payments) { }} <tr>
+      {{ for(var p in it.stats.pools[pool].payments) { }} 
+      <tr>
           <td>
           {{if (it.poolsConfigs[pool].explorer) { }}
           <a href="https://{{=it.poolsConfigs[pool].explorer}}/tx/{{=it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
@@ -74,4 +79,6 @@
           <td>{{=it.stats.pools[pool].payments[p].paid}} {{=it.stats.pools[pool].symbol}}</td>
       </tr>
       {{ } }}
-  </table> </div> {{ } }}
+  </table> 
+</div> 
+{{ } }}
