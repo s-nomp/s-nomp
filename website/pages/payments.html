@@ -30,7 +30,7 @@
     table {
         width: 100%;
     }
-</style> 
+</style>
 
 <script type="text/javascript">
   $(function () {
@@ -52,9 +52,9 @@
         }
     });
 });
-</script> 
-{{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }} 
-{{ for(var pool in it.stats.pools) { }} 
+</script>
+{{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
+{{ for(var pool in it.stats.pools) { }}
 <table>
     <thead>
     <tr>
@@ -65,7 +65,7 @@
         <th>Amount</th>
     </tr>
     </thead>
-      {{ for(var p in it.stats.pools[pool].payments) { }} 
+      {{ for(var p in it.stats.pools[pool].payments) { }}
       <tr>
           <td>
           {{if (it.poolsConfigs[pool].explorer) { }}
@@ -80,6 +80,6 @@
           <td>{{=it.stats.pools[pool].payments[p].paid}} {{=it.stats.pools[pool].symbol}}</td>
       </tr>
       {{ } }}
-  </table> 
-</div> 
+  </table>
+</div>
 {{ } }}
