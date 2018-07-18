@@ -28,6 +28,9 @@
         "ca": ""
     },
 
+    "explorer": "",
+    "_comment_explorer": "Explorer domain without https:// or ending /",
+
     "paymentProcessing": {
         "enabled": false,
 	    "minConf": 10,
