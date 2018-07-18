@@ -2,6 +2,7 @@
     "name": "zcash",
     "symbol": "zec",
     "algorithm": "equihash",
+    "overwinter": true,
     "requireShielding": true,
     "payFoundersReward": true,
     "percentFoundersReward": 20,
