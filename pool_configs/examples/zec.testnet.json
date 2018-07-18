@@ -44,6 +44,9 @@
         "ca": ""
     },
 
+    "explorer": "",
+    "_comment_explorer": "Explorer domain without https:// or ending /",
+
     "ports": {
         "1234": {
             "diff": 0.05,
