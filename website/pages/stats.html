@@ -143,15 +143,11 @@
 			{{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
 				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
 					<small>Block:</small>
-					{{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
-						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+					{{if (it.poolsConfigs[pool].explorer) { }}
+						<a href="https://{{=it.poolsConfigs[pool].explorer}}/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
-                                            {{=block[2]}}
-                                        {{ } }}
+						{{=block[2]}}
+					{{ } }}
 					{{if (block[4] != null) { }}
 					<span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
 					{{ } }}
@@ -173,10 +169,8 @@
 			{{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
 				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
 					<small>Block:</small>
-					{{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+					{{if (it.poolsConfigs[pool].explorer) { }}
+						<a href="https://{{=it.poolsConfigs[pool].explorer}}/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
 						{{=block[2]}}
 					{{ } }}
