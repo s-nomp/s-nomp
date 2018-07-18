@@ -1,0 +1,12 @@
+{
+    "name": "zelcash",
+    "symbol": "zel",
+    "algorithm": "equihash",
+    "requireShielding": true,
+    "txfee": 0.0001,
+    "parameters": {
+		"N": 144,
+		"K": 5,
+		"personalization": "ZelProof"
+	}
+}

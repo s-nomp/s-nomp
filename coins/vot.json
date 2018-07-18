@@ -1,0 +1,9 @@
+{
+    "name": "votecoin",
+    "symbol": "vot",
+    "algorithm": "equihash",
+    "requireShielding": true,
+    "peerMagic": "24e92764",
+    "txfee": 0.0004,
+    "overwinter": true
+}
