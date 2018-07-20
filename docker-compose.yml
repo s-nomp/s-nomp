@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  site:
+    build:
+      context: .
+    working_dir: /site
+    ports:
+      - 80
+    volumes:
+      - ./:/site
+      - ../.zsh_history:/root/.zsh_history
+    ulimits:
+      nofile:
+        soft: 999999
+        hard: 999999
+    command: ["pm2-runtime", "start", "ecosystem.config.js", "--only", "site"]
+
+  redis:
+    image: redis:latest
+    volumes:
+      - ../.redis:/data
+
+# vim:set ts=2 sw=2 smarttab:
