@@ -14,6 +14,10 @@ Usage of this software requires abilities with sysadmin, database admin, coin da
 ### Community / Support
 If your pool uses Z-NOMP let us know and we will list your website here.
 
+Please join our Discord to join and follow development. Any support questoins can be answered here quickly as well.
+
+https://discord.gg/4mVaTsH
+
 # Usage
 
 #### Requirements
