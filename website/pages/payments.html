@@ -70,7 +70,7 @@
 			<td>
 			{{try { }}
 				{{if (it.poolsConfigs[pool].explorer.txURL) { }}
-					<a href="https://{{=it.poolsConfigs[pool].explorer.txURL + it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+					<a href="{{=it.poolsConfigs[pool].explorer.txURL + it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
 				{{ } else { }}
 					{{=it.stats.pools[pool].payments[p].blocks}}
 				{{ } }}
