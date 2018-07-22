@@ -28,8 +28,11 @@
         "ca": ""
     },
 
-    "explorer": "",
-    "_comment_explorer": "Explorer domain without https:// or ending /",
+    "explorer": {
+        "txURL": "https://explorer.zen-solutions.io/tx/",
+        "blockURL": "https://explorer.zen-solutions.io/block/",
+	"_comment_explorer": "Used to link to your coins explorer. It should be a full url to where block and txid are looked up, including http or https along with the trailing slash. It should exclude an actual block or txid"
+    },
 
     "paymentProcessing": {
         "enabled": false,
