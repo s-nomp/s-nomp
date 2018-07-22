@@ -65,21 +65,25 @@
         <th>Amount</th>
     </tr>
     </thead>
-      {{ for(var p in it.stats.pools[pool].payments) { }}
-      <tr>
-          <td>
-          {{if (it.poolsConfigs[pool].explorerOptions.txExplorer) { }}
-          <a href="{{=it.poolsConfigs[pool].explorerOptions.txExplorer + it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-          {{ } else { }}
-          {{=it.stats.pools[pool].payments[p].blocks}}
-          {{ } }}
-          </td>
-          <td>{{=readableDate(it.stats.pools[pool].payments[p].time)}}</td>
-          <td>{{=it.stats.pools[pool].payments[p].miners}}</td>
-          <td>{{=Math.round(it.stats.pools[pool].payments[p].shares)}}</td>
-          <td>{{=it.stats.pools[pool].payments[p].paid}} {{=it.stats.pools[pool].symbol}}</td>
-      </tr>
-      {{ } }}
-  </table>
+		{{ for(var p in it.stats.pools[pool].payments) { }}
+		<tr>
+			<td>
+			{{try { }}
+				{{if (it.poolsConfigs[pool].explorer.txURL) { }}
+					<a href="https://{{=it.poolsConfigs[pool].explorer.txURL + it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
+				{{ } else { }}
+					{{=it.stats.pools[pool].payments[p].blocks}}
+				{{ } }}
+			{{ } catch(err) { }}
+				{{=it.stats.pools[pool].payments[p].blocks}}
+			{{ } }}
+			</td>
+			<td>{{=readableDate(it.stats.pools[pool].payments[p].time)}}</td>
+			<td>{{=it.stats.pools[pool].payments[p].miners}}</td>
+			<td>{{=Math.round(it.stats.pools[pool].payments[p].shares)}}</td>
+			<td>{{=it.stats.pools[pool].payments[p].paid}} {{=it.stats.pools[pool].symbol}}</td>
+		</tr>
+		{{ } }}
+	</table>
 </div>
 {{ } }}
