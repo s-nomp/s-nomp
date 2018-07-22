@@ -68,14 +68,10 @@
 		{{ for(var p in it.stats.pools[pool].payments) { }}
 		<tr>
 			<td>
-			{{try { }}
-				{{if (it.poolsConfigs[pool].explorer.txURL) { }}
+			{{ if (it.poolsConfigs[pool].explorer && it.poolsConfigs[pool].explorer.txURL) { }}
 					<a href="{{=it.poolsConfigs[pool].explorer.txURL + it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
 				{{ } else { }}
 					{{=it.stats.pools[pool].payments[p].blocks}}
-				{{ } }}
-			{{ } catch(err) { }}
-				{{=it.stats.pools[pool].payments[p].blocks}}
 			{{ } }}
 			</td>
 			<td>{{=readableDate(it.stats.pools[pool].payments[p].time)}}</td>
