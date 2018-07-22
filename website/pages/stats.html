@@ -143,15 +143,11 @@
 			{{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
 				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
 					<small>Block:</small>
-					{{try { }}
-						{{if (it.poolsConfigs[pool].explorer.blockURL) { }}
+						{{ if (it.poolsConfigs[pool].explorer && it.poolsConfigs[pool].explorer.blockURL) { }}
 							<a href="{{=it.poolsConfigs[pool].explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
 						{{ } else { }}
 							{{=block[2]}}
 						{{ } }}
-					{{ } catch(err) { }}
-						{{=block[2]}}
-					{{ } }}
 					{{if (block[4] != null) { }}
 					<span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
 					{{ } }}
@@ -173,15 +169,11 @@
 			{{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
 				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
 					<small>Block:</small>
-					{{try { }}
-						{{if (it.poolsConfigs[pool].explorer.blockURL) { }}
+						{{ if (it.poolsConfigs[pool].explorer && it.poolsConfigs[pool].explorer.blockURL) { }}
 							<a href="{{=it.poolsConfigs[pool].explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
 						{{ } else { }}
 							{{=block[2]}}
 						{{ } }}
-					{{ } catch(err) { }}
-						{{=block[2]}}
-					{{ } }}
 					{{if (block[4] != null) { }}
 					<span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
 					{{ } }}
