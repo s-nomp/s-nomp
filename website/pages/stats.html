@@ -143,8 +143,8 @@
 			{{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
 				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
 					<small>Block:</small>
-					{{if (it.poolsConfigs[pool].explorer) { }}
-						<a href="https://{{=it.poolsConfigs[pool].explorer}}/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+					{{if (it.poolsConfigs[pool].explorerOptions.blockExplorer) { }}
+						<a href="{{=it.poolsConfigs[pool].explorerOptions.blockExplorer + block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
 						{{=block[2]}}
 					{{ } }}
@@ -169,8 +169,8 @@
 			{{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
 				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
 					<small>Block:</small>
-					{{if (it.poolsConfigs[pool].explorer) { }}
-						<a href="https://{{=it.poolsConfigs[pool].explorer}}/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+					{{if (it.poolsConfigs[pool].explorerOptions.blockExplorer) { }}
+						<a href="{{=it.poolsConfigs[pool].explorerOptions.blockExplorer + block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
 						{{=block[2]}}
 					{{ } }}
