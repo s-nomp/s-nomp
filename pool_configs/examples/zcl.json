@@ -29,8 +29,8 @@
     },
 
     "explorer": {
-        "txURL": "https://explorer.yourcoin.com/tx/",
-        "blockURL": "https://explorer.yourcoin.com/block/",
+        "txURL": "",
+        "blockURL": "",
         "_comment_explorer": "Used to link to your coins explorer. It should be a full url to where block and txid are looked up, including http or https along with the trailing slash. It should exclude an actual block or txid"
     },
 
