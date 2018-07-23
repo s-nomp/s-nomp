@@ -21,7 +21,7 @@
 
     }
 
-	#boxesLower {
+    #boxesLower {
         margin: 0 9px;
     }
     #boxesLower > div {
@@ -43,7 +43,7 @@
         background-color: #cccccc;
     }
     #boxStatsRight{
-		color: black;
+        color: black;
         background-color: #cccccc;
     }
     .boxStats{
@@ -102,98 +102,92 @@
             <div class="boxLowerHeader">{{=capitalizeFirstLetter(it.stats.pools[pool].name)}} Pool Stats</div>
             <div class="boxStatsList">
                 <div>
-					<div><i class="fa fa-users"></i><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners</div>
+                    <div><i class="fa fa-users"></i><span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners</div>
                     <div><i class="fa fa-rocket"></i><span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers</div>
                     <div><i class="fa fa-tachometer"></i><span id="statsHashrate{{=pool}}">{{=it.stats.pools[pool].hashrateString}}</span> (Now)</div>
-					<div><i class="fa fa-tachometer"></i><span id="statsHashrateAvg{{=pool}}">...</span> (Avg)</div>
-					<div><i class="fa fa-gavel"></i>Luck <span id="statsLuckDays{{=pool}}">{{=it.stats.pools[pool].luckDays}}</span> Days</div>
+                    <div><i class="fa fa-tachometer"></i><span id="statsHashrateAvg{{=pool}}">...</span> (Avg)</div>
+                    <div><i class="fa fa-gavel"></i>Luck <span id="statsLuckDays{{=pool}}">{{=it.stats.pools[pool].luckDays}}</span> Days</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="pure-u-1-2">
         <div class="boxStats" id="boxStatsRight">
-			<div class="boxLowerHeader">{{=capitalizeFirstLetter(it.stats.pools[pool].name)}} Network Stats</div>
+            <div class="boxLowerHeader">{{=capitalizeFirstLetter(it.stats.pools[pool].name)}} Network Stats</div>
             <div class="boxStatsList">
                 <div>
                     <div><i class="fa fa-bars" aria-hidden="true"></i><small>Block Height:</small> <span id="statsNetworkBlocks{{=pool}}">{{=it.stats.pools[pool].poolStats.networkBlocks}}</span></div>
                     <div><i class="fa fa-tachometer"></i><small>Network Hash/s:</small> <span id="statsNetworkSols{{=pool}}">{{=it.stats.pools[pool].poolStats.networkSolsString}}</span></div>
                     <div><i class="fa fa-unlock-alt" aria-hidden="true"></i><small>Difficulty:</small> <span id="statsNetworkDiff{{=pool}}">{{=it.stats.pools[pool].poolStats.networkDiff}}</span></div>
-					<div><i class="fa fa-users"></i><small>Node Connections:</small> <span id="statsNetworkConnections{{=pool}}">{{=it.stats.pools[pool].poolStats.networkConnections}}</span></div>
+                    <div><i class="fa fa-users"></i><small>Node Connections:</small> <span id="statsNetworkConnections{{=pool}}">{{=it.stats.pools[pool].poolStats.networkConnections}}</span></div>
                 </div>
             </div>
         </div>
     </div>
-	{{ } }}
+    {{ } }}
 </div>
 {{ for(var pool in it.stats.pools) { }}
 {{ var blockscomb = new Array; }}
 <div class="pure-g-r" id="boxesLower">
     <div class="pure-u-1-1">
         <div class="boxStats" id="boxStatsRight">
-			<div class="boxLowerHeader">{{=capitalizeFirstLetter(it.stats.pools[pool].name)}} Blocks Found &nbsp;&nbsp;
-			<span style="float:right;"><small>
+            <div class="boxLowerHeader">{{=capitalizeFirstLetter(it.stats.pools[pool].name)}} Blocks Found &nbsp;&nbsp;
+            <span style="float:right;"><small>
             <i class="fa fa-bars"></i> <span id="statsValidBlocks{{=pool}}">{{=it.stats.pools[pool].poolStats.validBlocks}}</span> Blocks &nbsp;&nbsp;
-			<i class="fa fa-money"></i> Paid: <span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> {{=it.stats.pools[pool].symbol}}</small>&nbsp;&nbsp;</span>
-			</div>
+            <i class="fa fa-money"></i> Paid: <span id="statsTotalPaid{{=pool}}">{{=(parseFloat(it.stats.pools[pool].poolStats.totalPaid)).toFixed(8)}}</span> {{=it.stats.pools[pool].symbol}}</small>&nbsp;&nbsp;</span>
+            </div>
             <div class="boxStatsList" style="margin-top: 9px;">
-			<!--<div id="{{=it.stats.pools[pool].name}}NewBlocks"></div>-->
+            <!--<div id="{{=it.stats.pools[pool].name}}NewBlocks"></div>-->
 
-			{{ for(var b in it.stats.pools[pool].pending.blocks) { }}
-			{{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
-				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
-					<small>Block:</small>
-					{{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else if (String(it.stats.pools[pool].name).startsWith("hush")) { }}
-						<a href="https://explorer.myhush.org/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else { }}
-                                            {{=block[2]}}
-                                        {{ } }}
-					{{if (block[4] != null) { }}
-					<span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
-					{{ } }}
-					{{if (it.stats.pools[pool].pending.confirms) { }}
-					    {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
-						<span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}} of 100</small></span>
-					    {{ } else { }}
-						<span style="float:right; color: red;"><small>*PENDING*</small></span>
-					    {{ } }}
-					{{ } else { }}
-					    <span style="float:right; color: red;"><small>*PENDING*</small></span>
-					{{ } }}
-					<div><i class="fa fa-gavel"></i><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3]}}</a></div>
-				</div>
+            {{ for(var b in it.stats.pools[pool].pending.blocks) { }}
+            {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
+                <div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
+                    <small>Block:</small>
+                        {{ if (it.poolsConfigs[pool].coin.explorer && it.poolsConfigs[pool].coin.explorer.blockURL) { }}
+                            <a href="{{=it.poolsConfigs[pool].coin.explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
+                        {{ } else { }}
+                            {{=block[2]}}
+                        {{ } }}
+                    {{if (block[4] != null) { }}
+                    <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
+                    {{ } }}
+                    {{if (it.stats.pools[pool].pending.confirms) { }}
+                        {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
+                        <span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}} of 100</small></span>
+                        {{ } else { }}
+                        <span style="float:right; color: red;"><small>*PENDING*</small></span>
+                        {{ } }}
+                    {{ } else { }}
+                        <span style="float:right; color: red;"><small>*PENDING*</small></span>
+                    {{ } }}
+                    <div><i class="fa fa-gavel"></i><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3]}}</a></div>
+                </div>
         {{ blockscomb.push(block);}}
-			{{ } }}
-			{{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
-			{{ if (i < 8) { i++; }}
-			{{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
-				<div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
-					<small>Block:</small>
-					{{if (String(it.stats.pools[pool].name).startsWith("zcash")) { }}
-						<a href="https://explorer.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else if (String(it.stats.pools[pool].name).startsWith("zclassic")) { }}
-						<a href="https://classic.zcha.in/blocks/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-					{{ } else { }}
-						{{=block[2]}}
-					{{ } }}
-					{{if (block[4] != null) { }}
-					<span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
-					{{ } }}
-					<span style="float:right; padding-left: 18px; color: green;"><small>*PAID*</small></span>
-					<div><i class="fa fa-gavel"></i><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3]}}</a></div>
-				</div>
+            {{ } }}
+            {{ var i=0; for(var b in it.stats.pools[pool].confirmed.blocks) { }}
+            {{ if (i < 8) { i++; }}
+            {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
+                <div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
+                    <small>Block:</small>
+                        {{ if (it.poolsConfigs[pool].coin.explorer && it.poolsConfigs[pool].coin.explorer.blockURL) { }}
+                            <a href="{{=it.poolsConfigs[pool].coin.explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
+                        {{ } else { }}
+                            {{=block[2]}}
+                        {{ } }}
+                    {{if (block[4] != null) { }}
+                    <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
+                    {{ } }}
+                    <span style="float:right; padding-left: 18px; color: green;"><small>*PAID*</small></span>
+                    <div><i class="fa fa-gavel"></i><small>Mined By:</small> <a href="/workers/{{=block[3].split('.')[0]}}">{{=block[3]}}</a></div>
+                </div>
         {{blockscomb.push(block);}}
-			{{ } }}
-			{{ } }}
+            {{ } }}
+            {{ } }}
       <!--{{=JSON.stringify(blockscomb)}}-->
       <script>
       var blockscomb = ({{=JSON.stringify(blockscomb)}})
       </script>
-			</div>
+            </div>
       </div>
         </div>
     </div>
@@ -318,33 +312,33 @@ legend.append('text')
 
 
 <script>
-	window.statsSource = new EventSource("/api/live_stats");
+    window.statsSource = new EventSource("/api/live_stats");
     $(function() {
         statsSource.addEventListener('message', function (e) {
             var stats = JSON.parse(e.data);
             for (var pool in stats.pools) {
-				$('#statsMiners' + pool).text(stats.pools[pool].minerCount);
+                $('#statsMiners' + pool).text(stats.pools[pool].minerCount);
                 $('#statsWorkers' + pool).text(stats.pools[pool].workerCount);
                 $('#statsHashrate' + pool).text(stats.pools[pool].hashrateString);
-				$('#statsHashrateAvg' + pool).text(getReadableHashRateString(calculateAverageHashrate(pool)));
-				$('#statsLuckDays' + pool).text(stats.pools[pool].luckDays);
-				$('#statsValidBlocks' + pool).text(stats.pools[pool].poolStats.validBlocks);
-				$('#statsTotalPaid' + pool).text((parseFloat(stats.pools[pool].poolStats.totalPaid)).toFixed(8));
-				$('#statsNetworkBlocks' + pool).text(stats.pools[pool].poolStats.networkBlocks);
-				$('#statsNetworkDiff' + pool).text(stats.pools[pool].poolStats.networkDiff);
-				$('#statsNetworkSols' + pool).text(getReadableNetworkHashRateString(stats.pools[pool].poolStats.networkSols));
-				$('#statsNetworkConnections' + pool).text(stats.pools[pool].poolStats.networkConnections);
+                $('#statsHashrateAvg' + pool).text(getReadableHashRateString(calculateAverageHashrate(pool)));
+                $('#statsLuckDays' + pool).text(stats.pools[pool].luckDays);
+                $('#statsValidBlocks' + pool).text(stats.pools[pool].poolStats.validBlocks);
+                $('#statsTotalPaid' + pool).text((parseFloat(stats.pools[pool].poolStats.totalPaid)).toFixed(8));
+                $('#statsNetworkBlocks' + pool).text(stats.pools[pool].poolStats.networkBlocks);
+                $('#statsNetworkDiff' + pool).text(stats.pools[pool].poolStats.networkDiff);
+                $('#statsNetworkSols' + pool).text(getReadableNetworkHashRateString(stats.pools[pool].poolStats.networkSols));
+                $('#statsNetworkConnections' + pool).text(stats.pools[pool].poolStats.networkConnections);
             }
         });
     });
 
-	function getReadableNetworkHashRateString(hashrate){
-		hashrate = (hashrate * 1000000);
-		if (hashrate < 1000000)
-			return '0 Sol';
-		var byteUnits = [ ' Sol/s', ' KSol/s', ' MSol/s', ' GSol/s', ' TSol/s', ' PSol/s' ];
-		var i = Math.floor((Math.log(hashrate/1000) / Math.log(1000)) - 1);
-		hashrate = (hashrate/1000) / Math.pow(1000, i + 1);
-		return hashrate.toFixed(2) + byteUnits[i];
-	}
+    function getReadableNetworkHashRateString(hashrate){
+        hashrate = (hashrate * 1000000);
+        if (hashrate < 1000000)
+            return '0 Sol';
+        var byteUnits = [ ' Sol/s', ' KSol/s', ' MSol/s', ' GSol/s', ' TSol/s', ' PSol/s' ];
+        var i = Math.floor((Math.log(hashrate/1000) / Math.log(1000)) - 1);
+        hashrate = (hashrate/1000) / Math.pow(1000, i + 1);
+        return hashrate.toFixed(2) + byteUnits[i];
+    }
 </script>
