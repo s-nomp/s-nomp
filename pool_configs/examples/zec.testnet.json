@@ -44,12 +44,6 @@
         "ca": ""
     },
 
-    "explorer": {
-        "txURL": "https://explorer.testnet.z.cash/tx/",
-        "blockURL": "https://explorer.testnet.z.cash/block/",
-        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
-    },
-
     "ports": {
         "1234": {
             "diff": 0.05,
