@@ -143,8 +143,8 @@
             {{ var block = it.stats.pools[pool].pending.blocks[b].split(":"); }}
                 <div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
                     <small>Block:</small>
-                        {{ if (it.poolsConfigs[pool].explorer && it.poolsConfigs[pool].explorer.blockURL) { }}
-                            <a href="{{=it.poolsConfigs[pool].explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
+                        {{ if (it.poolsConfigs[pool].coin.explorer && it.poolsConfigs[pool].coin.explorer.blockURL) { }}
+                            <a href="{{=it.poolsConfigs[pool].coin.explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
                         {{ } else { }}
                             {{=block[2]}}
                         {{ } }}
@@ -169,8 +169,8 @@
             {{ var block = it.stats.pools[pool].confirmed.blocks[b].split(":"); }}
                 <div style="margin-bottom: 9px; background-color: #eeeeee; min-width:600px;"><i class="fa fa-bars"></i>
                     <small>Block:</small>
-                        {{ if (it.poolsConfigs[pool].explorer && it.poolsConfigs[pool].explorer.blockURL) { }}
-                            <a href="{{=it.poolsConfigs[pool].explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
+                        {{ if (it.poolsConfigs[pool].coin.explorer && it.poolsConfigs[pool].coin.explorer.blockURL) { }}
+                            <a href="{{=it.poolsConfigs[pool].coin.explorer.blockURL + block[0]}}" target="_blank">{{=block[2]}}</a>
                         {{ } else { }}
                             {{=block[2]}}
                         {{ } }}
