@@ -58,5 +58,11 @@
         "t3R3Y5vnBLrEn8L6wFjPjBLnxSUQsKnmFpv",
         "t3Pcm737EsVkGTbhsu2NekKtJeG92mvYyoN"
     ],
-    "txfee": 0.0004
+    "txfee": 0.0004,
+    
+    "explorer": {
+        "txURL": "https://explorer.zcha.in/transactions/",
+        "blockURL": "https://explorer.zcha.in/blocks/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
 }
