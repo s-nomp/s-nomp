@@ -47,7 +47,7 @@
     "explorer": {
         "txURL": "https://explorer.testnet.z.cash/tx/",
         "blockURL": "https://explorer.testnet.z.cash/block/",
-        "_comment_explorer": "Used to link to your coins explorer. It should be a full url to where block and txid are looked up, including http or https along with the trailing slash. It should exclude an actual block or txid"
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
     },
 
     "ports": {
