@@ -5,5 +5,11 @@
     "overwinter": true,
     "requireShielding": true,
     "txfee": 0.0004,
-    "peerMagic": "24e92764"
+    "peerMagic": "24e92764",
+
+    "explorer": {
+        "txURL": "https://explorer.votecoin.site/tx/",
+        "blockURL": "https://explorer.votecoin.site/blocks/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
 }

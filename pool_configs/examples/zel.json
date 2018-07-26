@@ -21,8 +21,8 @@
     },
 
     "paymentProcessing": {
-	"minConf": 10,
-        "enabled": false,
+        "enabled": true,
+        "minConf": 10,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
         "paymentInterval": 20,
@@ -30,7 +30,7 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 16212,
+            "port": 16124,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -44,7 +44,7 @@
     },
 
     "ports": {
-        "3032": {
+        "1234": {
             "diff": 0.05,
             "tls": false,
             "varDiff": {
@@ -63,7 +63,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 16212,
+            "port": 16124,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
