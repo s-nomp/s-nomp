@@ -83,7 +83,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zen",
+        "database": "zen_testnet",
         "checkPassword": true,
         "autoCreateWorker": false
     }
