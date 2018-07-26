@@ -14,6 +14,10 @@ Usage of this software requires abilities with sysadmin, database admin, coin da
 ### Community / Support
 If your pool uses Z-NOMP let us know and we will list your website here.
 
+Please join our Discord to join and follow development. Any support questoins can be answered here quickly as well.
+
+https://discord.gg/4mVaTsH
+
 # Usage
 
 #### Requirements
@@ -52,7 +56,7 @@ a good pool operator. For starters be sure to read:
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-sudo apt-get install build-essential libsodium-dev npm
+sudo apt-get install build-essential libsodium-dev npm libboost-all-dev
 sudo npm install n -g
 sudo n stable
 git clone https://github.com/joshuayabut/node-open-mining-portal.git z-nomp
