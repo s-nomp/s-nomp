@@ -39,8 +39,8 @@
         "daemon": {
             "host": "127.0.0.1",
             "port": 8233,
-            "user": "testuser",
-            "password": "testpass"
+            "user": "rpcuser",
+            "password": "rpcpassword"
         }
     },
 
