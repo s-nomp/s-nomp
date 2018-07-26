@@ -2,12 +2,12 @@
     "name": "zelcash",
     "symbol": "zel",
     "algorithm": "equihash",
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "ZelProof"
+    },
     "requireShielding": true,
     "txfee": 0.0001,
-    "peerMagic" : "24e92764",
-    "parameters": {
-		"N": 144,
-		"K": 5,
-		"personalization": "ZelProof"
-	}
+    "peerMagic": "24e92764"
 }
