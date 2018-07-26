@@ -4,6 +4,7 @@
     "algorithm": "equihash",
     "requireShielding": true,
     "txfee": 0.0001,
+    "peerMagic" : "24e92764",
     "parameters": {
 		"N": 144,
 		"K": 5,
