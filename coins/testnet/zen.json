@@ -27,5 +27,34 @@
     "vTreasuryRewardAddress": [
         "zrRBQ5heytPMN5nY3ssPf3cG4jocXeD8fm1", "zrRBQ5heytPMN5nY3ssPf3cG4jocXeD8fm1", "zrRBQ5heytPMN5nY3ssPf3cG4jocXeD8fm1", "zrRBQ5heytPMN5nY3ssPf3cG4jocXeD8fm1"
     ],
-    "txfee": 0.0004
+    "percentTreasuryUpdateReward": 10.0,
+    "treasuryRewardUpdateStartBlockHeight": 260500,
+    "treasuryRewardUpdateAddressChangeInterval": 10000,
+    "vTreasuryRewardUpdateAddress": [
+        "zrFzxutppvxEdjyu4QNjogBMjtC1py9Hp1S",
+        "zrFzxutppvxEdjyu4QNjogBMjtC1py9Hp1S",
+        "zrFzxutppvxEdjyu4QNjogBMjtC1py9Hp1S",
+        "zrFzxutppvxEdjyu4QNjogBMjtC1py9Hp1S"
+    ],
+    "percentSecureNodesReward": 10.0,
+    "vSecureNodesRewardAddress": [
+        "zrS7QUB2eDbbKvyP43VJys3t7RpojW8GdxH",
+        "zrS7QUB2eDbbKvyP43VJys3t7RpojW8GdxH",
+        "zrS7QUB2eDbbKvyP43VJys3t7RpojW8GdxH",
+        "zrS7QUB2eDbbKvyP43VJys3t7RpojW8GdxH"
+    ],
+    "percentSuperNodesReward": 10.0,
+    "vSuperNodesRewardAddress": [
+        "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP",
+        "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP",
+        "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP",
+        "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP"
+    ],
+    "txfee": 0.0004,
+
+    "explorer": {
+        "txURL": "https://explorer-testnet.zen-solutions.io/tx/",
+        "blockURL": "https://explorer-testnet.zen-solutions.io/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
 }
