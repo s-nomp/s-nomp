@@ -82,7 +82,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zec",
+        "database": "zel",
         "checkPassword": true,
         "autoCreateWorker": false
     }
