@@ -11,6 +11,9 @@
     "tAddress": "",
     "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
 
+    "invalidAddress": "",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above",
+
     "walletInterval": 2.5,
 
     "rewardRecipients": {
@@ -18,26 +21,26 @@
     },
 
     "paymentProcessing": {
-	"minConf": 10,
-	"enabled": false,
-	"paymentMode": "prop",
-	"_comment_paymentMode":"prop, pplnt",
-	"paymentInterval": 20,
-	"minimumPayment": 0.1,
-	"maxBlocksPerPayment": 3,
-	"daemon": {
-        "host": "127.0.0.1",
-        "port": 8232,
-        "user": "testuser",
-        "password": "testpass"
+        "minConf": 10,
+	    "enabled": false,
+	    "paymentMode": "prop",
+	    "_comment_paymentMode": "prop, pplnt",
+	    "paymentInterval": 20,
+	    "minimumPayment": 0.05,
+	    "maxBlocksPerPayment": 3,
+	    "daemon": {
+            "host": "127.0.0.1",
+            "port": 8232,
+            "user": "rpcuser",
+            "password": "prcpass"
         }
     },
 
     "tlsOptions": {
         "enabled": false,
-        "serverKey":"",
-        "serverCert":"",
-        "ca":""
+        "serverKey": "",
+        "serverCert": "",
+        "ca": ""
     },
 
     "ports": {
@@ -46,7 +49,7 @@
             "tls": false,
             "varDiff": {
                 "minDiff": 0.04,
-                "maxDiff": 16,
+                "maxDiff": 36,
                 "targetTime": 15,
                 "retargetTime": 60,
                 "variancePercent": 30
@@ -67,7 +70,7 @@
     ],
 
     "p2p": {
-		"enabled": false,
+        "enabled": false,
         "host": "127.0.0.1",
         "port": 19333,
         "disableTransactions": true
