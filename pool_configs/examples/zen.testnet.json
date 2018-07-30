@@ -29,8 +29,8 @@
     },
 
     "paymentProcessing": {
-        "enabled": false,
-	    "minConf": 10,
+        "enabled": true,
+        "minConf": 10,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
         "paymentInterval": 120,
@@ -83,7 +83,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zen",
+        "database": "zen_testnet",
         "checkPassword": true,
         "autoCreateWorker": false
     }
