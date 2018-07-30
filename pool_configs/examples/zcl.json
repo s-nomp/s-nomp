@@ -30,7 +30,7 @@
 
     "paymentProcessing": {
         "enabled": true,
-	    "minConf": 10,
+        "minConf": 10,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
         "paymentInterval": 120,

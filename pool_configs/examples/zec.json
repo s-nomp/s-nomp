@@ -30,7 +30,7 @@
 
     "paymentProcessing": {
         "enabled": true,
-	    "minConf": 10,
+        "minConf": 10,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
         "paymentInterval": 120,
@@ -39,8 +39,8 @@
         "daemon": {
             "host": "127.0.0.1",
             "port": 8233,
-            "user": "testuser",
-            "password": "testpass"
+            "user": "rpcuser",
+            "password": "rpcpassword"
         }
     },
 
