@@ -12,7 +12,6 @@ This is beta software. All of the following are things that can change and break
 Usage of this software requires abilities with sysadmin, database admin, coin daemons, and sometimes a bit of programming. Running a production pool can literally be more work than a full-time job. 
 
 ### Community / Support
-If your pool uses Z-NOMP let us know and we will list your website here.
 
 Please join our Discord to follow development. Any support questions can be answered here quickly as well.
 
