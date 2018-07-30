@@ -1,0 +1,19 @@
+{
+    "name": "zelcash",
+    "symbol": "zel",
+    "algorithm": "equihash",
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "ZelProof"
+    },
+    "requireShielding": true,
+    "txfee": 0.0001,
+    "peerMagic": "24e92764",
+
+    "explorer": {
+        "txURL": "https://explorer.zel.cash/tx/",
+        "blockURL": "https://explorer.zel.cash/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
