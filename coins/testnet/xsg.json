@@ -1,0 +1,26 @@
+{
+    "name": "snowgem",
+    "symbol": "xsg",
+    "algorithm": "equihash",
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "sngemPoW"
+    },
+    "requireShielding": true,
+    "payFoundersReward": true,
+    "percentFoundersReward": 5,
+    "maxFoundersRewardBlockHeight": 2106399,
+    "foundersRewardAddressChangeInterval": 105320.95,
+    "vFoundersRewardAddress": [
+        "t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi"
+    ],
+    "peerMagic": "fa1af9bf",
+    "txfee": 0.0004,
+
+    "explorer": {
+        "txURL": "http://testnet.explorer.snowgem.org/tx/",
+        "blockURL": "http://testnet.explorer.snowgem.org/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
