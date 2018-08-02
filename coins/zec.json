@@ -7,7 +7,7 @@
     "payFoundersReward": true,
     "percentFoundersReward": 20,
     "maxFoundersRewardBlockHeight": 849999,
-    "foundersRewardAddressChangeInterval": 17709.3125,
+    "foundersRewardAddressChangeInterval": 17709,
     "vFoundersRewardAddress": [
         "t3Vz22vK5z2LcKEdg16Yv4FFneEL1zg9ojd",
         "t3cL9AucCajm3HXDhb5jBnJK2vapVoXsop3",
