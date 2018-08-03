@@ -203,7 +203,12 @@ var spawnPoolWorkers = function(){
         } else if (!connection) {
             redisConfig = pcfg.redis;
             connection = redis.createClient(redisConfig.port, redisConfig.host);
-            connection.auth(redisConfig.password);
+            if (redisConfig.password != "") {
+                connection.auth(redisConfig.password);
+                connection.on("error", function (err) {
+                    logger.error("redis", coin, "An error occured while attempting to authenticate redis: " + err);
+                });
+            }
             connection.on('ready', function(){
                 logger.debug('PPLNT', coin, 'TimeShare processing setup with redis (' + redisConfig.host +
                     ':' + redisConfig.port  + ')');
