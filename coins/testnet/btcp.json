@@ -1,0 +1,9 @@
+{
+    "name": "btcprivate_testnet",
+    "symbol": "bttt",
+    "algorithm": "equihash",
+    "requireShielding": true,
+    "peerMagic": "",
+    "txfee": 0.0004
+}
+
