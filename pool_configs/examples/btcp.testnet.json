@@ -38,14 +38,14 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 7932,
+            "port": 17932,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
     },
 
     "ports": {
-        "9992": {
+        "1234": {
             "tls": false,
             "diff": 0.5,
             "varDiff": {
@@ -64,7 +64,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 7932,
+            "port": 17932,
             "user": "rpcuser",
             "password": "rpcpassword"
         }

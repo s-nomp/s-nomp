@@ -3,7 +3,7 @@
     "symbol": "btcp",
     "algorithm": "equihash",
     "requireShielding": true,
-    "peerMagic": "",
+    "peerMagic": "a8eaa2cd",
     "txfee": 0.0004,
     "explorer": {
         "txURL": "https://explorer.btcprivate.org/tx/",

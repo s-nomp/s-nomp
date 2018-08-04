@@ -45,7 +45,7 @@
     },
 
     "ports": {
-        "9992": {
+        "1234": {
             "tls": false,
             "diff": 0.5,
             "varDiff": {
@@ -73,7 +73,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 19333,
+        "port": 7933,
         "disableTransactions": true
     },
 
