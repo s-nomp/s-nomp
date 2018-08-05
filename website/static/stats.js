@@ -108,36 +108,3 @@ $.getJSON('/api/pool_stats', function(data){
     buildChartData();
     displayCharts();
 });
-
-statsSource.addEventListener('message', function(e){
-    var stats = JSON.parse(e.data);
-    statData.push(stats);
-
-    var newPoolAdded = (function(){
-        for (var p in stats.pools){
-            if (poolKeys.indexOf(p) === -1)
-                return true;
-        }
-        return false;
-    })();
-
-    if (newPoolAdded || Object.keys(stats.pools).length > poolKeys.length){
-        buildChartData();
-        displayCharts();
-    }
-    else {
-        var time = stats.time * 1000;
-        for (var f = 0; f < poolKeys.length; f++) {
-            var pool =  poolKeys[f];
-            for (var i = 0; i < poolHashrateData.length; i++) {
-                if (poolHashrateData[i].key === pool) {
-                    poolHashrateData[i].values.shift();
-                    poolHashrateData[i].values.push([time, pool in stats.pools ? stats.pools[pool].hashrate : 0]);
-					$('#statsHashrateAvg' + pool).text(getReadableHashRateString(calculateAverageHashrate(pool)));
-                    break;
-                }
-            }
-        }
-        triggerChartUpdates();
-    }
-});

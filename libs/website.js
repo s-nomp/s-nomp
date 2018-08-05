@@ -120,11 +120,6 @@ module.exports = function(logger){
             processTemplates();
 
             var statData = 'data: ' + JSON.stringify(portalStats.stats) + '\n\n';
-            for (var uid in portalApi.liveStatConnections){
-                var res = portalApi.liveStatConnections[uid];
-                res.write(statData);
-            }
-
         });
     };
 

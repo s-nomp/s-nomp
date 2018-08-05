@@ -74,16 +74,6 @@ function updateChartData(){
 		for (var wh in statData.history[w]) { }
 		//var wh = statData.history[w][statData.history[w].length - 1];
 		var foundWorker = false;
-		for (var i = 0; i < workerHashrateData.length; i++) {
-			if (workerHashrateData[i].key === worker) {
-				foundWorker = true;
-				if (workerHashrateData[i].values.length >= workerHistoryMax) {
-					workerHashrateData[i].values.shift();
-				}
-				workerHashrateData[i].values.push([statData.history[w][wh].time * 1000, statData.history[w][wh].hashrate]);
-				break;
-			}
-		}
 		if (!foundWorker) {
 			var hashrate = [];
 			hashrate.push([statData.history[w][wh].time * 1000, statData.history[w][wh].hashrate]);
@@ -218,7 +208,6 @@ $.getJSON('/api/worker_stats?'+_miner, function(data){
 });
 
 // live stat updates
-statsSource.addEventListener('message', function(e){
 	// TODO, create miner_live_stats...
 	// miner_live_stats will return the same josn except without the worker history
 	// FOR NOW, use this to grab updated stats
@@ -243,4 +232,3 @@ statsSource.addEventListener('message', function(e){
 			updateWorkerStats();
 		}
 	});
-});

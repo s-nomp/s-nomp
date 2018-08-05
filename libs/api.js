@@ -102,20 +102,6 @@ module.exports = function(logger, portalConfig, poolConfigs){
 					res.end(JSON.stringify({result: "error"}));
 				}
                 return;
-            case 'live_stats':
-                res.writeHead(200, {
-                    'Content-Type': 'text/event-stream',
-                    'Cache-Control': 'no-cache',
-                    'Connection': 'keep-alive'
-                });
-                res.write('\n');
-                var uid = Math.random().toString();
-                _this.liveStatConnections[uid] = res;
-			res.flush();
-                req.on("close", function() {
-                    delete _this.liveStatConnections[uid];
-                });
-                return;
             default:
                 next();
         }

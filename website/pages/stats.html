@@ -312,26 +312,6 @@ legend.append('text')
 
 
 <script>
-    window.statsSource = new EventSource("/api/live_stats");
-    $(function() {
-        statsSource.addEventListener('message', function (e) {
-            var stats = JSON.parse(e.data);
-            for (var pool in stats.pools) {
-                $('#statsMiners' + pool).text(stats.pools[pool].minerCount);
-                $('#statsWorkers' + pool).text(stats.pools[pool].workerCount);
-                $('#statsHashrate' + pool).text(stats.pools[pool].hashrateString);
-                $('#statsHashrateAvg' + pool).text(getReadableHashRateString(calculateAverageHashrate(pool)));
-                $('#statsLuckDays' + pool).text(stats.pools[pool].luckDays);
-                $('#statsValidBlocks' + pool).text(stats.pools[pool].poolStats.validBlocks);
-                $('#statsTotalPaid' + pool).text((parseFloat(stats.pools[pool].poolStats.totalPaid)).toFixed(8));
-                $('#statsNetworkBlocks' + pool).text(stats.pools[pool].poolStats.networkBlocks);
-                $('#statsNetworkDiff' + pool).text(stats.pools[pool].poolStats.networkDiff);
-                $('#statsNetworkSols' + pool).text(getReadableNetworkHashRateString(stats.pools[pool].poolStats.networkSols));
-                $('#statsNetworkConnections' + pool).text(stats.pools[pool].poolStats.networkConnections);
-            }
-        });
-    });
-
     function getReadableNetworkHashRateString(hashrate){
         hashrate = (hashrate * 1000000);
         if (hashrate < 1000000)
