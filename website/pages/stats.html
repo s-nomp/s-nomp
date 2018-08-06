@@ -154,6 +154,20 @@
                     {{if (it.stats.pools[pool].pending.confirms) { }}
                         {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
                         <span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}} of 100</small></span>
+					<!-- add 28July2018 for *shielding* {{if (it.stats.pools[pool].pending.confirms) { }}
+					    {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
+						<span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}} of 100</small></span>
+					    {{ } else { }}
+						<span style="float:right; color: red;"><small>*PENDING*</small></span>
+					    {{ } }}
+					{{ } else { }}
+					    <span style="float:right; color: red;"><small>*PENDING*</small></span>
+					{{ } }} -->
+					{{if (it.stats.pools[pool].pending.confirms) { }}
+                        {{if (it.stats.pools[pool].pending.confirms[block[0]] <= 99) { }}
+                        <span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}}%</small></span>
+                        {{ } else if (it.stats.pools[pool].pending.confirms[block[0]] >= 100) { }}
+                        <span style="float:right; color: red;"><small>*SHIELDING*</small></span>
                         {{ } else { }}
                         <span style="float:right; color: red;"><small>*PENDING*</small></span>
                         {{ } }}
