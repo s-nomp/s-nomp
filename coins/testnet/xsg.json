@@ -1,6 +1,6 @@
 {
-    "name": "snowgem",
-    "symbol": "xsg",
+    "name": "snowgem_testnet",
+    "symbol": "xsgt",
     "algorithm": "equihash",
     "parameters": {
         "N": 144,
