@@ -401,23 +401,23 @@ module.exports = function(logger, portalConfig, poolConfigs){
                     callback(err);
                 }
                 else{
-                    
+
                     //Pool fee stats
                     function poolFee(fee) {
-						if(!fee) {
+                        if(!fee) {
                             //Total pool fees if poolFee is not set in pool_config
-							var feeTotal = 0;
-							var rewardRecipients = poolConfigs[coinName].rewardRecipients;
+                            var feeTotal = 0;
+                            var rewardRecipients = poolConfigs[coinName].rewardRecipients;
                             for (var x in rewardRecipients) {
-								if (rewardRecipients.hasOwnProperty(x)) {
-									feeTotal += rewardRecipients[x];
-								}
+                                if (rewardRecipients.hasOwnProperty(x)) {
+                                    feeTotal += rewardRecipients[x];
+                                }
                             }
-							var fee = feeTotal;
+                            var fee = feeTotal;
                         }
                         return fee + '%';
                     }
-					
+
                     for(var i = 0; i < replies.length; i += commandsPerCoin){
                         var coinName = client.coins[i / commandsPerCoin | 0];
                         var marketStats = {};
