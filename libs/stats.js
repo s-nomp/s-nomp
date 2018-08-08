@@ -413,6 +413,7 @@ module.exports = function(logger, portalConfig, poolConfigs){
                             name: coinName,
                             symbol: poolConfigs[coinName].coin.symbol.toUpperCase(),
                             algorithm: poolConfigs[coinName].coin.algorithm,
+                            poolFee: poolConfigs[coinName].poolFee + '%',
                             hashrates: replies[i + 1],
                             poolStats: {
                                 validShares: replies[i + 2] ? (replies[i + 2].validShares || 0) : 0,
