@@ -21,6 +21,9 @@
         "": 0.2
     },
 
+    "poolFee": 0.2,
+    "_comment_poolFee": "This will be the percentage shown in the pool stats API. It should match your rewardRecipients total in most cases",
+
     "tlsOptions": {
         "enabled": false,
         "serverKey": "",
