@@ -415,7 +415,7 @@ module.exports = function(logger, portalConfig, poolConfigs){
                             }
 							var fee = feeTotal;
                         }
-                        return fee;
+                        return fee + '%';
                     }
 					
                     for(var i = 0; i < replies.length; i += commandsPerCoin){
