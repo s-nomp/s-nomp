@@ -2,14 +2,14 @@
     "name": "zero_testnet",
     "symbol": "zert",
     "algorithm": "equihash",
-	"parameters": {
-			"N": 192,
-			"K": 7,
-			"personalization": "ZERO_PoW"
-	},
+    "parameters": {
+            "N": 192,
+            "K": 7,
+            "personalization": "ZERO_PoW"
+    },
     "requireShielding": true,
     "txfee": 0.0001,
-	"peerMagic": "5a45524f",
+    "peerMagic": "5a45524f",
     "explorer": {
         "txURL": "#",
         "blockURL": "#",
