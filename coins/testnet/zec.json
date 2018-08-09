@@ -1,6 +1,6 @@
 {
     "name": "zcash_testnet",
-    "symbol": "taz",
+    "symbol": "zect",
     "algorithm": "equihash",
     "requireShielding": true,
     "payFoundersReward": true,

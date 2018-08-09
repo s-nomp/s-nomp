@@ -1,0 +1,17 @@
+{
+    "name": "safecoin",
+    "symbol": "safe",
+    "algorithm": "equihash",
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "Safecoin"
+    },
+    "peerMagic": "f1ede28f",
+
+    "explorer": {
+        "txURL": "https://explorer.safecoin.org/tx/",
+        "blockURL": "https://explorer.safecoin.org/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}

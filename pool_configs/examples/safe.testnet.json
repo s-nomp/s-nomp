@@ -1,21 +1,21 @@
 {
     "enabled": false,
-    "coin": "kmd.json",
+    "coin": "testnet/safe.json",
 
     "address": "",
-    "_comment_address": "pools komodo address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
+    "_comment_address": "pool's safecoin address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
 
     "zAddress": "",
-    "_comment_zAddress": "shielding not required in komodo, not used",
+    "_comment_zAddress": "shielding not required in safecoin, not used",
 
     "tAddress": "",
-    "_comment_tAddress": "set to same as pools komodo address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
+    "_comment_tAddress": "set to same as pools safecoin address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
 
     "invalidAddress":"",
     "_comment_invalidAddress": "Invalid addresses will be converted to the above",
 
     "walletInterval": 1,
-    "_comment_walletInterval": "Used to cache komodo coin stats, shielding not performed.",
+    "_comment_walletInterval": "Used to cache safecoin coin stats, shielding not performed.",
 
     "rewardRecipients": {
         "": 0.2
@@ -39,7 +39,7 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 7770,
+            "port": 18771,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -65,7 +65,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 7770,
+            "port": 18771,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -74,7 +74,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 19333,
+        "port": 18770,
         "disableTransactions": true
     },
 
@@ -84,7 +84,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "kmd",
+        "database": "safe_testnet",
         "checkPassword": true,
         "autoCreateWorker": false
     }
