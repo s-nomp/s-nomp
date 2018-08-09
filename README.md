@@ -3,7 +3,7 @@
 > *NOTE*:
 > We're working on putting together an "official" z-nomp which can be supported by many coins and pools instead of so many running their own flavors. More to come!
 
-This is a Equihash mining pool based off of Node Open Mining Portal.
+This is a Equihash mining pool based off Node Open Mining Portal.
 
 #### Production Usage Notice
 This is beta software. All of the following are things that can change and break an existing Z-NOMP setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data. *Only tagged releases are considered stable.*
