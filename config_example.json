@@ -27,7 +27,9 @@
             "host": "127.0.0.1",
             "port": 6379,
             "password": ""
-        }
+        },
+        "poolHex": "",
+        "_poolHex_comment": "Set this HEX value using a template of '<pool name> <pool link>' and provide it to various explorer webmasters."
     },
 
     "website": {
