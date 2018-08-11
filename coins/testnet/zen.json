@@ -1,6 +1,6 @@
 {
     "name": "zen_testnet",
-    "symbol": "znt",
+    "symbol": "zent",
     "algorithm": "equihash",
     "requireShielding": true,
     "payFoundersReward": true,

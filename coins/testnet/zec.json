@@ -1,7 +1,8 @@
 {
     "name": "zcash_testnet",
-    "symbol": "taz",
+    "symbol": "zect",
     "algorithm": "equihash",
+    "overwinter": true,
     "requireShielding": true,
     "payFoundersReward": true,
     "percentFoundersReward": 20,
