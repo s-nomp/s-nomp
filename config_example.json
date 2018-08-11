@@ -3,6 +3,7 @@
     "logColors": true,
 
     "cliPort": 17117,
+    "cliServer": '127.0.0.1',
 
     "clustering": {
         "enabled": true,
