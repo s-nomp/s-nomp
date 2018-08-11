@@ -36,7 +36,7 @@ var listener = module.exports = function listener(server, port){
             }
 
         }).listen(port, server, function() {
-            emitLog('CLI listening on port ' + port)
+            emitLog('CLI listening on  ' + server + ":" + port)
         });
     }
 
