@@ -1,12 +1,12 @@
-# Zero-proof - Node Open Mining Portal
+# s-nomp: Some New Open Mining Portal
 
 > *NOTE*:
-> We're working on putting together an "official" z-nomp which can be supported by many coins and pools instead of so many running their own flavors. More to come!
+> We're working on putting together an "official" s-nomp which can be supported by many coins and pools instead of so many running their own flavors. More to come!
 
 This is a Equihash mining pool based off Node Open Mining Portal.
 
 #### Production Usage Notice
-This is beta software. All of the following are things that can change and break an existing Z-NOMP setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data. *Only tagged releases are considered stable.*
+This is beta software. All of the following are things that can change and break an existing s-nomp setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data. *Only tagged releases are considered stable.*
 
 #### Paid Solution
 Usage of this software requires abilities with sysadmin, database admin, coin daemons, and sometimes a bit of programming. Running a production pool can literally be more work than a full-time job. 
@@ -58,8 +58,8 @@ Clone the repository and run `npm update` for all the dependencies to be install
 sudo apt-get install build-essential libsodium-dev npm libboost-all-dev
 sudo npm install n -g
 sudo n stable
-git clone https://github.com/z-nomp/z-nomp.git z-nomp
-cd z-nomp
+git clone https://github.com/s-nomp/s-nomp.git s-nomp
+cd s-nomp
 npm update
 npm install
 ```
@@ -85,7 +85,7 @@ node [path to cli.js] [coin name in config] [block hash symbol]
 ```
 Example: inside `zclassic.conf` add the line
 ```
-blocknotify=node /home/user/z-nomp/scripts/cli.js blocknotify zclassic %s
+blocknotify=node /home/user/s-nomp/scripts/cli.js blocknotify zclassic %s
 ```
 
 Alternatively, you can use a more efficient block notify script written in pure C. Build and usage instructions
@@ -104,14 +104,14 @@ in case the master process crashes.
 * Use something like [redis-commander](https://github.com/joeferner/redis-commander) to have a nice GUI
 for exploring your redis database.
 * Use something like [logrotator](http://www.thegeekstuff.com/2010/07/logrotate-examples/) to rotate log 
-output from Z-NOMP.
-* Use [New Relic](http://newrelic.com/) to monitor your Z-NOMP instance and server performance.
+output from s-nomp.
+* Use [New Relic](http://newrelic.com/) to monitor your s-nomp instance and server performance.
 
 
-#### Upgrading Z-NOMP
-When updating Z-NOMP to the latest code its important to not only `git pull` the latest from this repo, but to also update
+#### Upgrading s-nomp
+When updating s-nomp to the latest code its important to not only `git pull` the latest from this repo, but to also update
 the `node-stratum-pool` and `node-multi-hashing` modules, and any config files that may have been changed.
-* Inside your Z-NOMP directory (where the init.js script is) do `git pull` to get the latest Z-NOMP code.
+* Inside your s-nomp directory (where the init.js script is) do `git pull` to get the latest s-nomp code.
 * Remove the dependenices by deleting the `node_modules` directory with `rm -r node_modules`.
 * Run `npm update` to force updating/reinstalling of the dependencies.
 * Compare your `config.json` and `pool_configs/coin.json` configurations to the latest example ones in this repo or the ones in the setup instructions where each config field is explained. <b>You may need to modify or add any new changes.</b>
@@ -119,7 +119,12 @@ the `node-stratum-pool` and `node-multi-hashing` modules, and any config files t
 
 Credits
 -------
-### Z-NOMP
+### s-nomp
+* [egyptianbman](https://github.com/egyptianbman)
+* [nettts](https://github.com/nettts)
+* You belong here. Join us!
+
+### z-nomp
 * [Joshua Yabut / movrcx](https://github.com/joshuayabut)
 * [Aayan L / anarch3](https://github.com/aayanl)
 * [hellcatz](https://github.com/hellcatz)
