@@ -1,0 +1,6 @@
+{
+    "name": "Commercium",
+    "symbol": "CMM",
+    "algorithm": "equihash",
+    "txfee": 0.000005
+}
