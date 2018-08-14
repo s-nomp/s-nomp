@@ -1,6 +1,0 @@
-{
-    "name": "Commercium Testnet",
-    "symbol": "CMMT",
-    "algorithm": "equihash",
-    "txfee": 0.000005
-}
