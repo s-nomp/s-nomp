@@ -1,0 +1,24 @@
+{
+    "name": "safecash_testnet",
+    "symbol": "sct",
+    "algorithm": "equihash",
+    "parameters": {
+            "N": 192,
+            "K": 7,
+            "personalization": "SafeCash"
+    },
+    "requireShielding": false,
+    "txfee": 0.0001,
+    "peerMagic": "5a45524f",
+    "payFoundersReward": true,
+    "payAllFounders": true,
+    "foundersRewardAddresses": ["c7K6smvBBNN4CFxAWnQFptmyWk1DtEtGNT","cAuzzQVDS9dx2jE7djxf43empta65XTwHv","c8SQXUgr7sFfSaRLFuo852iwGqjENRwvyY","c1Y5aJ78mqgQpCFEo8cwjL4275EkEt4zWp","cMPZiLacQTfRqwSrG137NaGmVyZkSJQJf8"],
+    "infrastructureAddresses": ["cMVFs7e43DAMR6Bds6NPPcvMr5wJB2BEwm"],
+    "giveawayAddresses": ["cDuFBwJ82XocLG3ZHoJqd5XsswSqEZhJou"],
+    "explorer": {
+        "txURL": "#",
+        "blockURL": "#",
+        "_comment_explorer": "https://http://testnet.safecash.io/tx/"
+    }
+}
+
