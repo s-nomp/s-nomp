@@ -1,0 +1,86 @@
+{
+    "enabled": false,
+    "coin": "commercium_testnet.json",
+
+    "address": "CNW6cdz2xYdUKEDngZ2mgJcBd4dWTC7NF1",
+    "_comment_address": "Pool Commercium Address; ex, CNW6cdz2xYdUKEDngZ2mgJcBd4dWTC7NF1",
+
+    "zAddress": "CNW6cdz2xYdUKEDngZ2mgJcBd4dWTC7NF1",
+    "_comment_zAddress": "not used",
+
+    "tAddress": "CNW6cdz2xYdUKEDngZ2mgJcBd4dWTC7NF1",
+    "_comment_tAddress": "Same  Address; ex, CNW6cdz2xYdUKEDngZ2mgJcBd4dWTC7NF1",
+
+    "walletInterval": 1,
+    "_comment_walletInterval": "Used to cache coin stats, shielding not performed.",
+
+    "rewardRecipients": {
+        "": 1.0
+    },
+
+    "tlsOptions": {
+        "enabled": false,
+        "serverKey":"",
+        "serverCert":"",
+        "ca":""
+    },
+
+    "paymentProcessing": {
+        "minConf": 10,
+        "enabled": true,
+        "paymentMode": "prop",
+        "_comment_paymentMode":"prop, pplnt",
+        "paymentInterval": 57,
+        "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
+        "minimumPayment": 0.1,
+        "maxBlocksPerPayment": 3,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 8332,
+            "user": "username",
+            "password": "password"
+        }
+    },
+    
+    "ports": {
+        "3857": {
+            "tls":false,
+            "diff": 0.05,
+            "varDiff": {
+                "minDiff": 0.04,
+                "maxDiff": 16,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        }
+    },
+    
+    "daemons": [
+                {
+                "host": "127.0.0.1",
+                "port": 8332,
+                "user": "username",
+                "password": "password"
+                }
+                ],
+    
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 19333,
+        "disableTransactions": true
+    },
+    
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "cmm",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    }
+    
+}
