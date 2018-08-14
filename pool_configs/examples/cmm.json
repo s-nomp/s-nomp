@@ -1,0 +1,84 @@
+{
+    "enabled": true,
+    "coin": "commercium.json",
+
+    "address": "CPnobetcs6seWQ7wvBVUnnSwXjzVqC7DXQ",
+    "_comment_address": "a transparent address from commercium-cli getnewaddress",
+
+    "zAddress": "",
+    "_comment_zAddress": "a private address used to send coins to tAddress is not utilized by Commercium and to be left blank.",
+
+    "tAddress": "CPnobetcs6seWQ7wvBVUnnSwXjzVqC7DXQ",
+    "_comment_tAddress": "transparent address used to send payments, make this the same address",
+
+    "walletInterval": 1,
+
+    "rewardRecipients": {
+    },
+
+    "tlsOptions": {
+        "enabled": false,
+        "serverKey":"",
+        "serverCert":"",
+        "ca":""
+    },
+
+    "paymentProcessing": {
+        "minConf": 10,
+        "enabled": true,
+        "paymentMode": "prop",
+        "_comment_paymentMode":"prop, pplnt",
+        "paymentInterval": 120,
+        "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
+        "minimumPayment": 0.5,
+        "maxBlocksPerPayment": 3,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 13120,
+            "user": "user",
+            "password": "pass"
+        }
+    },
+
+    "ports": {
+        "3333": {
+            "tls":false,
+            "diff": 1,
+            "varDiff": {
+                "minDiff": 0.5,
+                "maxDiff": 1024768,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": 13120,
+            "user": "user",
+            "password": "pass"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 19333,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "root",
+        "password": "mysqlpass",
+        "database": "mpos",
+        "checkPassword": false,
+        "autoCreateWorker": true
+    }
+
+}
