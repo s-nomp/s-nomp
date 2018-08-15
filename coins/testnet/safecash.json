@@ -18,7 +18,7 @@
     "explorer": {
         "txURL": "#",
         "blockURL": "#",
-        "_comment_explorer": "https://http://testnet.safecash.io/tx/"
+        "_comment_explorer": "https://testnet.safecash.io/tx"
     }
 }
 

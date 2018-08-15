@@ -2,17 +2,17 @@
     "enabled": true,
     "coin": "testnet/safecash.json",
 
-    "address": "sXDEvfWDpg3vTonXJYx6hxkRu2MhpkxbFU",
-    "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress. generate with getnewaddress \"\" \"legacy\" ",
+    "address": "",
+    "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress. Use the legacy options when using getnewaddress.",
 
     "zAddress": "",
-    "_comment_zAddress": "a private address used to send coins to tAddress. generate with getnewaddress \"\" \"legacy\"",
+    "_comment_zAddress": "a private address used to send coins to tAddress.",
 
-    "tAddress": "sbhGoS3zjSCBcJzWbsxR49jk97xsqZMuL2",
-    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send. generate with getnewaddress \"\" \"legacy\"",
+    "tAddress": "",
+    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send. Use the legacy options when using getnewaddress.",
 
-    "invalidAddress": "sPDX6WCvThcqB57K1x2sWkFS5rU5m3a5Dm",
-    "_comment_invalidAddress": "Invalid addresses will be converted to the above. generate with getnewaddress \"\" \"legacy\"",
+    "invalidAddress": "",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above. Use the legacy options when using getnewaddress.",
 
     "walletInterval": 2.5,
 
@@ -44,7 +44,7 @@
     },
 
     "ports": {
-        "1234": {
+        "5654": {
             "diff": 0.05,
             "tls": false,
             "varDiff": {
