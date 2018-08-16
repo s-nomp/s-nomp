@@ -1,0 +1,20 @@
+{
+    "name": "bitcoininterest",
+    "symbol": "bci",
+    "algorithm": "equihash",
+    "payFoundersReward": true,
+    "percentFoundersReward": 8,
+    "maxFoundersRewardBlockHeight": 10000000,
+    "foundersRewardAddressChangeInterval": 10000000,
+    "vFoundersRewardAddress": [
+	"iHgcntCBzgkVfuWfKVq7gHzPzmp26uyScS",
+        "iHgcntCBzgkVfuWfKVq7gHzPzmp26uyScS"
+    ],
+    "peerMagic": "ede4fe26",
+
+    "explorer": {
+        "txURL": "https://explorer.bitcoininterest.io/tx/",
+        "blockURL": "https://explorer.bitcoininterest.io/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
