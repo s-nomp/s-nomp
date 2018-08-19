@@ -44,7 +44,7 @@
     },
 
     "ports": {
-        "5654": {
+        "1234": {
             "diff": 0.05,
             "tls": false,
             "varDiff": {
@@ -82,7 +82,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zer_testnet",
+        "database": "safecash",
         "checkPassword": true,
         "autoCreateWorker": false
     }

@@ -9,16 +9,27 @@
     },
     "requireShielding": false,
     "txfee": 0.0001,
-    "peerMagic": "5a45524f",
+    "peerMagic": "c654aac3",
     "payFoundersReward": true,
     "payAllFounders": true,
-    "foundersRewardAddresses": ["c7K6smvBBNN4CFxAWnQFptmyWk1DtEtGNT","cAuzzQVDS9dx2jE7djxf43empta65XTwHv","c8SQXUgr7sFfSaRLFuo852iwGqjENRwvyY","c1Y5aJ78mqgQpCFEo8cwjL4275EkEt4zWp","cMPZiLacQTfRqwSrG137NaGmVyZkSJQJf8"],
-    "infrastructureAddresses": ["cMVFs7e43DAMR6Bds6NPPcvMr5wJB2BEwm"],
-    "giveawayAddresses": ["cDuFBwJ82XocLG3ZHoJqd5XsswSqEZhJou"],
+    "supportsSegwit": true,
+    "foundersRewardAddresses": [
+        "c7K6smvBBNN4CFxAWnQFptmyWk1DtEtGNT",
+        "cAuzzQVDS9dx2jE7djxf43empta65XTwHv",
+        "c8SQXUgr7sFfSaRLFuo852iwGqjENRwvyY",
+        "c1Y5aJ78mqgQpCFEo8cwjL4275EkEt4zWp",
+        "cMPZiLacQTfRqwSrG137NaGmVyZkSJQJf8"
+    ],
+    "infrastructureAddresses": [
+        "cMVFs7e43DAMR6Bds6NPPcvMr5wJB2BEwm"
+    ],
+    "giveawayAddresses": [
+        "cDuFBwJ82XocLG3ZHoJqd5XsswSqEZhJou"
+    ],
     "explorer": {
-        "txURL": "#",
-        "blockURL": "#",
-        "_comment_explorer": "https://testnet.safecash.io/tx"
+        "txURL": "https://testnet.safecash.io/tx",
+        "blockURL": "https://testnet.safecash.io/block",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }
 
