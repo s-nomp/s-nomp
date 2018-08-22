@@ -5,7 +5,7 @@
     "parameters": {
         "N": 144,
         "K": 5,
-        "personalization": "ZcashPoW"
+        "personalization": "AnonyPoW"
     },
     "requireShielding": true,
     "peerMagic": "7a748d38",
