@@ -1,21 +1,20 @@
 {
     "enabled": false,
-    "coin": "safe.json",
+    "coin": "btcz.json",
 
     "address": "",
-    "_comment_address": "pool's safecoin address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
+    "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
 
     "zAddress": "",
-    "_comment_zAddress": "shielding not required in safecoin, not used",
+    "_comment_zAddress": "a private address used to send coins to tAddress.",
 
     "tAddress": "",
-    "_comment_tAddress": "set to same as pools safecoin address; ex, RSXGTHQSqwcMw1vowKfEE7sQ8fAmv1tmso",
+    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
 
-    "invalidAddress":"",
+    "invalidAddress": "",
     "_comment_invalidAddress": "Invalid addresses will be converted to the above",
 
-    "walletInterval": 1,
-    "_comment_walletInterval": "Used to cache safecoin coin stats, shielding not performed.",
+    "walletInterval": 2.5,
 
     "rewardRecipients": {
         "": 0.2
@@ -39,7 +38,7 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 8771,
+            "port": 1979,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -65,7 +64,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 8771,
+            "port": 1979,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -74,7 +73,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 8770,
+        "port": 1989,
         "disableTransactions": true
     },
 
