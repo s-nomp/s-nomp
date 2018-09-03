@@ -1,6 +1,6 @@
 {
     "enabled": true,
-    "coin": "safecash.json",
+    "coin": "genesis.json",
 
     "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress. Use the legacy options when using getnewaddress.",
@@ -82,7 +82,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "safecash",
+        "database": "genesis",
         "checkPassword": true,
         "autoCreateWorker": false
     }
