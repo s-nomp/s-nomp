@@ -8,6 +8,12 @@
             "personalization": "ZERO_PoW"
     },
     "requireShielding": true,
+    "payFoundersReward": true,
+    "percentFoundersReward": 7.5,
+    "maxFoundersRewardBlockHeight": 410000,
+    "vFoundersRewardAddress": [
+        "t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi"
+    ],
     "txfee": 0.0001,
     "peerMagic": "5a45524f",
     "explorer": {
