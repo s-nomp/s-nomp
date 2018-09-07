@@ -8,11 +8,21 @@
             "personalization": "ZERO_PoW"
     },
     "requireShielding": true,
-    "percentTreasuryReward": 7.5,
-    "treasuryRewardStartBlockHeight": 410000,
-    "treasuryRewardAddressChangeInterval": 0,
-    "vTreasuryRewardAddress": [
-        "t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi"
+    "payFoundersReward": true,
+    "percentFoundersReward": 7.5,
+    "maxFoundersRewardBlockHeight": 7999999,
+    "foundersRewardAddressChangeInterval": 800000,
+    "vFoundersRewardAddress": [
+          "t3hmg6WApjqVFw9oPWTDy4JLEqXcUWthg5v", 
+          "t3hrh5M7eaGA5zXCitPXz2pbe146GkVPWHs",
+          "t3aWmHqBGS7watoKQLa7uykeTaYHoYqM361",
+          "t3hsi89hPsZzmnbs3pny6cfAxMxV5TJLErj", 
+          "t3TdGxPVUdMXd6qDrDCEuJETLadZ9Ki3s9r",
+          "t3cb5ZjKmbGbqDaYk97Auam9kXXikGQBmyY",
+          "t3V1YovGUPW9WSBoAHS48FDdUfUTo6LDpZR",
+          "t3KB9n28MVg31oo856t1tQGfJuYq8usTvSi", 
+          "t3dqSV4YGj5V3WjQhqFGrKTMUf9Tgc6xnJM",
+          "t3aJkYT1i6tyytq8J6khPaDNtgZsBSXgfBf", 
     ],
     "txfee": 0.0001,
     "peerMagic": "5a45524f",
