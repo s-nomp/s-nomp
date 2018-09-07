@@ -8,9 +8,10 @@
             "personalization": "ZERO_PoW"
     },
     "requireShielding": true,
-    "payFoundersReward": true,
-    "percentFoundersReward": 7.5,
-    "vFoundersRewardAddress": [
+    "percentTreasuryReward": 7.5
+    "treasuryRewardStartBlockHeight": 410000,
+    "treasuryRewardAddressChangeInterval": 0,
+    "vTreasuryRewardAddress": [
         "t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi"
     ],
     "txfee": 0.0001,
