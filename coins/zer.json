@@ -8,7 +8,7 @@
             "personalization": "ZERO_PoW"
     },
     "requireShielding": true,
-    "percentTreasuryReward": 7.5
+    "percentTreasuryReward": 7.5,
     "treasuryRewardStartBlockHeight": 410000,
     "treasuryRewardAddressChangeInterval": 0,
     "vTreasuryRewardAddress": [
@@ -22,4 +22,3 @@
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://zeroexplorer.forgetop.com/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }
-
