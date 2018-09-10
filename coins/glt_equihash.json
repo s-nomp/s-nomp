@@ -1,0 +1,13 @@
+{
+    "name": "globaltoken_equihash",
+    "symbol": "GLT",
+    "algorithm": "equihash",
+    "requireShielding": true,
+    "peerMagic": "c708d32d",
+    "txfee": 0.0001,
+    "explorer": {
+        "txURL": "https://explorer.globaltoken.org/tx/",
+        "blockURL": "https://explorer.globaltoken.org/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
