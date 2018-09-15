@@ -1156,7 +1156,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         return;
                     }
                     
-                // do final rounding of payments per address
+                    // do final rounding of payments per address
                     // this forces amounts to be valid (0.12345678)
                     for (var a in addressAmounts) {
                         addressAmounts[a] = coinsRound(addressAmounts[a]);
