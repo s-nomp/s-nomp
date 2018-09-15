@@ -619,7 +619,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                             serialized: r
                         };
                     });
-                    /* sort rounds by block hieght to pay in order */
+                    /* sort rounds by block height to pay in order */
                     rounds.sort(function(a, b) {
                         return a.height - b.height;
                     });
