@@ -619,7 +619,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                             serialized: r
                         };
                     });
-                    /* sort rounds by block hieght to pay in order */
+                    /* sort rounds by block height to pay in order */
                     rounds.sort(function(a, b) {
                         return a.height - b.height;
                     });
@@ -1156,7 +1156,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         return;
                     }
                     
-                    // do final rounding of payments per address
+                // do final rounding of payments per address
                     // this forces amounts to be valid (0.12345678)
                     for (var a in addressAmounts) {
                         addressAmounts[a] = coinsRound(addressAmounts[a]);
