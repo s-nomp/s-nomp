@@ -3,7 +3,7 @@ var request = require('request');
 
 var redis = require('redis');
 var async = require('async');
-var mysql - require('mysql');
+var mysql = require('mysql');
 
 var Stratum = require('stratum-pool');
 var util = require('stratum-pool/lib/util.js');
@@ -1268,8 +1268,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                 var mysqlVal = []
                                 var paymentsData = {time:Date.now(), txid:txid, shares:totalShares, paid:satoshisToCoins(totalSent),  miners:Object.keys(addressAmounts).length, blocks: paymentBlocks, amounts: addressAmounts, balances: balanceAmounts, work:shareAmounts};
                                 paymentsUpdate.push(['zadd', logComponent + ':payments', date, JSON.stringify(paymentsData)]);
-                                for i in addressAmounts:
+                                for (i in addressAmounts) {
                                     mysqlVal.push([txid, i, addressAmounts[i], date]);
+                                }
                                 insertIntoMysql(mysqlVal);
                                 callback(null, workers, rounds, paymentsUpdate);
 
