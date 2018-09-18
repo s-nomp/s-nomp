@@ -3,6 +3,7 @@ var request = require('request');
 
 var redis = require('redis');
 var async = require('async');
+var mysql = require('mysql');
 
 var Stratum = require('stratum-pool');
 var util = require('stratum-pool/lib/util.js');
@@ -38,6 +39,26 @@ module.exports = function(logger){
         });
     });
 };
+
+function insertIntoMysql(values){
+    var con = mysql.createConnection({
+              host: "mysql",
+              user: "yourusername",
+              password: "yourpassword",
+              database: "hepta"
+             });
+   
+     con.connect(function(err) {
+         if (err) throw err;
+         console.log("Connected!");
+         var sql = "INSERT INTO tx (txid, worker, amount, date ) VALUES ?";
+         con.query(sql, [values], function (err, result) {
+             if (err) throw err;
+                console.log("1 record inserted");
+         });
+     });
+     con.end();
+}
 
 function SetupForPool(logger, poolOptions, setupFinished){
 
@@ -1243,9 +1264,14 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                 });
                                 
                                 var paymentsUpdate = [];
+                                var date = Date.now();
+                                var mysqlVal = []
                                 var paymentsData = {time:Date.now(), txid:txid, shares:totalShares, paid:satoshisToCoins(totalSent),  miners:Object.keys(addressAmounts).length, blocks: paymentBlocks, amounts: addressAmounts, balances: balanceAmounts, work:shareAmounts};
-                                paymentsUpdate.push(['zadd', logComponent + ':payments', Date.now(), JSON.stringify(paymentsData)]);
-                                
+                                paymentsUpdate.push(['zadd', logComponent + ':payments', date, JSON.stringify(paymentsData)]);
+                                for (i in addressAmounts) {
+                                    mysqlVal.push([txid, i, addressAmounts[i], date]);
+                                }
+                                insertIntoMysql(mysqlVal);
                                 callback(null, workers, rounds, paymentsUpdate);
 
                             } else {

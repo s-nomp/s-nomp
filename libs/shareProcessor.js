@@ -45,24 +45,12 @@ module.exports = function(logger, poolConfig){
             logger.error(logSystem, logComponent, logSubCat, 'Redis version check failed');
             return;
         }
-        var parts = response.split('\r\n');
-        var version;
-        var versionString;
-        for (var i = 0; i < parts.length; i++){
-            if (parts[i].indexOf(':') !== -1){
-                var valParts = parts[i].split(':');
-                if (valParts[0] === 'redis_version'){
-                    versionString = valParts[1];
-                    version = parseFloat(versionString);
-                    break;
-                }
-            }
-        }
+        var version = connection.server_info.redis_version;
         if (!version){
             logger.error(logSystem, logComponent, logSubCat, 'Could not detect redis version - but be super old or broken');
         }
         else if (version < 2.6){
-            logger.error(logSystem, logComponent, logSubCat, "You're using redis version " + versionString + " the minimum required version is 2.6. Follow the damn usage instructions...");
+            logger.error(logSystem, logComponent, logSubCat, "You're using redis version " + version + " the minimum required version is 2.6. Follow the damn usage instructions...");
         }
     });
 
