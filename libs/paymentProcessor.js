@@ -98,7 +98,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     function validateAddress (callback){
         daemon.cmd('validateaddress', [poolOptions.address], function(result) {
             if (result.error){
-                logger.error(logSystem, logComponent, 'Error with payment processing daemon ' + JSON.stringify(result.error));
+                logger.error(logSystem, logComponent, 'Error with payment processing daemon (validateAddress) ' + JSON.stringify(result.error));
                 callback(true);
             }
             else if (!result.response || !result.response.ismine) {
@@ -115,7 +115,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     function validateTAddress (callback) {
         daemon.cmd('validateaddress', [poolOptions.tAddress], function(result) {
             if (result.error){
-                logger.error(logSystem, logComponent, 'Error with payment processing daemon ' + JSON.stringify(result.error));
+                logger.error(logSystem, logComponent, 'Error with payment processing daemon (validateTAddress) ' + JSON.stringify(result.error));
                 callback(true);
             }
             else if (!result.response || !result.response.ismine) {
@@ -132,7 +132,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
      function validateZAddress (callback) {
         daemon.cmd('z_validateaddress', [poolOptions.zAddress], function(result) {
             if (result.error){
-                logger.error(logSystem, logComponent, 'Error with payment processing daemon ' + JSON.stringify(result.error));
+                logger.error(logSystem, logComponent, 'Error with payment processing daemon (validateZAddress) ' + JSON.stringify(result.error));
                 callback(true);
             }
             else if (!result.response || !result.response.ismine) {
