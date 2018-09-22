@@ -3,9 +3,9 @@
     "symbol": "GENX",
     "algorithm": "equihash",
     "parameters": {
-            "N": 192,
-            "K": 7,
-            "personalization": "GENX_PoW"
+        "N": 192,
+        "K": 7,
+        "personalization": "GENX_PoW"
     },
     "requireShielding": false,
     "txfee": 0.0001,
@@ -27,8 +27,8 @@
         "SQnWFjgxMJyyMQK97gjdF8gYBUUH3kSWEA"
     ],
     "explorer": {
-        "txURL": "http://explorer.genesisnetwork.io/tx",
-        "blockURL": "http://explorer.genesisnetwork.io/block",
+        "txURL": "http://explorer.genesisnetwork.io/tx/",
+        "blockURL": "http://explorer.genesisnetwork.io/block/",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }

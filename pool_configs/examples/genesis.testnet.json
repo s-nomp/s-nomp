@@ -1,5 +1,5 @@
 {
-    "enabled": true,
+    "enabled": false,
     "coin": "testnet/genesis.json",
 
     "address": "",
@@ -21,7 +21,7 @@
     },
 
     "paymentProcessing": {
-        "enabled": true,
+        "enabled": false,
         "minConf": 100,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
