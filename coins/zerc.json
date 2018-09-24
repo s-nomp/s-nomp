@@ -1,0 +1,13 @@
+{
+    "name": "ZeroClassic",
+    "symbol": "ZERC",
+    "algorithm": "equihash",
+    "params": {
+        "n": 192,
+        "k": 7,
+        "pers": "ZERO_PoW"
+    },
+    "requireShielding": true,
+    "peerMagic": "5A455243",
+    "txfee": 0.0004
+}
