@@ -1,0 +1,92 @@
+{
+    "enabled": false,
+    "coin": "testnet/xsg.json",
+
+    "address": "",
+    "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
+
+    "zAddress": "",
+    "_comment_zAddress": "a private address used to send coins to tAddress.",
+
+    "tAddress": "",
+    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
+
+    "invalidAddress":"",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above",
+
+    "walletInterval": 2.5,
+    "_comment_walletInterval": "Used to cache coin stats",
+
+    "rewardRecipients": {
+        "": 1.0
+    },
+
+    "tlsOptions": {
+        "enabled": false,
+        "serverKey": "",
+        "serverCert": "",
+        "ca": ""
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "minConf": 10,
+        "paymentMode": "prop",
+        "_comment_paymentMode": "prop, pplnt",
+        "paymentInterval": 120,
+        "minimumPayment": 0.1,
+        "maxBlocksPerPayment": 3,
+        "daemon": {
+            "host": "",
+            "port": 26112 ,
+            "user": "rpcuser",
+            "password": "rpcpassword"
+        }
+    },
+
+    "ports": {
+        "1234": {
+            "tls": false,
+            "diff": 0.05,
+            "varDiff": {
+                "minDiff": 0.04,
+                "maxDiff": 36,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        }
+    },
+
+    "poolId": "main",
+    "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
+
+    "daemons": [
+        {
+            "host": "",
+            "port": 26112,
+            "user": "rpcuser",
+            "password": "rpcpassword"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 26113,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "xsg_testnet",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    }
+
+}
+
