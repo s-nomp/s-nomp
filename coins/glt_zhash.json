@@ -13,6 +13,7 @@
     "rpcTreasury": true,
     "rpcMasternodeDashFormat": true,
     "coinbasevaluesupport": true,
+    "hasGetInfo": false,
     "explorer": {
         "txURL": "https://explorer.globaltoken.org/tx/",
         "blockURL": "https://explorer.globaltoken.org/block/",
