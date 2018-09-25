@@ -9,6 +9,7 @@
     "rpcMasternodeDashFormat": true,
     "coinbasevaluesupport": true,
     "disableminersubsidy": true,
+    "supportsSegwit": true,
     "hasGetInfo": false,
     "explorer": {
         "txURL": "https://explorer.globaltoken.org/tx/",
