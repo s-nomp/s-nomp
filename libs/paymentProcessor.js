@@ -96,7 +96,8 @@ function SetupForPool(logger, poolOptions, setupFinished){
     var paymentInterval;
 
     function validateAddress (callback){
-        daemon.cmd('validateaddress', [poolOptions.address], function(result) {
+        var validatecmd = (poolOptions.coin.newAddressCheck) ? "getaddressinfo" : "validateaddress";
+        daemon.cmd(validatecmd, [poolOptions.address], function(result) {
             if (result.error){
                 logger.error(logSystem, logComponent, 'Error with payment processing daemon (validateAddress) ' + JSON.stringify(result.error));
                 callback(true);

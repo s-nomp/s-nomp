@@ -10,6 +10,7 @@
     "coinbasevaluesupport": true,
     "disableminersubsidy": true,
     "supportsSegwit": true,
+    "newAddressCheck": true,
     "hasGetInfo": false,
     "explorer": {
         "txURL": "https://explorer.globaltoken.org/tx/",
