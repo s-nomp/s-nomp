@@ -5,6 +5,8 @@
     "requireShielding": true,
     "peerMagic": "c708d32d",
     "txfee": 0.0001,
+    "rpcTreasury": true,
+    "rpcMasternodeDashFormat": true,
     "explorer": {
         "txURL": "https://explorer.globaltoken.org/tx/",
         "blockURL": "https://explorer.globaltoken.org/block/",

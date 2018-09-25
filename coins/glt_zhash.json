@@ -5,11 +5,13 @@
     "parameters": {
         "N": 144,
         "K": 5,
-        "personalization": "GLTPoWZh"
+        "personalization": "GLTZhash"
     },
     "requireShielding": true,
     "txfee": 0.0001,
     "peerMagic": "c708d32d",
+    "rpcTreasury": true,
+    "rpcMasternodeDashFormat": true,
     "explorer": {
         "txURL": "https://explorer.globaltoken.org/tx/",
         "blockURL": "https://explorer.globaltoken.org/block/",
