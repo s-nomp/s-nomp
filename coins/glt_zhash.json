@@ -12,6 +12,7 @@
     "peerMagic": "c708d32d",
     "rpcTreasury": true,
     "rpcMasternodeDashFormat": true,
+    "coinbasevaluesupport": true,
     "explorer": {
         "txURL": "https://explorer.globaltoken.org/tx/",
         "blockURL": "https://explorer.globaltoken.org/block/",
