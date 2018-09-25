@@ -114,7 +114,8 @@ function SetupForPool(logger, poolOptions, setupFinished){
         }, true);
     }
     function validateTAddress (callback) {
-        daemon.cmd('validateaddress', [poolOptions.tAddress], function(result) {
+        var validatecmd = (poolOptions.coin.newAddressCheck) ? "getaddressinfo" : "validateaddress";
+        daemon.cmd(validatecmd, [poolOptions.tAddress], function(result) {
             if (result.error){
                 logger.error(logSystem, logComponent, 'Error with payment processing daemon (validateTAddress) ' + JSON.stringify(result.error));
                 callback(true);
