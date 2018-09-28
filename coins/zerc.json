@@ -1,6 +1,6 @@
 {
     "name": "zeroclassic",
-    "symbol": "ZERC",
+    "symbol": "zerc",
     "algorithm": "equihash",
     "params": {
         "n": 192,
