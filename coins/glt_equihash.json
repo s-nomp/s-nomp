@@ -2,7 +2,7 @@
     "name": "globaltoken_equihash",
     "symbol": "GLT",
     "algorithm": "equihash",
-    "requireShielding": true,
+    "requireShielding": false,
     "peerMagic": "c708d32d",
     "txfee": 0.0001,
     "rpcTreasury": true,
