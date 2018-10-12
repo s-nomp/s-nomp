@@ -1,0 +1,13 @@
+{
+    "name": "LitecoinZ_Testnet",
+    "symbol": "TLZ",
+    "algorithm": "equihash",
+    "params": {
+        "n": 144,
+        "k": 5,
+        "pers": "ZcashPoW"
+    },
+    "requireShielding": true,
+    "peerMagic": "fe90865d",
+    "txfee": 0.0001
+}
