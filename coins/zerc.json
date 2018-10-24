@@ -2,7 +2,7 @@
     "name": "zeroclassic",
     "symbol": "zerc",
     "algorithm": "equihash",
-    "params": {
+    "parameters": {
         "n": 192,
         "k": 7,
         "pers": "ZERO_PoW"
