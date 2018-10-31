@@ -1,6 +1,6 @@
 {
     "name": "genesis_testnet",
-    "symbol": "GENXT",
+    "symbol": "genxt",
     "algorithm": "equihash",
     "parameters": {
         "N": 192,
