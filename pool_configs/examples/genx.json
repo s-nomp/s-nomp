@@ -1,6 +1,6 @@
 {
     "enabled": false,
-    "coin": "testnet/genesis.json",
+    "coin": "genx.json",
 
     "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress. Use the legacy options when using getnewaddress.",
@@ -21,16 +21,16 @@
     },
 
     "paymentProcessing": {
-        "enabled": false,
+        "enabled": true,
         "minConf": 100,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
-        "paymentInterval": 300,
+        "paymentInterval": 120,
         "minimumPayment": 0.05,
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 17234,
+            "port": 7234,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -63,7 +63,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 17234,
+            "port": 7234,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -82,7 +82,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "genx_testnet",
+        "database": "genx",
         "checkPassword": true,
         "autoCreateWorker": false
     }
