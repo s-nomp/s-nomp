@@ -1,0 +1,17 @@
+{
+    "name": "bithereum",
+    "symbol": "bth",
+    "algorithm": "equihash",
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "BethdPoW"
+    },
+    "peerMagic": "e1476d44",
+
+    "explorer": {
+        "txURL": "http://explorer.bithereum.network/tx/",
+        "blockURL": "http://explorer.bithereum.network/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (http://explorer.bithereum.network/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}

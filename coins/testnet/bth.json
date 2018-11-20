@@ -1,0 +1,17 @@
+{
+    "name": "bithereum_testnet",
+    "symbol": "tbth",
+    "algorithm": "equihash",
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "BethdPoW"
+    },
+    "peerMagic": "e2486e45",
+
+    "explorer": {
+        "txURL": "http://testnet-explorer.bithereum.network/tx/",
+        "blockURL": "http://testnet-explorer.bithereum.network/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (http://testnet-explorer.bithereum.network/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
