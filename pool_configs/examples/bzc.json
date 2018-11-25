@@ -5,7 +5,7 @@
     "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
 
-    "zAddress": "[SHIELDING_PRIVATE_ADDRESS]",
+    "zAddress": "",
     "_comment_zAddress": "a private address used to send coins to tAddress.",
 
     "tAddress": "",
