@@ -116,7 +116,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zec",
+        "database": "bzc",
         "checkPassword": true,
         "autoCreateWorker": false
     }
