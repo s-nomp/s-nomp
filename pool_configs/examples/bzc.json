@@ -18,7 +18,7 @@
     "_comment_walletInterval": "Used to cache coin stats",
 
     "rewardRecipients": {
-        "[YOUR_POOL_FEE_ADDRESS]": [YOUR FEE IN PERCENTS(1 for 1%)]
+        "": 0.2
     },
 
     "tlsOptions": {
