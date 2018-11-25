@@ -98,7 +98,7 @@
         {
             "host": "127.0.0.1",
             "port": 8732,
-            "user": "[DAEMON_RPC_USER]",
+            "user": "rpcuser",
             "password": "[DAEMON_RPC_PASSWORD]"
         }
     ],
