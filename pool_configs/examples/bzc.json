@@ -97,7 +97,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": [8733],
+            "port": 8732,
             "user": "[DAEMON_RPC_USER]",
             "password": "[DAEMON_RPC_PASSWORD]"
         }
