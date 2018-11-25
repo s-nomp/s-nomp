@@ -2,7 +2,6 @@
     "name": "bitzec",
     "symbol": "bzc",
     "algorithm": "equihash",
-    "overwinter": true,
     "sapling": true,
     "requireShielding": true,
     "payFoundersReward": true,
