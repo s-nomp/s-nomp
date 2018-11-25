@@ -2,7 +2,7 @@
     "enabled": true,
     "coin": "bzc.json",
 
-    "address": "[MINING_ADDRESS]",
+    "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
 
     "zAddress": "[SHIELDING_PRIVATE_ADDRESS]",
