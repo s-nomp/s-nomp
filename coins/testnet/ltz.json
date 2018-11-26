@@ -2,7 +2,6 @@
     "name": "litecoinz_testnet",
     "symbol": "ltzt",
     "algorithm": "equihash",
-    "overwinter": true,
     "sapling": true,
     "parameters": {
         "N": 144,
