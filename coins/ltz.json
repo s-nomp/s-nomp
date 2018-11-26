@@ -2,6 +2,7 @@
     "name": "litecoinz",
     "symbol": "ltz",
     "algorithm": "equihash",
+    "sapling": 190000,
     "parameters": {
         "N": 144,
         "K": 5,
