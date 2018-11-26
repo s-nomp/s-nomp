@@ -3,6 +3,7 @@
     "symbol": "zec",
     "algorithm": "equihash",
     "overwinter": true,
+    "sapling": true,
     "requireShielding": true,
     "payFoundersReward": true,
     "percentFoundersReward": 20,

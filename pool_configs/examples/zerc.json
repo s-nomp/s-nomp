@@ -1,6 +1,6 @@
 {
     "enabled": false,
-    "coin": "xsg.json",
+    "coin": "zerc.json",
 
     "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
@@ -30,7 +30,7 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 16112,
+            "port": 23800,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -56,14 +56,14 @@
             }
         }
     },
-    
+
     "poolId": "main",
     "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
 
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 16112,
+            "port": 23800,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -72,7 +72,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 16113,
+        "port": 23801,
         "disableTransactions": true
     },
 
@@ -82,8 +82,9 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "xsg",
+        "database": "zerc",
         "checkPassword": true,
         "autoCreateWorker": false
     }
+
 }
