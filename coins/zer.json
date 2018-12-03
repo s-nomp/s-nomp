@@ -7,8 +7,8 @@
             "K": 7,
             "personalization": "ZERO_PoW"
     },
-    "sapling" : 492850,
-    "overwinter" : 492850,
+    "sapling": 492850,
+    "overwinter": 492850,
     "requireShielding": true,
     "payFoundersReward": true,
     "percentFoundersReward": 7.5,
