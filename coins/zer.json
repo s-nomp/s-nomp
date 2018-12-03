@@ -34,20 +34,21 @@
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://zeroexplorer.forgetop.com/tx/). The pool will automatically add the transaction id or block id at the end."
     },
     "network": {
-      "messagePrefix" : "\u0018ZCash Signed Message:\n",
-      "bech32" : "bc",
-      "bip32" : {
-        "public" : 76067358,
-        "private" : 76066276
+      "messagePrefix": "\u0018ZCash Signed Message:\n",
+      "bech32": "bc",
+      "bip32": {
+        "public": 76067358,
+        "private": 76066276
       },
-      "pubKeyHash" : 7352,
-      "scriptHash" : 7357,
+      "pubKeyHash": 7352,
+      "scriptHash": 7357,
       "wif": 128,
-      "consensusBranchId" : {
-        "1" : 0,
+      "consensusBranchId": {
+        "1": 0,
         "2": 0,
         "3": 1870033530,
         "4": 1935765626
       },
-      "isZcash": true }
+      "isZcash": true
     }
+}

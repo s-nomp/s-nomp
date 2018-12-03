@@ -34,20 +34,21 @@
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.btcprivate.org/tx/). The pool will automatically add the transaction id or block id at the end."
     },
     "network": {
-      "messagePrefix" : "\u0018ZCash Signed Message:\n",
-      "bech32" : "bc",
-      "bip32" : {
-        "public" : 70617039,
-        "private" : 70615956
+      "messagePrefix": "\u0018ZCash Signed Message:\n",
+      "bech32": "bc",
+      "bip32": {
+        "public": 70617039,
+        "private": 70615956
       },
-      "pubKeyHash" : 7461,
-      "scriptHash" : 7354,
+      "pubKeyHash": 7461,
+      "scriptHash": 7354,
       "wif": 239,
-      "consensusBranchId" : {
-        "1" : 0,
-        "2" : 0,
-        "3" : 1870033530,
-        "4" : 1935765626
+      "consensusBranchId": {
+        "1": 0,
+        "2": 0,
+        "3": 1870033530,
+        "4": 1935765626
       },
-      "isZcash": true }
+      "isZcash": true
+    }
 }
