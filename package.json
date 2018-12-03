@@ -10,9 +10,9 @@
         "poolserver",
         "equihash"
     ],
-    "homepage": "https://github.com/s-nomp/s-nomp",
+    "homepage": "https://github.com/tosti911/s-nomp",
     "bugs": {
-        "url": "https://github.com/s-nomp/s-nomp/issues"
+        "url": "https://github.com/tosti911/s-nomp/issues"
     },
     "license": "MIT",
     "author": "s-nomp dev team",
@@ -30,7 +30,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/s-nomp/s-nomp.git"
+        "url": "https://github.com/tosti911/s-nomp.git"
     },
     "dependencies": {
         "async": "^2.6.1",
@@ -48,7 +48,7 @@
         "nonce": "^1.0.4",
         "redis": "^2.8.0",
         "request": "^2.88.0",
-        "stratum-pool": "git+https://github.com/s-nomp/node-stratum-pool.git"
+        "stratum-pool": "git+https://github.com/tosti911/node-stratum-pool.git"
     },
     "engines": {
         "node": ">=8.11"
