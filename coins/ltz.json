@@ -1,0 +1,19 @@
+{
+    "name": "litecoinz",
+    "symbol": "ltz",
+    "algorithm": "equihash",
+    "sapling": 190000,
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "ZcashPoW"
+    },
+    "requireShielding": true,
+    "txfee": 0.0001,
+    "peerMagic": "d8cfcd93",
+    "explorer": {
+        "txURL": "https://insight.litecoinz.org/tx/",
+        "blockURL": "https://insight.litecoinz.org/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
