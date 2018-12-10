@@ -9,13 +9,15 @@
     },
     "requireShielding": true,
     "payFoundersReward": true,
-    "percentFoundersReward": 5,
+    "percentFoundersReward": 7.5,
     "maxFoundersRewardBlockHeight": 2106399,
     "foundersRewardAddressChangeInterval": 105320.95,
     "vFoundersRewardAddress": [
         "t2UNzUUx8mWBCRYPRezvA363EYXyEpHokyi"
     ],
-    "peerMagic": "fa1af9bf",
+    "peerMagic": "24c82764",
+    "overwinter": true,
+    "sapling": true,
     "txfee": 0.0004,
 
     "explorer": {
