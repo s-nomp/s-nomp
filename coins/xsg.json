@@ -9,7 +9,7 @@
     },
     "requireShielding": true,
     "payFoundersReward": true,
-    "percentFoundersReward": 5,
+    "percentFoundersReward": 7.5,
     "maxFoundersRewardBlockHeight": 2106399,
     "foundersRewardAddressChangeInterval": 105320,
     "vFoundersRewardAddress": [
@@ -35,6 +35,7 @@
         "s3eWx3DcwLiusTBfhWu6z7zM4TffaV1Ng9r"
     ],
     "peerMagic": "24c82764",
+    "sapling": true,
 
     "explorer": {
         "txURL": "https://insight.snowgem.org/tx/",
