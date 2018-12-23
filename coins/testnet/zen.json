@@ -50,6 +50,9 @@
         "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP",
         "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP"
     ],
+    "percentTreasury20pctUpdateReward": 20.0,
+    "treasuryReward20pctUpdateStartBlockHeight":369900,
+    "peerMagic": "bff2cde6",
     "txfee": 0.0004,
 
     "explorer": {
