@@ -5,9 +5,9 @@
     "requireShielding": true,
     "peerMagic": "deadc001",
     "parameters": {
-            "N": 192,
-            "K": 7,
-            "personalization": "EquivPoW"
+        "N": 192,
+        "K": 7,
+        "personalization": "EquivPoW"
     },
     "explorer": {
         "txURL": "https://explorer.vidulum.app/tx/",
