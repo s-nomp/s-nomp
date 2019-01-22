@@ -1,0 +1,17 @@
+{
+    "name": "vidulum",
+    "symbol": "vdl",
+    "algorithm": "equihash",
+    "requireShielding": true,
+    "peerMagic": "deadc001",
+    "parameters": {
+        "N": 192,
+        "K": 7,
+        "personalization": "EquivPoW"
+    },
+    "explorer": {
+        "txURL": "https://explorer.vidulum.app/tx/",
+        "blockURL": "https://explorer.vidulum.app/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
