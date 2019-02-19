@@ -89,6 +89,8 @@
         "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE",
         "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE"
     ],
+    "percentTreasury20pctUpdateReward": 20.0,
+    "treasuryReward20pctUpdateStartBlockHeight": 455555,
     "peerMagic": "63617368",
     "txfee": 0.0004,
 
