@@ -3,8 +3,8 @@
     "symbol": "safet",
     "algorithm": "equihash",
     "parameters": {
-        "N": 144,
-        "K": 5,
+        "N": 192,
+        "K": 7,
         "personalization": "Safecoin"
     },
     "peerMagic": "5b1e7f63",
