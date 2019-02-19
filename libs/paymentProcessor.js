@@ -294,9 +294,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
         }
 
         var amount = satoshisToCoins(zBalance - 10000);
-        // unshield no more than 100 ZEC at a time
-        if (amount > 100.0)
-            amount = 100.0;
 
         var params = [poolOptions.zAddress, [{'address': poolOptions.tAddress, 'amount': amount}]];
         daemon.cmd('z_sendmany', params,
