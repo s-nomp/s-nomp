@@ -5,7 +5,7 @@
     "requireShielding": true,
     "peerMagic": "24e92764",
     "txfee": 0.0004,
-    "sapling": 476969,
+    "sapling": true,
 
     "explorer": {
         "txURL": "",
