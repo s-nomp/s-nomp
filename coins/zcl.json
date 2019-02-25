@@ -6,7 +6,6 @@
     "peerMagic": "24e92764",
     "txfee": 0.0004,
     "sapling": 476969,
-    "overwinter": 476969,
 
     "explorer": {
         "txURL": "",
