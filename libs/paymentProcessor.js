@@ -738,12 +738,20 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         // look for transaction errors
                         if (tx.error && tx.error.code === -5){
                             logger.warning(logSystem, logComponent, 'Daemon reports invalid transaction: ' + round.txHash);
-                            round.category = 'kicked';
+                            if (poolOptions.kicking === true || false) {
+                                round.category = 'kicked';
+                            } else {
+                                logger.warning(logSystem, logComponent, 'Kicking Disabled');
+                            }
                             return;
                         }
                         else if (!tx.result.details || (tx.result.details && tx.result.details.length === 0)){
                             logger.warning(logSystem, logComponent, 'Daemon reports no details for transaction: ' + round.txHash);
-                            round.category = 'kicked';
+                            if (poolOptions.kicking === true || false) {
+                                round.category = 'kicked';
+                            } else {
+                                logger.warning(logSystem, logComponent, 'Kicking Disabled');
+                            }
                             return;
                         }
                         else if (tx.error || !tx.result){
