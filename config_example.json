@@ -31,7 +31,7 @@
         },
         "poolHex": "",
         "_poolHex_comment": "Set this HEX value using a template of '<pool name> <pool link>' and provide it to various explorer webmasters.",
-        "kicking": false
+        "kicking": false,
         "_kicking": "Kicking set to false will not kick orphaned blocks automatically. It must be set to true and a pool restart is required on value change"
     },
 
