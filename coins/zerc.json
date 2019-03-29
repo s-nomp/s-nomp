@@ -7,6 +7,8 @@
         "K": 7,
         "personalization": "ZERO_PoW"
     },
+    "sapling": 501000,
+    "overwinter": 501000,
     "requireShielding": true,
     "peerMagic": "5A455243",
     "txfee": 0.0004,
