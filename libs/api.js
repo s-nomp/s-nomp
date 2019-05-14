@@ -12,6 +12,8 @@ module.exports = function(logger, portalConfig, poolConfigs){
     this.liveStatConnections = {};
 
     this.handleApiRequest = function(req, res, next){
+       
+        req = req.replace(/[\x00-\x1F\x7F-\x9F]/g, "");
 
         switch(req.params.method){
             case 'stats':
