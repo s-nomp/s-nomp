@@ -7,6 +7,7 @@
         "K": 5,
         "personalization": "BitcoinZ"
     },
+    "sapling": true,
     "requireShielding": true,
     "txfee": 0.0001,
     "peerMagic": "24e92764",
