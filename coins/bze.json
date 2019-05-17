@@ -5,7 +5,7 @@
     "parameters": {
         "N": 144,
         "K": 5,
-        "personalization": "BitcoinZ"
+        "personalization": "BZEZhash"
     },
     "sapling": true,
     "requireShielding": true,
