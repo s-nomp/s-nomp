@@ -10,6 +10,8 @@
     "requireShielding": true,
     "txfee": 0.0001,
     "peerMagic": "24e92764",
+    "sapling": true,
+    "payZelNodes": 1550952000,
     "explorer": {
         "txURL": "https://explorer.zel.cash/tx/",
         "blockURL": "https://explorer.zel.cash/block/",

@@ -2,6 +2,7 @@
     "name": "votecoin",
     "symbol": "vot",
     "algorithm": "equihash",
+    "sapling": true,
     "overwinter": true,
     "requireShielding": true,
     "txfee": 0.0004,

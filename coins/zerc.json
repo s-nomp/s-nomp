@@ -7,6 +7,7 @@
         "K": 7,
         "personalization": "ZERO_PoW"
     },
+    "sapling": true,
     "requireShielding": true,
     "peerMagic": "5A455243",
     "txfee": 0.0004,
