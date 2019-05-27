@@ -3,8 +3,8 @@
     "symbol": "zel",
     "algorithm": "equihash",
     "parameters": {
-        "N": 144,
-        "K": 5,
+        "N": 125,
+        "K": 4,
         "personalization": "ZelProof"
     },
     "requireShielding": true,
