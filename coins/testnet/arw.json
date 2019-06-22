@@ -1,0 +1,40 @@
+{
+    "name": "arrow",
+    "symbol": "arw",
+    "algorithm": "equihash",
+    "parameters": {
+            "N": 144,
+            "K": 5,
+            "personalization": "ArrowPoW"
+    },
+    "sapling": true,
+    "requireShielding": true,
+    "payFoundersReward": true,
+    "roundRobin": true,
+    "percentFoundersReward": 4.8,
+    "maxFoundersRewardBlockHeight": 849999,
+    "foundersRewardAddressChangeInterval": 1,
+    "vFoundersRewardAddress": [
+      "t2EwvMEauft1w621d7cwEUZyhR2Qg6hC69j",
+      "t2Cz8nFidjJhMqoWzEawFBtjQBH3CAGASfn",
+      "t2BKkVteoxfy1hHzEfs7Kqz4jUg68XkYjeG",
+      "t2BnomTFHZ72LWBykWzCEFExEJecF1Por5j"
+    ],
+    "txfee": 0.0001,
+    "peerMagic": "27a2261c",
+    "network": {
+      "messagePrefix": "\u0018ZCash Signed Message:\n",
+      "bech32": "bc",
+      "bip32": {
+        "public": 76067358,
+        "private": 76066276
+      },
+      "pubKeyHash": 7352,
+      "scriptHash": 7357,
+      "wif": 128,
+      "consensusBranchId": {
+        "1": 0
+      },
+      "isZcash": true
+    }
+}

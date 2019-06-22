@@ -1,0 +1,45 @@
+{
+    "name": "arrow",
+    "symbol": "arw",
+    "algorithm": "equihash",
+    "parameters": {
+            "N": 144,
+            "K": 5,
+            "personalization": "ArrowPoW"
+    },
+    "sapling": true,
+    "requireShielding": true,
+    "payFoundersReward": true,
+    "roundRobin": true,
+    "percentFoundersReward": 4.8,
+    "maxFoundersRewardBlockHeight": 849999,
+    "foundersRewardAddressChangeInterval": 1,
+    "vFoundersRewardAddress": [
+      "awRcUwndjDSKavHrVsBAiQzHyeCXMhGuLUN",
+      "awDDfNed9So9PRFkjjZoKQKAAKPrYRWjnZM",
+      "awHxrq18TnMpDW6e7nSsPWTuYNcAk6crSrN",
+      "awH8dSB2UT5v2EXmQ8HHemGihVYkfA6as4y"
+    ],
+    "txfee": 0.0001,
+    "peerMagic": "27a2261c",
+    "explorer": {
+        "txURL": "https://insight.zerocurrency.io/insight/tx/",
+        "blockURL": "https://insight.zerocurrency.io/insight/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://zeroexplorer.forgetop.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    },
+    "network": {
+      "messagePrefix": "\u0018ZCash Signed Message:\n",
+      "bech32": "bc",
+      "bip32": {
+        "public": 76067358,
+        "private": 76066276
+      },
+      "pubKeyHash": 7352,
+      "scriptHash": 7357,
+      "wif": 128,
+      "consensusBranchId": {
+        "1": 0
+      },
+      "isZcash": true
+    }
+}
