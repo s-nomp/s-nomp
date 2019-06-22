@@ -48,7 +48,7 @@
         "nonce": "^1.0.4",
         "redis": "^2.8.0",
         "request": "^2.88.0",
-        "stratum-pool": "git+https://github.com/s-nomp/node-stratum-pool.git"
+        "stratum-pool": "git+https://github.com/Arrowchain/node-stratum-pool.git"
     },
     "engines": {
         "node": ">=8.11"
