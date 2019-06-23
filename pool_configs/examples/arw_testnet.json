@@ -1,0 +1,90 @@
+{
+    "enabled": true,
+    "coin": "testnet/arw.json",
+
+    "address": "",
+    "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
+
+    "zAddress": "",
+    "_comment_zAddress": "a private address used to send coins to miner.",
+
+    "tAddress": "",
+    "_comment_tAddress": "this isn't actually used, but the code that checks this hasn't been removed yet.",
+
+    "invalidAddress": "",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above (this should be a shielded addr)",
+
+    "walletInterval": 1,
+
+    "rewardRecipients": {
+        "": 0.0
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "minConf": 5,
+        "paymentMode": "prop",
+        "_comment_paymentMode": "prop, pplnt",
+        "paymentInterval": 20,
+        "minimumPayment": 0.05,
+        "maxBlocksPerPayment": 10,
+        "daemon": {
+            "host": "localhost",
+            "port": 16543,
+            "user": "User234523452345",
+            "password": "Pass8241389489348973487934ds08"
+        }
+    },
+
+    "tlsOptions": {
+        "enabled": false,
+        "serverKey": "",
+        "serverCert": "",
+        "ca": ""
+    },
+
+    "ports": {
+        "1234": {
+            "diff": 0.05,
+            "tls": false,
+            "varDiff": {
+                "minDiff": 0.04,
+                "maxDiff": 36,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        }
+    },
+
+    "poolId": "main",
+    "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
+
+    "daemons": [
+        {
+            "host": "localhost",
+            "port": 16543,
+            "user": "User234523452345",
+            "password": "Pass8241389489348973487934ds08"
+        }
+    ],
+
+    "p2p": {
+        "enabled": true,
+        "host": "localhost",
+        "port": 17654,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "zer",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    }
+
+}

@@ -1,5 +1,5 @@
 {
-    "name": "arrow",
+    "name": "arrow_testnet",
     "symbol": "arw",
     "algorithm": "equihash",
     "parameters": {
@@ -21,7 +21,7 @@
       "t2BnomTFHZ72LWBykWzCEFExEJecF1Por5j"
     ],
     "txfee": 0.0001,
-    "peerMagic": "27a2261c",
+    "peerMagicTestnet": "261c27a2",
     "network": {
       "messagePrefix": "\u0018ZCash Signed Message:\n",
       "bech32": "bc",
