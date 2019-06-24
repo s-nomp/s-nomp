@@ -1,5 +1,5 @@
 {
-    "name": "globaltoken_zhash",
+    "name": "globaltoken_mars",
     "symbol": "GLT",
     "algorithm": "equihash",
     "isMultiAlgo": true,

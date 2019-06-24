@@ -1,5 +1,5 @@
 {
-    "name": "globaltoken_equihash",
+    "name": "globaltoken_equihash192",
     "symbol": "GLT",
     "algorithm": "equihash",
     "isMultiAlgo": true,
