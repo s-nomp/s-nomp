@@ -1,6 +1,6 @@
 {
     "name": "genesis",
-    "symbol": "GENX",
+    "symbol": "genx",
     "algorithm": "equihash",
     "parameters": {
         "N": 192,

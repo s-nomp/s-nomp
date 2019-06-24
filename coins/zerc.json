@@ -1,17 +1,19 @@
 {
-    "name": "safecoin_testnet",
-    "symbol": "safet",
+    "name": "zeroclassic",
+    "symbol": "zerc",
     "algorithm": "equihash",
     "parameters": {
         "N": 192,
         "K": 7,
-        "personalization": "Safecoin"
+        "personalization": "ZERO_PoW"
     },
-    "peerMagic": "5b1e7f63",
-
+    "sapling": true,
+    "requireShielding": true,
+    "peerMagic": "5A455243",
+    "txfee": 0.0004,
     "explorer": {
-        "txURL": "#",
-        "blockURL": "#",
+        "txURL": "http://explorer.zeroclassic.org/tx/",
+        "blockURL": "http://explorer.zeroclassic.org/block/",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }

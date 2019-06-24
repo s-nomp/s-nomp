@@ -1,0 +1,15 @@
+{
+    "name": "litecoinz_testnet",
+    "symbol": "ltzt",
+    "algorithm": "equihash",
+    "sapling": true,
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "ZcashPoW"
+    },
+    "requireShielding": true,
+    "peerMagicTestnet": "fe90865d",
+    "peerMagic": "fe90865d",
+    "txfee": 0.0001
+}
