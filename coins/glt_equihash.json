@@ -14,6 +14,7 @@
     "supportsSegwit": true,
     "newAddressCheck": true,
     "hasGetInfo": false,
+    "easyTXGeneration": true,
     "explorer": {
         "txURL": "https://explorer.globaltoken.org/tx/",
         "blockURL": "https://explorer.globaltoken.org/block/",
