@@ -1,12 +1,17 @@
 {
-    "name": "globaltoken_equihash",
+    "name": "globaltoken_zhash",
     "symbol": "GLT",
     "algorithm": "equihash",
     "isMultiAlgo": true,
-    "MultiAlgoString": "equihash",
+    "MultiAlgoString": "mars",
+    "parameters": {
+        "N": 96,
+        "K": 5,
+        "personalization": "GLT-Mars"
+    },
     "requireShielding": false,
-    "peerMagic": "c708d32d",
     "txfee": 0.0001,
+    "peerMagic": "c708d32d",
     "rpcTreasury": true,
     "rpcMasternodeDashFormat": true,
     "coinbasevaluesupport": true,

@@ -2,6 +2,8 @@
     "name": "globaltoken_zhash",
     "symbol": "GLT",
     "algorithm": "equihash",
+    "isMultiAlgo": true,
+    "MultiAlgoString": "zhash",
     "parameters": {
         "N": 144,
         "K": 5,
