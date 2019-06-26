@@ -2,13 +2,12 @@ version: '3'
 
 services:
   site:
-    build:
-      context: .
-    working_dir: /site
+    image: site:latest
+    network_mode: host
     ports:
-      - 80
+      - "80:8080"
+      - "1234:1234"
     volumes:
-      - ./:/site
       - ../.zsh_history:/root/.zsh_history
     ulimits:
       nofile:
@@ -18,7 +17,16 @@ services:
 
   redis:
     image: redis:latest
+    network_mode: host
     volumes:
       - ../.redis:/data
+
+  node:
+    image: arrow-testnet:latest
+    ports:
+      - "18232:18232"
+      - "17654:17654"
+    volumes:
+      - ../.arrow-data:/root/.arrow
 
 # vim:set ts=2 sw=2 smarttab:
