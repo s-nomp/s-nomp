@@ -21,12 +21,12 @@ services:
     volumes:
       - ../.redis:/data
 
-  node:
-    image: arrow-testnet:latest
-    ports:
-      - "18232:18232"
-      - "17654:17654"
-    volumes:
-      - ../.arrow-data:/root/.arrow
+  # node:
+  #   image: arrow-testnet:latest
+  #   ports:
+  #     - "16543:16543"
+  #     - "17654:17654"
+  #   volumes:
+  #     - ../.arrow-data:/root/.arrow
 
 # vim:set ts=2 sw=2 smarttab:
