@@ -23,7 +23,7 @@ RUN npm install -g pm2
 
 RUN ln -sf /usr/local/nvm/versions/node/v$NODE_VERSION/bin/pm2 /usr/bin/pm2
 RUN ln -sf /usr/local/nvm/versions/node/v$NODE_VERSION/bin/pm2-runtime /usr/bin/pm2-runtime
-RUN echo 13
+RUN echo 16
 COPY . /site
 
 WORKDIR /site
