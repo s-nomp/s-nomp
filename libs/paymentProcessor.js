@@ -251,10 +251,10 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        // if (opidCount > 0) {
-        //     logger.warning(logSystem, logComponent, 'z_shieldcoinbase is waiting, too many z_shieldcoinbase operations already in progress.');
-        //     return;
-        // }
+        if (opidCount > 10) {
+            logger.warning(logSystem, logComponent, 'z_shieldcoinbase is waiting, too many z_shieldcoinbase operations already in progress.');
+            return;
+        }
 
         var amount = satoshisToCoins(tBalance - 10000);
         var params = [poolOptions.address, poolOptions.zAddress];
@@ -1441,7 +1441,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
 
     var getProperAddress = function(address){
-        if (address.length >= 80){
+        if (address.length >= 90){
             logger.warning(logSystem, logComponent, 'Invalid address '+address+', convert to address '+(poolOptions.invalidAddress || poolOptions.address));
             return (poolOptions.invalidAddress || poolOptions.address);
         }
