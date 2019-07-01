@@ -254,7 +254,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        if (Object.keys(cbOps).length > 1) {
+        if (Object.keys(cbOps).length > 0) {
             logger.warning(logSystem, logComponent, 'z_shieldcoinbase is waiting, too many z_shieldcoinbase operations already in progress.');
             return;
         }
