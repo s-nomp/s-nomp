@@ -251,7 +251,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        if (opidCount > 3) {
+        if (opidCount > 1) {
             logger.warning(logSystem, logComponent, 'z_shieldcoinbase is waiting, too many z_shieldcoinbase operations already in progress.');
             return;
         }
@@ -290,7 +290,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        if (opidCount > 0) {
+        if (opidCount > 1) {
             logger.warning(logSystem, logComponent, 'sendZToT is waiting, too many z_sendmany operations already in progress.');
             return;
         }
