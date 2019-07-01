@@ -52,6 +52,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
     var opidCount = 0;
     var opids = [];
+    var cbOps = {};
+    var sendOps = {};
+
 
     // zcash team recommends 10 confirmations for safety from orphaned blocks
     var minConfShield = Math.max((processingConfig.minConf || 10), 1); // Don't allow 0 conf transactions.
@@ -251,7 +254,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        if (opidCount > 1) {
+        if (Object.keys(cbOps).length > 1) {
             logger.warning(logSystem, logComponent, 'z_shieldcoinbase is waiting, too many z_shieldcoinbase operations already in progress.');
             return;
         }
@@ -268,8 +271,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 }
                 else {
                     var opid = (result.response || result[0].response);
-                    opidCount++;
-                    opids.push(opid);
+                    cbOps[opid] = true;
+                    // opidCount++;
+                    // opids.push(opid);
                     logger.special(logSystem, logComponent, 'Shielding balance ' + amount + ' ' + opid);
                     callback = function (){};
                     callback(null);
@@ -290,7 +294,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
 
         // do not allow more than a single z_sendmany operation at a time
-        if (opidCount > 1) {
+        if (Object.keys(sendOps).length > 1) {
             logger.warning(logSystem, logComponent, 'sendZToT is waiting, too many z_sendmany operations already in progress.');
             return;
         }
@@ -308,9 +312,10 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 }
                 else {
                     var opid = (result.response || result[0].response);
-                    opidCount++;
-                    opids.push(opid);
-                    logger.special(logSystem, logComponent, 'Unshield funds for payout ' + amount + ' ' + opid);
+                    sendOps[opid] = true;
+                    // opidCount++;
+                    // opids.push(opid);
+                    logger.special(logSystem, logComponent, 'Funds for payout ' + amount + ' ' + opid);
                     callback = function (){};
                     callback(null);
                 }
@@ -453,11 +458,15 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 // if there are no op-ids
                 if (ops.length == 0) {
                     // and we think there is
-                    if (opidCount !== 0) {
+                    if (Object.keys(cbOps).length !== 0) {
                         // clear them!
-                        opidCount = 0;
-                        opids = [];
-                        logger.warning(logSystem, logComponent, 'Clearing operation ids due to empty result set.');
+                        cbOps = {};
+                        logger.warning(logSystem, logComponent, 'Clearing shielding operation ids due to empty result set.');
+                    }
+                    if (Object.keys(sendOps).length !== 0) {
+                        // clear them!
+                        sendOps = {};
+                        logger.warning(logSystem, logComponent, 'Clearing z_sendmany operation ids due to empty result set.');
                     }
                 }
                 // loop through op-ids checking their status
@@ -465,12 +474,18 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     // check operation id status
                     if (op.status == "success" || op.status == "failed") {
                         // clear operation id result
-                        var opid_index = opids.indexOf(op.id);
-                        if (opid_index > -1) {
-                            // clear operation id count
-                            batchRPC.push(['z_getoperationresult', [[op.id]]]);
-                            opidCount--;
-                            opids.splice(opid_index, 1);
+                        // var opid_index = opids.indexOf(op.id);
+                        // if (opid_index > -1) {
+                        //     // clear operation id count
+                        //     batchRPC.push(['z_getoperationresult', [[op.id]]]);
+                        //     opidCount--;
+                        //     opids.splice(opid_index, 1);
+                        // }
+                        if (cbOps[op.id]) {
+                          delete cbOps[op.id];
+                        }
+                        if (sendOps[op.id]) {
+                          delete sendOps[op.id];
                         }
                         // log status to console
                         if (op.status == "failed") {
@@ -479,16 +494,16 @@ function SetupForPool(logger, poolOptions, setupFinished){
                             } else {
                               logger.error(logSystem, logComponent, "Shielding operation failed " + op.id);
                             }
-                            if (op.error.code === -6) {
-                              // insufficient funds, ignore
-                              var opid_index = opids.indexOf(op.id);
-                              if (opid_index > -1) {
-                                  // clear operation id count
-                                  // batchRPC.push(['z_getoperationresult', [[op.id]]]); // prob don't need this
-                                  opidCount--;
-                                  opids.splice(opid_index, 1);
-                              }
-                            }
+                            // if (op.error.code === -6) {
+                            //   // insufficient funds, ignore
+                            //   var opid_index = opids.indexOf(op.id);
+                            //   if (opid_index > -1) {
+                            //       // clear operation id count
+                            //       // batchRPC.push(['z_getoperationresult', [[op.id]]]); // prob don't need this
+                            //       opidCount--;
+                            //       opids.splice(opid_index, 1);
+                            //   }
+                            // }
                         } else {
                             // logger.special(logSystem, logComponent, 'Shielding operation success ' + op.id + '  txid: ' + op.result.txid);
                         }
@@ -502,21 +517,21 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     return;
                 }
                 // clear results for completed operations
-                daemon.batchCmd(batchRPC, function(error, results){
-                    if (error || !results) {
-                        opidTimeout = setTimeout(checkOpids, opid_interval);
-                        logger.error(logSystem, logComponent, 'Error with RPC call z_getoperationresult ' + JSON.stringify(error));
-                        return;
-                    }
-                    // check result execution_secs vs pool_config
-                    results.forEach(function(result, i) {
-                        if (result.result[i] && parseFloat(result.result[i].execution_secs || 0) > shielding_interval) {
-                            logger.warning(logSystem, logComponent, 'Warning, walletInverval shorter than opid execution time of '+result.result[i].execution_secs+' secs.');
-                        }
-                    });
-                    // keep checking operation ids
-                    opidTimeout = setTimeout(checkOpids, opid_interval);
-                });
+                // daemon.batchCmd(batchRPC, function(error, results){
+                //     if (error || !results) {
+                //         opidTimeout = setTimeout(checkOpids, opid_interval);
+                //         logger.error(logSystem, logComponent, 'Error with RPC call z_getoperationresult ' + JSON.stringify(error));
+                //         return;
+                //     }
+                //     // check result execution_secs vs pool_config
+                //     results.forEach(function(result, i) {
+                //         if (result.result[i] && parseFloat(result.result[i].execution_secs || 0) > shielding_interval) {
+                //             logger.warning(logSystem, logComponent, 'Warning, walletInverval shorter than opid execution time of '+result.result[i].execution_secs+' secs.');
+                //         }
+                //     });
+                //     // keep checking operation ids
+                //     opidTimeout = setTimeout(checkOpids, opid_interval);
+                // });
             };
             // check for completed operation ids
             daemon.cmd('z_getoperationstatus', null, function (result) {
@@ -532,10 +547,13 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 }
                 if (err === true) {
                     opidTimeout = setTimeout(checkOpids, opid_interval);
-                    if (opidCount !== 0) {
-                        opidCount = 0;
-                        opids = [];
-                        logger.warning(logSystem, logComponent, 'Clearing operation ids due to RPC call errors.');
+                    if (Object.keys(cbOps).length !== 0) {
+                        cbOps = {}
+                        logger.warning(logSystem, logComponent, 'Clearing sheilding operation ids due to RPC call errors.');
+                    }
+                    if (Object.keys(sendOps).length !== 0) {
+                        sendOps = {}
+                        logger.warning(logSystem, logComponent, 'Clearing z_sendmany operation ids due to RPC call errors.');
                     }
                 }
             }, true, true);
