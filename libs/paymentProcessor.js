@@ -479,6 +479,16 @@ function SetupForPool(logger, poolOptions, setupFinished){
                             } else {
                               logger.error(logSystem, logComponent, "Shielding operation failed " + op.id);
                             }
+                            if (op.error.code === -6) {
+                              // insufficient funds, ignore
+                              var opid_index = opids.indexOf(op.id);
+                              if (opid_index > -1) {
+                                  // clear operation id count
+                                  // batchRPC.push(['z_getoperationresult', [[op.id]]]); // prob don't need this
+                                  opidCount--;
+                                  opids.splice(opid_index, 1);
+                              }
+                            }
                         } else {
                             // logger.special(logSystem, logComponent, 'Shielding operation success ' + op.id + '  txid: ' + op.result.txid);
                         }
