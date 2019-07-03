@@ -242,8 +242,8 @@ function SetupForPool(logger, poolOptions, setupFinished){
             logger.error(logSystem, logComponent, 'Error trying to shield balance: ' + JSON.stringify(result[0].error));
             return callback(true); // error
           }
-          logger.special(logSystem, logComponent, 'debug z_shieldcoinbase response ' + JSON.stringify(result));
-          var response = result[0]
+          // response =  [{"error":null,"response":{"remainingUTXOs":734,"remainingValue":48913.7632,"shieldingUTXOs":50,"shieldingValue":3332.0001,"opid":"opid-47ca9179-eb32-4bf9-88f6-6f092d11ca11"},"instance":{"host":"localhost","port":16543,"user":"User234523452345","password":"Pass8241389489348973487934ds08","index":0}}]
+          var response = result[0].response;
           var opid = response.opid;
           var utxos = response.shieldingUTXOs;
           var value = response.shieldingValue;
