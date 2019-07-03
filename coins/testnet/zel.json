@@ -9,7 +9,7 @@
     },
     "requireShielding": true,
     "txfee": 0.0001,
-    "peerMagic": "24e92764",
+    "peerMagic": "fa1af9bf",
     "sapling": true,
     "payZelNodes": 1560812290,
     "explorer": {
