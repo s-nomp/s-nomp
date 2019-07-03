@@ -336,6 +336,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
       var completedIds = Object.keys(completedOps).sort(function(a, b) {
         return completedOps[a] - completedOps[b];
       });
+      var remove = [];
       if (completedIds.length > limit) {
         var start = ops.length - limit;
         remove = completedIds.slice(0, start);
