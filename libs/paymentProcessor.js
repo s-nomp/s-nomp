@@ -180,17 +180,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
       }
     }
 
-    function asyncComplete(err) {
-      if (err) {
-        setupFinished(false);
-        return;
-      }
-      if (paymentInterval) {
-        paymentInterval = setInterval(processPayments, paymentIntervalSecs * 1000);
-        setupFinished(true);
-      }
-    }
-
     async.parallel([
       function(cb) { validateAddress('t', poolOptions.address, cb); },
       function(cb) { validateAddress('z', poolOptions.zAddress, cb); },
@@ -260,7 +249,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
           if (error) {
             return;
           }
-          logger.special(logSystem, logComponent, 'response from getBalance: ' + balance);
           if (balance > 0) {
             shieldCoinbase(function(shieldError = false) {
               if (shieldError) {
@@ -1322,4 +1310,15 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
         ], paymentProcessingStats);
     };
+
+    function asyncComplete(err) {
+      if (err) {
+        setupFinished(false);
+        return;
+      }
+      if (paymentInterval) {
+        paymentInterval = setInterval(processPayments, paymentIntervalSecs * 1000);
+        setupFinished(true);
+      }
+    }
 }
