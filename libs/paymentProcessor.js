@@ -379,15 +379,15 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 // check operation id status
                 if (op.status == "success" || op.status == "failed") {
                     // log status to console
-                    if (op.status == "failed") {
-                        if (op.error) {
-                          logger.error(logSystem, logComponent, "Shielding operation failed " + op.id + " " + op.error.code +", " + op.error.message);
-                        } else {
-                          logger.error(logSystem, logComponent, "Shielding operation failed " + op.id);
-                        }
-                    } else {
-                      if (!completedOps[op.id]) {
-                        logger.special(logSystem, logComponent, 'Shielding operation success ' + op.id + '  txid: ' + op.result.txid);
+                    if (completedOps[op.id] === undefined) {
+                      if (op.status == "failed") {
+                          if (op.error) {
+                            logger.error(logSystem, logComponent, "Shielding operation failed " + op.id + " " + op.error.code +", " + op.error.message);
+                          } else {
+                            logger.error(logSystem, logComponent, "Shielding operation failed " + op.id);
+                          }
+                      } else {
+                          logger.special(logSystem, logComponent, 'Shielding operation success ' + op.id + '  txid: ' + op.result.txid);
                       }
                     }
                     if (cbOps[op.id]) {
