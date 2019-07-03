@@ -14,7 +14,7 @@
     "invalidAddress": "",
     "_comment_invalidAddress": "Invalid addresses will be converted to the above (this should be a shielded addr)",
 
-    "walletInterval": 1,
+    "shieldingInterval": 3,
 
     "rewardRecipients": {
         "": 0.0
@@ -25,7 +25,7 @@
         "minConf": 5,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
-        "paymentInterval": 20,
+        "paymentInterval": 120,
         "minimumPayment": 0.05,
         "maxBlocksPerPayment": 10,
         "daemon": {
