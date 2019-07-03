@@ -380,6 +380,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 if (op.status == "success" || op.status == "failed") {
                     // log status to console
                     if (completedOps[op.id] === undefined) {
+                      completedOps[op.id] = Date.now();
                       if (op.status == "failed") {
                           if (op.error) {
                             logger.error(logSystem, logComponent, "Shielding operation failed " + op.id + " " + op.error.code +", " + op.error.message);
@@ -391,11 +392,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
                       }
                     }
                     if (cbOps[op.id]) {
-                      completedOps[op.id] = Date.now();
                       delete cbOps[op.id];
                     }
                     if (sendOps[op.id]) {
-                      completedOps[op.id] = Date.now();
                       delete sendOps[op.id];
                     }
                 } else if (op.status == "executing") {
