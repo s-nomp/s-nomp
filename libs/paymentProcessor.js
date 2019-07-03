@@ -242,7 +242,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             logger.error(logSystem, logComponent, 'Error trying to shield balance: ' + JSON.stringify(result[0].error));
             return callback(true); // error
           }
-          var response = results[0]
+          var response = result[0]
           var opid = response.opid;
           var utxos = response.shieldingUTXOs;
           var value = response.shieldingValue;
