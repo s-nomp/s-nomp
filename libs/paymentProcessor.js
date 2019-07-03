@@ -172,14 +172,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
       })
     }
 
-    function getBalance(type, address, callback) {
-      if (type === 't') {
-        tGetBalance(address, callback);
-      } else if (type === 'z') {
-        zGetBalance(address, callback);
-      }
-    }
-
     function asyncComplete(err) {
       if (err) {
         setupFinished(false);
@@ -194,7 +186,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     async.parallel([
       function(cb) { validateAddress('t', poolOptions.address, cb); },
       function(cb) { validateAddress('z', poolOptions.zAddress, cb); },
-      function(cb) { getBalance('t', poolOptions.address, cb); }
+      function(cb) { tGetBalance(poolOptions.address, cb); }
     ], asyncComplete);
 
     function roundTo(n, digits) {
@@ -255,7 +247,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     // run shielding process every x minutes
     var shielding_interval = Math.max(parseInt(poolOptions.shieldingInterval || 1), 1) * 60 * 1000; // run every x minutes
     var shieldInterval = setInterval(function() {
-        getBalance('t', poolOptions.address, function(error, balance) {
+        tGetBalance(poolOptions.address, function(error, balance) {
           if (error) {
             return;
           }
@@ -742,7 +734,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     totalOwed = totalOwed + (worker.balance||0);
                 }
                 // check if we have enough zAddress funds to begin payment processing
-                getBalance('z', poolOptions.zAddress, function (error, balance){
+                zGetBalance(poolOptions.zAddress, function (error, balance){
                     if (error) {
                         logger.error(logSystem, logComponent, 'Error checking pool balance before processing payments.');
                         return callback(true);
