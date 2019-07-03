@@ -148,7 +148,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                   balance = coinsRound(balance);
               }
               logger.special(logSystem, logComponent, address + ' balance of ' + balance);
-              callback(null, coinsToSatoshies(balance));
+              callback(null, coinsToSatoshis(balance));
           }
       });
     }
