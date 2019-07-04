@@ -943,6 +943,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     };
 
     var genCommandsAndSend = function(workers, rounds, addressAccount, callback) {
+      console.log('genCommandsAndSend...')
         var tries = 0;
         var trySend = function (withholdPercent) {
             var addressAmounts = {};
@@ -955,6 +956,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
             // track attempts made, calls to trySend...
             tries++;
+            console.log('trying...', tries)
 
             // total up miner's balances
             for (var w in workers) {
@@ -1032,7 +1034,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             // perform the sendmany operation .. addressAccount
             var rpccallTracking = 'z_sendmany "" '+JSON.stringify(addrsAmounts);
             //console.log(rpccallTracking);
-            logger.special(logSystem, logComponent, 'z_sendmany: ' + JSON.stringify(addrsAmounts));
+            logger.special(logSystem, logComponent, rpccallTracking);
             daemon.cmd('z_sendmany', [poolOptions.zAddress, addrsAmounts], function (result) {
                 // check for failed payments, there are many reasons
                 if (result.error && result.error.code === -6) {
