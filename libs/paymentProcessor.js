@@ -180,12 +180,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
       }
     }
 
-    async.parallel([
-      function(cb) { validateAddress('t', poolOptions.address, cb); },
-      function(cb) { validateAddress('z', poolOptions.zAddress, cb); },
-      function(cb) { getBalance('t', poolOptions.address, cb); }
-    ], asyncComplete);
-
     function roundTo(n, digits) {
         if (digits === undefined) {
             digits = 0;
@@ -1312,13 +1306,21 @@ function SetupForPool(logger, poolOptions, setupFinished){
     };
 
     function asyncComplete(err) {
+
       if (err) {
         setupFinished(false);
         return;
       }
-      if (paymentInterval) {
+      // if (paymentInterval) {
         paymentInterval = setInterval(processPayments, paymentIntervalSecs * 1000);
         setupFinished(true);
-      }
+        logger.special(logSystem, logComponent, 'Setup complete. Starting payouts');
+      // }
     }
+
+    async.parallel([
+      function(cb) { validateAddress('t', poolOptions.address, cb); },
+      function(cb) { validateAddress('z', poolOptions.zAddress, cb); },
+      function(cb) { getBalance('t', poolOptions.address, cb); }
+    ], asyncComplete);
 }
