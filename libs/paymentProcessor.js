@@ -539,8 +539,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 });
             } else {
                 // no duplicates, continue payments normally
-                logger.special(logSystem, logComponent, 'workers: ' + JSON.stringify(workers));
-                logger.special(logSystem, logComponent, 'rounds: ' + JSON.stringify(rounds));
                 callback(null, workers, rounds);
             }
         });
@@ -831,11 +829,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalShares += shares;
                                 }
 
-                                //console.log('--IMMATURE DEBUG--------------');
-                                //console.log('performPayment: '+performPayment);
-                                //console.log('blockHeight: '+round.height);
-                                //console.log('blockReward: '+Math.round(immature));
-                                //console.log('blockConfirmations: '+round.confirmations);
+                                console.log('--IMMATURE DEBUG--------------');
+                                console.log('performPayment: '+performPayment);
+                                console.log('blockHeight: '+round.height);
+                                console.log('blockReward: '+Math.round(immature));
+                                console.log('blockConfirmations: '+round.confirmations);
 
                                 // calculate rewards for round
                                 var totalAmount = 0;
@@ -848,7 +846,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalAmount += workerImmatureTotal;
                                 }
 
-                                //console.log('----------------------------');
+                                console.log('----------------------------');
                                 break;
 
                             /* calculate reward balances */
