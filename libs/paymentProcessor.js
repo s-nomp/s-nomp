@@ -433,6 +433,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     var endRPCTimer = function(){ timeSpentRPC += Date.now() - startTimeRedis };
 
     var buildWorkerRoundObjects = function(callback){
+      logger.special(logSystem, logComponent, 'buildWorkerRoundObjects');
         startRedisTimer();
         redisClient.multi([
             ['hgetall', coin + ':balances'],
@@ -538,6 +539,8 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 });
             } else {
                 // no duplicates, continue payments normally
+                logger.special(logSystem, logComponent, 'workers: ' + JSON.stringify(workers));
+                logger.special(logSystem, logComponent, 'rounds: ' + JSON.stringify(rounds));
                 callback(null, workers, rounds);
             }
         });
@@ -1030,7 +1033,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             // perform the sendmany operation .. addressAccount
             var rpccallTracking = 'z_sendmany "" '+JSON.stringify(addrsAmounts);
             //console.log(rpccallTracking);
-
+            logger.special(logSystem, logComponent, 'z_sendmany: ' + JSON.stringify(addrsAmounts));
             daemon.cmd('z_sendmany', [poolOptions.zAddress, addrsAmounts], function (result) {
                 // check for failed payments, there are many reasons
                 if (result.error && result.error.code === -6) {
@@ -1266,6 +1269,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     };
 
     var processPayments = function(){
+      logger.special(logSystem, logComponent, 'Processing payments...');
         async.waterfall([
             /*
                 Step 1 - build workers and rounds objects from redis
