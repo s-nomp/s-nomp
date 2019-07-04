@@ -539,7 +539,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 });
             } else {
                 // no duplicates, continue payments normally
-                console.log('buildWorkerRoundObjects workers:', workers.length)
+                console.log('buildWorkerRoundObjects workers:', JSON.stringify(workers))
                 callback(null, workers, rounds);
             }
         });
@@ -675,7 +675,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             });
 
             // continue to next step in waterfall
-            console.log('isBlockReady workers:', workers.length)
+            console.log('isBlockReady workers:', JSON.stringify(workers))
             callback(null, workers, rounds, addressAccount);
         });
     };
@@ -920,7 +920,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
                     // if there was no errors
                     if (err === null) {
-                        console.log('lookupSharesCalcRewards workers:', workers.length)
+                        console.log('lookupSharesCalcRewards workers:', JSON.stringify(workers))
                         callback(null, workers, rounds, addressAccount);
                     } else {
                         // some error, stop waterfall
