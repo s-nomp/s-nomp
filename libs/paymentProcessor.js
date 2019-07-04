@@ -1015,6 +1015,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             }
 
             // if no payouts...continue to next set of callbacks
+            console.log(JSON.stringify(addressAmounts));
             if (Object.keys(addressAmounts).length === 0){
                 callback(null, workers, rounds, []);
                 return;
