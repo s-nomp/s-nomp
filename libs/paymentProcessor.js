@@ -957,7 +957,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             // track attempts made, calls to trySend...
             tries++;
             console.log('trying...', tries)
-
+            console.log('workers:', workers.length)
             // total up miner's balances
             for (var w in workers) {
                 var worker = workers[w];
