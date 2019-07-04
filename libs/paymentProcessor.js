@@ -432,7 +432,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     var startRPCTimer = function(){ startTimeRPC = Date.now(); };
     var endRPCTimer = function(){ timeSpentRPC += Date.now() - startTimeRedis };
 
-    var buildWorkerRoundObjects = function(callback){
+    function buildWorkerRoundObjects(callback){
       logger.special(logSystem, logComponent, 'buildWorkerRoundObjects');
         startRedisTimer();
         redisClient.multi([
@@ -544,7 +544,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
         });
     };
 
-    var isBlockReady = function(workers, rounds, callback){
+    function isBlockReady(workers, rounds, callback){
         // get pending block tx details
         var batchRPCcommand = rounds.map(function(r){
             return ['gettransaction', [r.txHash]];
@@ -678,7 +678,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
         });
     };
 
-    var lookupSharesCalcRewards = function(workers, rounds, addressAccount, callback){
+    function lookupSharesCalcRewards(workers, rounds, addressAccount, callback){
         // pplnt times lookup
         var timeLookups = rounds.map(function(r){
             return ['hgetall', coin + ':shares:times' + r.height]
@@ -918,6 +918,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
                     // if there was no errors
                     if (err === null) {
+                      console.log('workers', workers.length);
                         callback(null, workers, rounds, addressAccount);
                     } else {
                         // some error, stop waterfall
@@ -942,7 +943,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
         return address;
     };
 
-    var genCommandsAndSend = function(workers, rounds, addressAccount, callback) {
+    function genCommandsAndSend(workers, rounds, addressAccount, callback) {
       console.log('genCommandsAndSend...')
         var tries = 0;
         var trySend = function (withholdPercent) {
@@ -1133,7 +1134,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
         trySend(0);
     };
 
-    var updateRedis = function(workers, rounds, paymentsUpdate, callback){
+    function updateRedis(workers, rounds, paymentsUpdate, callback){
 
         var totalPaid = parseFloat(0);
 
