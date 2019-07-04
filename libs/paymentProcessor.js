@@ -166,7 +166,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             if (result[0].response != null) {
                 balance = coinsRound(result[0].response);
             }
-            logger.special(logSystem, logComponent, addr.substring(0,14) + '...' + addr.substring(addr.length - 14) + ' balance: '+(balance).toFixed(8));
+            logger.special(logSystem, logComponent, address.substring(0,14) + '...' + address.substring(address.length - 14) + ' balance: '+(balance).toFixed(8));
             callback(false, coinsToSatoshis(balance));
         }
       })
