@@ -829,11 +829,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalShares += shares;
                                 }
 
-                                console.log('--IMMATURE DEBUG--------------');
-                                console.log('performPayment: '+performPayment);
-                                console.log('blockHeight: '+round.height);
-                                console.log('blockReward: '+Math.round(immature));
-                                console.log('blockConfirmations: '+round.confirmations);
+                                // console.log('--IMMATURE DEBUG--------------');
+                                // console.log('performPayment: '+performPayment);
+                                // console.log('blockHeight: '+round.height);
+                                // console.log('blockReward: '+Math.round(immature));
+                                // console.log('blockConfirmations: '+round.confirmations);
 
                                 // calculate rewards for round
                                 var totalAmount = 0;
@@ -846,7 +846,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalAmount += workerImmatureTotal;
                                 }
 
-                                console.log('----------------------------');
+                                // console.log('----------------------------');
                                 break;
 
                             /* calculate reward balances */
@@ -889,11 +889,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalShares += shares;
                                 }
 
-                                //console.log('--REWARD DEBUG--------------');
-                                //console.log('performPayment: '+performPayment);
-                                //console.log('blockHeight: '+round.height);
-                                //console.log('blockReward: ' + Math.round(reward));
-                                //console.log('blockConfirmations: '+round.confirmations);
+                                console.log('--REWARD DEBUG--------------');
+                                console.log('performPayment: '+performPayment);
+                                console.log('blockHeight: '+round.height);
+                                console.log('blockReward: ' + Math.round(reward));
+                                console.log('blockConfirmations: '+round.confirmations);
 
                                 // calculate rewards for round
                                 var totalAmount = 0;
@@ -911,7 +911,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalAmount += workerRewardTotal;
                                 }
 
-                                //console.log('----------------------------');
+                                console.log('----------------------------');
                                 break;
                         }
                     });
@@ -921,6 +921,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         callback(null, workers, rounds, addressAccount);
                     } else {
                         // some error, stop waterfall
+                        console.log('error in lookupSharesCalcRewards')
                         callback(true);
                     }
 
