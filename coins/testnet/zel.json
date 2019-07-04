@@ -9,12 +9,12 @@
     },
     "requireShielding": true,
     "txfee": 0.0001,
-    "peerMagic": "24e92764",
+    "peerMagic": "fa1af9bf",
     "sapling": true,
-    "payZelNodes": 1550952000,
+    "payZelNodes": 1560812290,
     "explorer": {
-        "txURL": "https://explorer.zel.cash/tx/",
-        "blockURL": "https://explorer.zel.cash/block/",
+        "txURL": "https://testnet.zel.cash/tx/",
+        "blockURL": "https://testnet.zel.cash/block/",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }
