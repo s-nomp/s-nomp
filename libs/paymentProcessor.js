@@ -960,8 +960,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
             // track attempts made, calls to trySend...
             tries++;
             console.log('trying...', tries)
-            console.log('workers:', workers.length)
+            console.log('workers:', JSON.stringify(workers))
             // total up miner's balances
+            {"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.test":{"balance":1477100000000,"roundShares":0.04,"totalShares":0.7246753199999999,"reward":66999900000,"immature":6331490550000},"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.noname":{"balance":54600000000},"ztestsapling1trhkz6shunc5xp74xmgw2fu26wyw0z0rcyfdqyuxuxlxedastevg8qkvemj8d55eaul4kpqpnc8.Jeff1":{"balance":9300000000}}
             for (var w in workers) {
                 var worker = workers[w];
                 totalShares += (worker.totalShares || 0)
@@ -970,7 +971,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 // get miner payout totals
                 var toSendSatoshis = Math.round((worker.balance + worker.reward) * (1 - withholdPercent));
                 var address = worker.address = (worker.address || getProperAddress(w.split('.')[0])).trim();
-                if (minerTotals[address] != null && minerTotals[address] > 0) {
+                if (minerTotals[address] !== null && minerTotals[address] > 0) {
                     minerTotals[address] += toSendSatoshis;
                 } else {
                     minerTotals[address] = toSendSatoshis;
@@ -989,7 +990,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     // send funds
                     worker.sent = satoshisToCoins(toSendSatoshis);
                     worker.balanceChange = Math.min(worker.balance, toSendSatoshis) * -1;
-                    if (addressAmounts[address] != null && addressAmounts[address] > 0) {
+                    if (addressAmounts[address] !== null && addressAmounts[address] > 0) {
                         addressAmounts[address] = coinsRound(addressAmounts[address] + worker.sent);
                     } else {
                         addressAmounts[address] = worker.sent;
@@ -1000,7 +1001,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     worker.balanceChange = Math.max(toSendSatoshis - worker.balance, 0);
                     // track balance changes
                     if (worker.balanceChange > 0) {
-                        if (balanceAmounts[address] != null && balanceAmounts[address] > 0) {
+                        if (balanceAmounts[address] !== null && balanceAmounts[address] > 0) {
                             balanceAmounts[address] = coinsRound(balanceAmounts[address] + satoshisToCoins(worker.balanceChange));
                         } else {
                             balanceAmounts[address] = satoshisToCoins(worker.balanceChange);
@@ -1016,6 +1017,8 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     }
                 }
             }
+            console.log('minertotals:', JSON.stringify(minerTotals))
+            console.log('workers:', JSON.stringify(workers))
 
             // if no payouts...continue to next set of callbacks
             console.log(JSON.stringify(addressAmounts));
@@ -1323,7 +1326,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
       // if (paymentInterval) {
         paymentInterval = setInterval(processPayments, paymentIntervalSecs * 1000);
         setupFinished(true);
-        logger.special(logSystem, logComponent, 'Setup complete. Starting payouts');
+        processPayments();
       // }
     }
 
