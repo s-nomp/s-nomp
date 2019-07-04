@@ -1326,7 +1326,8 @@ function SetupForPool(logger, poolOptions, setupFinished){
       // if (paymentInterval) {
         paymentInterval = setInterval(processPayments, paymentIntervalSecs * 1000);
         setupFinished(true);
-        processPayments();
+        // wait 5 seconds, start payments once manually
+        setTimeout(processPayments, 5000)
       // }
     }
 
