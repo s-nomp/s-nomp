@@ -962,7 +962,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
             console.log('trying...', tries)
             console.log('workers:', JSON.stringify(workers))
             // total up miner's balances
-            {"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.test":{"balance":1477100000000,"roundShares":0.04,"totalShares":0.7246753199999999,"reward":66999900000,"immature":6331490550000},"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.noname":{"balance":54600000000},"ztestsapling1trhkz6shunc5xp74xmgw2fu26wyw0z0rcyfdqyuxuxlxedastevg8qkvemj8d55eaul4kpqpnc8.Jeff1":{"balance":9300000000}}
+            // {"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.test":{"balance":1477100000000,"roundShares":0.04,"totalShares":0.7246753199999999,"reward":66999900000,"immature":6331490550000},"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.noname":{"balance":54600000000},"ztestsapling1trhkz6shunc5xp74xmgw2fu26wyw0z0rcyfdqyuxuxlxedastevg8qkvemj8d55eaul4kpqpnc8.Jeff1":{"balance":9300000000}}
             for (var w in workers) {
                 var worker = workers[w];
                 totalShares += (worker.totalShares || 0)
