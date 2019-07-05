@@ -14,7 +14,7 @@
     "invalidAddress": "",
     "_comment_invalidAddress": "Invalid addresses will be converted to the above (this should be a shielded addr)",
 
-    "shieldingInterval": 3,
+    "shieldingInterval": 1.5,
 
     "rewardRecipients": {
         "": 0.0

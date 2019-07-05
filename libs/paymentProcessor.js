@@ -433,7 +433,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
     var endRPCTimer = function(){ timeSpentRPC += Date.now() - startTimeRedis };
 
     function buildWorkerRoundObjects(callback){
-      logger.special(logSystem, logComponent, 'buildWorkerRoundObjects');
         startRedisTimer();
         redisClient.multi([
             ['hgetall', coin + ':balances'],
@@ -539,7 +538,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 });
             } else {
                 // no duplicates, continue payments normally
-                console.log('buildWorkerRoundObjects workers:', JSON.stringify(workers))
+                // console.log('buildWorkerRoundObjects workers:', JSON.stringify(workers))
                 callback(null, workers, rounds);
             }
         });
@@ -675,7 +674,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
             });
 
             // continue to next step in waterfall
-            console.log('isBlockReady workers:', JSON.stringify(workers))
             callback(null, workers, rounds, addressAccount);
         });
     };
@@ -920,11 +918,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
                     // if there was no errors
                     if (err === null) {
-                        console.log('lookupSharesCalcRewards workers:', JSON.stringify(workers))
                         callback(null, workers, rounds, addressAccount);
                     } else {
                         // some error, stop waterfall
-                        console.log('error in lookupSharesCalcRewards')
                         callback(true);
                     }
 
@@ -946,7 +942,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
     };
 
     function genCommandsAndSend(workers, rounds, addressAccount, callback) {
-      console.log('genCommandsAndSend...')
         var tries = 0;
         var trySend = function (withholdPercent) {
             var addressAmounts = {};
@@ -959,10 +954,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
             // track attempts made, calls to trySend...
             tries++;
-            console.log('trying...', tries)
-            console.log('workers:', JSON.stringify(workers))
-            // total up miner's balances
-            // {"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.test":{"balance":1477100000000,"roundShares":0.04,"totalShares":0.7246753199999999,"reward":66999900000,"immature":6331490550000},"ztestsapling1s9gj6sed5fjgphc22vxrzgdcrvkv92wd8prej5e35etnsqxnjeajhxewdl8kljddjywwucreck4.noname":{"balance":54600000000},"ztestsapling1trhkz6shunc5xp74xmgw2fu26wyw0z0rcyfdqyuxuxlxedastevg8qkvemj8d55eaul4kpqpnc8.Jeff1":{"balance":9300000000}}
+
             for (var w in workers) {
                 var worker = workers[w];
                 totalShares += (worker.totalShares || 0)
@@ -1017,11 +1009,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     }
                 }
             }
-            console.log('minertotals:', JSON.stringify(minerTotals))
-            console.log('workers:', JSON.stringify(workers))
+            // console.log('minertotals:', JSON.stringify(minerTotals))
+            // console.log('workers:', JSON.stringify(workers))
 
             // if no payouts...continue to next set of callbacks
-            console.log(JSON.stringify(addressAmounts));
+            // console.log(JSON.stringify(addressAmounts));
             if (Object.keys(addressAmounts).length === 0){
                 callback(null, workers, rounds, []);
                 return;
