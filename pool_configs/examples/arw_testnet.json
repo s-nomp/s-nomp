@@ -20,12 +20,13 @@
 
     "paymentProcessing": {
         "enabled": true,
-        "minConf": 5,
+        "minConf": 10,
+        "zMinConf": 3,
         "paymentMode": "prop",
         "_comment_paymentMode": "prop, pplnt",
-        "shieldingInterval": 100,
-        "paymentInterval": 120,
-        "minimumPayment": 0.05,
+        "shieldingInterval": 180,
+        "paymentInterval": 300,
+        "minimumPayment": 5,
         "maxBlocksPerPayment": 10,
         "daemon": {
             "host": "localhost",

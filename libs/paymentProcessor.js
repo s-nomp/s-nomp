@@ -53,10 +53,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
     var cbOps = {};
     var sendOps = {};
     var completedOps = {};
+    var firstOpsCheck = true;
 
     // zcash team recommends 10 confirmations for safety from orphaned blocks
     var minConfShield = Math.max((processingConfig.minConf || 10), 1); // Don't allow 0 conf transactions.
-    var minConfPayout = Math.max((processingConfig.minConf || 10), 1);
+    var minConfPayout = Math.max((processingConfig.zMinConf || 3), 1);
     if (minConfPayout  < 3) {
         logger.warning(logSystem, logComponent, logComponent + ' minConf of 3 is recommended.');
     }
@@ -78,7 +79,8 @@ function SetupForPool(logger, poolOptions, setupFinished){
     var fee = parseFloat(poolOptions.coin.txfee) || parseFloat(0.0004);
 
     logger.debug(logSystem, logComponent, logComponent + ' requireShielding: ' + requireShielding);
-    logger.debug(logSystem, logComponent, logComponent + ' minConf: ' + minConfShield);
+    logger.debug(logSystem, logComponent, logComponent + ' min conf before shielding: ' + minConfShield);
+    logger.debug(logSystem, logComponent, logComponent + ' min conf before payout (already sheilded): ' + minConfPayout);
     logger.debug(logSystem, logComponent, logComponent + ' payments txfee reserve: ' + fee);
     logger.debug(logSystem, logComponent, logComponent + ' maxBlocksPerPayment: ' + maxBlocksPerPayment);
     logger.debug(logSystem, logComponent, logComponent + ' PPLNT: ' + pplntEnabled + ', time period: '+pplntTimeQualify);
@@ -131,8 +133,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     }
 
     function tGetBalance(address, callback) {
-      confs = processingConfig.minConf || confs;
-      var args = [confs, 99999999, [address]];
+      var args = [minConfShield, 99999999, [address]];
       daemon.cmd('listunspent', args, function (result) {
           if (!result || result.error || result[0].error) {
               logger.error(logSystem, logComponent, 'Error with RPC call listunspent ' + address + ' ' + JSON.stringify(result[0].error));
@@ -154,8 +155,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     }
 
     function zGetBalance(address, callback) {
-      var zconfs = processingConfig.zMinConf || confs;
-      daemon.cmd('z_getbalance', [address, zconfs], function(result) {
+      daemon.cmd('z_getbalance', [address, minConfPayout], function(result) {
         if (!result || result.error || result[0].error) {
             logger.error(logSystem, logComponent, 'Error with RPC call z_getbalance '+addr+' '+JSON.stringify(result[0].error));
             callback = function (){};
@@ -364,7 +364,6 @@ function SetupForPool(logger, poolOptions, setupFinished){
                 if (op.status == "success" || op.status == "failed") {
                     // log status to console
                     if (completedOps[op.id] === undefined) {
-                      completedOps[op.id] = Date.now();
                       if (op.status == "failed") {
                           if (op.error) {
                             logger.error(logSystem, logComponent, "Shielding operation failed " + op.id + " " + op.error.code +", " + op.error.message);
@@ -372,8 +371,12 @@ function SetupForPool(logger, poolOptions, setupFinished){
                             logger.error(logSystem, logComponent, "Shielding operation failed " + op.id);
                           }
                       } else {
-                          logger.special(logSystem, logComponent, 'Shielding operation success ' + op.id + '  txid: ' + op.result.txid);
+                          if (!firstOpsCheck) {
+                            // this stops us from printing a massive list of successful ops at start
+                            logger.special(logSystem, logComponent, 'Shielding operation success ' + op.id + '  txid: ' + op.result.txid);
+                          }
                       }
+                      completedOps[op.id] = Date.now();
                     }
                     if (cbOps[op.id]) {
                       delete cbOps[op.id];
@@ -385,6 +388,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     logger.special(logSystem, logComponent, 'Shielding operation in progress ' + op.id );
                 }
             });
+            if (!firstOpsCheck) {
+              firstOpsCheck = false;
+            }
             // if there are no completed operations
             if (batchRPC.length <= 0) {
                 opidTimeout = setTimeout(checkOpids, opid_interval);
