@@ -237,7 +237,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     }
 
     // run shielding process every x minutes
-    var shielding_interval = Math.max(parseInt(poolOptions.shieldingInterval || 1), 1) * 60 * 1000; // run every x minutes
+    var shielding_interval = Math.max(parseInt(processingConfig.shieldingInterval || 1), 1) * 1000; // run every x minutes
     var shieldInterval = setInterval(function() {
         getBalance('t', poolOptions.address, function(error, balance) {
           if (error) {
