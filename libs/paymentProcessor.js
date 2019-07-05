@@ -93,7 +93,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     }
 
     var magnitude = 10**8;
-    var minPaymentSatoshis;
+    var minPaymentSatoshis =parseInt(processingConfig.minimumPayment * magnitude);
     var coinPrecision;
 
     var paymentInterval;
@@ -891,11 +891,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalShares += shares;
                                 }
 
-                                console.log('--REWARD DEBUG--------------');
-                                console.log('performPayment: '+performPayment);
-                                console.log('blockHeight: '+round.height);
-                                console.log('blockReward: ' + Math.round(reward));
-                                console.log('blockConfirmations: '+round.confirmations);
+                                // console.log('--REWARD DEBUG--------------');
+                                // console.log('performPayment: '+performPayment);
+                                // console.log('blockHeight: '+round.height);
+                                // console.log('blockReward: ' + Math.round(reward));
+                                // console.log('blockConfirmations: '+round.confirmations);
 
                                 // calculate rewards for round
                                 var totalAmount = 0;
@@ -913,7 +913,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                                     totalAmount += workerRewardTotal;
                                 }
 
-                                console.log('----------------------------');
+                                // console.log('----------------------------');
                                 break;
                         }
                     });
