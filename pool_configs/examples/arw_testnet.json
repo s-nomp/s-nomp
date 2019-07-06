@@ -8,11 +8,8 @@
     "zAddress": "",
     "_comment_zAddress": "a private address used to send coins to miner.",
 
-    "tAddress": "",
-    "_comment_tAddress": "this isn't actually used, but the code that checks this hasn't been removed yet.",
-
     "invalidAddress": "",
-    "_comment_invalidAddress": "Invalid addresses will be converted to the above (this should be a shielded addr)",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above (this should be a shielded addr) do not leave blank",
 
     "rewardRecipients": {
         "": 0.0
