@@ -1,0 +1,35 @@
+{
+    "name": "genesis_testnet",
+    "symbol": "genxt",
+    "algorithm": "equihash",
+    "parameters": {
+        "N": 192,
+        "K": 7,
+        "personalization": "GENX_PoW"
+    },
+    "requireShielding": false,
+    "txfee": 0.0001,
+    "peerMagic": "c654aac3",
+    "payFoundersReward": true,
+    "payAllFounders": true,
+    "supportsSegwit": true,
+    "foundersRewardAddresses": [
+        "cHTa12xmjeDt4PykhVQLe9F1NGfayGfiC7",
+        "c43Dy1h4Smp5EKjeF5sZew9SECVVUfkNnV", 
+        "c8wETLX6n3xbeNz4SAyf64E9vHPs3gNR2f",
+        "c4wozCPLGwvuSXngEHaE8P9xMNzoaRU8Ss", 
+        "cAbEZ8P6b5a1HbC5LDksMifnGvgrgRrND6" 
+    ],
+    "infrastructureAddresses": [
+        "cFDCRyLcXFWCPMMyxUJajGCPdJLoyAzck6"
+    ],
+    "giveawayAddresses": [
+        "c4NjsSBF4NGXbzxAJUiK1P1KfmxpxXiaaP"
+    ],
+    "explorer": {
+        "txURL": "https://testnet.genesisnetwork.io/tx/",
+        "blockURL": "https://testnet.genesisnetwork.io/block/",
+        "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    }
+}
+

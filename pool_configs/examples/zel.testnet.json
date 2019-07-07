@@ -1,6 +1,6 @@
 {
     "enabled": false,
-    "coin": "zer.json",
+    "coin": "testnet/zel.json",
 
     "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
@@ -30,7 +30,7 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 23811,
+            "port": 16124,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -63,7 +63,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 23811,
+            "port": 26124,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -72,7 +72,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 23801,
+        "port": 26125,
         "disableTransactions": true
     },
 
@@ -82,7 +82,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zer",
+        "database": "zel_testnet",
         "checkPassword": true,
         "autoCreateWorker": false
     }

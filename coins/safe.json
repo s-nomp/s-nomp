@@ -3,12 +3,12 @@
     "symbol": "safe",
     "algorithm": "equihash",
     "parameters": {
-        "N": 144,
-        "K": 5,
+        "N": 192,
+        "K": 7,
         "personalization": "Safecoin"
     },
     "peerMagic": "f1ede28f",
-
+    "sapling": true,
     "explorer": {
         "txURL": "https://explorer.safecoin.org/tx/",
         "blockURL": "https://explorer.safecoin.org/block/",
