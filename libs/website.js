@@ -16,6 +16,7 @@ var util = require('stratum-pool/lib/util.js');
 
 var api = require('./api.js');
 
+var CreateRedisClient = require('./createRedisClient.js');
 
 module.exports = function(logger){
 
@@ -133,7 +134,7 @@ module.exports = function(logger){
     var buildKeyScriptPage = function(){
         async.waterfall([
             function(callback){
-                var client = redis.createClient(portalConfig.redis.port, portalConfig.redis.host);
+                var client = CreateRedisClient(portalConfig);
                 if (portalConfig.redis.password) {
                     client.auth(portalConfig.redis.password);
                 }
