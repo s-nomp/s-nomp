@@ -6,6 +6,7 @@ var async = require('async');
 
 var Stratum = require('stratum-pool');
 var util = require('stratum-pool/lib/util.js');
+var CreateRedisClient = require('./createRedisClient.js');
 
 module.exports = function(logger){
 
@@ -34,7 +35,11 @@ module.exports = function(logger){
 
             logger.debug(logSystem, logComponent, 'Payment processing setup with daemon ('
                 + processingConfig.daemon.user + '@' + processingConfig.daemon.host + ':' + processingConfig.daemon.port
-                + ') and redis (' + poolOptions.redis.host + ':' + poolOptions.redis.port + ')');                
+                + ') and redis ('
+                + ((typeof poolOptions.redis.socket !== "undefined" && poolOptions.redis.socket !== "")
+                    ? poolOptions.redis.socket
+                    : (poolOptions.redis.host + ':' + poolOptions.redis.port))
+                + ')');
         });
     });
 };
@@ -83,7 +88,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
     var daemon = new Stratum.daemon.interface([processingConfig.daemon], function(severity, message){
         logger[severity](logSystem, logComponent, message);
     });
-    var redisClient = redis.createClient(poolOptions.redis.port, poolOptions.redis.host);
+    var redisClient = CreateRedisClient(poolOptions.redis);
     // redis auth if enabled
     if (poolOptions.redis.password) {
         redisClient.auth(poolOptions.redis.password);
