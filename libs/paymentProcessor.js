@@ -1425,8 +1425,65 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     }
                     callback();
                 });
-            }
+            },
 
+            function(callback) {
+                logger.warning(logSystem, logComponent, 'Searching for failed payouts')
+
+                const fixFailedPayments = (from, to) => {
+                    redisClient.zrange(`${coin}:payments`, -to, -from, (err, results) => {
+                        results.forEach(result => {
+                            let payment = JSON.parse(result)
+
+                            daemon.cmd('gettransaction', [payment.txid], result => {
+                                let transaction = result[0].response
+
+                                if (transaction === null) {
+                                    return
+                                }
+
+                                // logger.warning(logSystem, logComponent, `${payment.txid} has ${transaction.confirmations} confirmations.`)
+
+                                if (-1 == transaction.confirmations) {
+                                    logger.warning(logSystem, logComponent, `ERROR: ${payment.txid} has ${transaction.confirmations} confirmations.`)
+
+                                    let rpccallTracking = 'sendmany "" ' + JSON.stringify(payment.amounts)
+                                    // console.log(rpccallTracking);
+
+                                    daemon.cmd('sendmany', ['', payment.amounts], result => {
+                                        if (result.error) {
+                                            logger.warning(logSystem, logComponent, rpccallTracking)
+                                            return logger.error(logSystem, logComponent, `ERROR: Resending failed payment: ${JSON.stringify(result.error)}`)
+                                        }
+
+                                        if (!result.response) {
+                                            logger.warning(logSystem, logComponent, rpccallTracking)
+                                            return logger.error(logSystem, logComponent, `ERROR: Resent payment doesn't have a response: ${JSON.stringify(result)}`)
+                                        }
+
+                                        logger.special(logSystem, logComponent, `Resent payment to ${Object.keys(payment.amounts).length} miners; ${payment.txid} -> ${result.response}`)
+
+                                        // save payments data to redis
+                                        let oldPaymentTime = payment.time
+
+                                        payment.txid = result.response
+                                        payment.time = Date.now()
+
+                                        redisClient.zadd(`${coin}:payments`, Date.now(), JSON.stringify(payment))
+                                        redisClient.zremrangebyscore(`${coin}:payments`, oldPaymentTime, oldPaymentTime, () => {})
+                                    }, true, true);
+                                }
+                            })
+                        })
+                    })
+                }
+
+                fixFailedPayments(25, 25)
+                fixFailedPayments(50, 50)
+                fixFailedPayments(75, 75)
+
+                callback(null)
+            },
         ], function(){
 
             var paymentProcessTime = Date.now() - startPaymentProcess;
