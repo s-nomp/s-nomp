@@ -65,7 +65,7 @@
 
     "txfee": 0.0001,
     "sapling": true,
-    "peerMagic": "aae83f5f",
+    "peerMagic": "24e92764",
     "explorer": {
         "txURL": "",
         "blockURL": "",
