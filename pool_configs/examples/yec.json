@@ -64,7 +64,7 @@
     "daemons": [
         {
             "host": "",
-            "port": 18232,
+            "port": 8232,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -73,7 +73,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 8233,
+        "port": 8833,
         "disableTransactions": true
     },
 
