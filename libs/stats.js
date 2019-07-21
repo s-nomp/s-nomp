@@ -501,14 +501,19 @@ module.exports = function(logger, portalConfig, poolConfigs){
                     var miner = parts[1].split('.')[0];
                     var worker = parts[1];
                     var diff = Math.round(parts[0] * 8192);
+                    var lastShare = parseInt(parts[2]);
                     if (workerShares > 0) {
                         coinStats.shares += workerShares;
                         // build worker stats
                         if (worker in coinStats.workers) {
                             coinStats.workers[worker].shares += workerShares;
                             coinStats.workers[worker].diff = diff;
+                            if (lastShare > coinStats.workers[worker].lastShare) {
+                                coinStats.workers[worker].lastShare = lastShare;
+                            }
                         } else {
                             coinStats.workers[worker] = {
+                                lastShare: 0,
                                 name: worker,
                                 diff: diff,
                                 shares: workerShares,
@@ -526,8 +531,12 @@ module.exports = function(logger, portalConfig, poolConfigs){
                         // build miner stats
                         if (miner in coinStats.miners) {
                             coinStats.miners[miner].shares += workerShares;
+                            if (lastShare > coinStats.miners[miner].lastShare) {
+                                coinStats.miners[miner].lastShare = lastShare;
+                            }
                         } else {
                             coinStats.miners[miner] = {
+                                lastShare: 0,
                                 name: miner,
                                 shares: workerShares,
                                 invalidshares: 0,
@@ -547,6 +556,7 @@ module.exports = function(logger, portalConfig, poolConfigs){
                             coinStats.workers[worker].diff = diff;
                         } else {
                             coinStats.workers[worker] = {
+                                lastShare: 0,
                                 name: worker,
                                 diff: diff,
                                 shares: 0,
@@ -566,6 +576,7 @@ module.exports = function(logger, portalConfig, poolConfigs){
                             coinStats.miners[miner].invalidshares -= workerShares; // workerShares is negative number!
                         } else {
                             coinStats.miners[miner] = {
+                                lastShare: 0,
                                 name: miner,
                                 shares: 0,
                                 invalidshares: -workerShares,
