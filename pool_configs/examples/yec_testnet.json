@@ -38,7 +38,7 @@
         "maxBlocksPerPayment": 3,
         "daemon": {
             "host": "",
-            "port": 18232 ,
+            "port": 18832 ,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -64,7 +64,7 @@
     "daemons": [
         {
             "host": "",
-            "port": 18232,
+            "port": 18832,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -73,7 +73,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 18233,
+        "port": 18833,
         "disableTransactions": true
     },
 
