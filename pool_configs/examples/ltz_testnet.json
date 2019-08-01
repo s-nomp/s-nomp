@@ -31,7 +31,7 @@
         "enabled": true,
         "minConf": 10,
         "paymentMode": "prop",
-        "_comment_paymentMode": "prop, pplnt",
+        "_comment_paymentMode": "prop, pplnt, solo",
         "paymentInterval": 90,
         "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
         "minimumPayment": 0.1,
