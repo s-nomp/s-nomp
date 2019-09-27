@@ -134,7 +134,7 @@ module.exports = function(logger){
     var buildKeyScriptPage = function(){
         async.waterfall([
             function(callback){
-                var client = CreateRedisClient(portalConfig);
+                var client = CreateRedisClient(portalConfig.redis);
                 if (portalConfig.redis.password) {
                     client.auth(portalConfig.redis.password);
                 }
