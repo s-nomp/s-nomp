@@ -1,0 +1,9 @@
+{
+    "name": "btcprivate_192_7_testnet",
+    "symbol": "btcpt",
+    "algorithm": "equihash",
+    "requireShielding": true,
+    "peerMagic": "f31b4g6f",
+    "txfee": 0.0004
+}
+
