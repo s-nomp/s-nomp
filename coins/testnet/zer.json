@@ -7,13 +7,48 @@
             "K": 7,
             "personalization": "ZERO_PoW"
     },
+    "sapling": true,
+    "overwinter": true,
     "requireShielding": true,
+    "payFoundersReward": true,
+    "percentFoundersReward": 7.5,
+    "maxFoundersRewardBlockHeight": 7999999,
+    "foundersRewardAddressChangeInterval": 800000,
+    "vFoundersRewardAddress": [
+          "t2BEnZwurNtPyhyWdZ82zTdS93rKyoUpgMJ",
+          "t2AwNRubry4rQrEvHwAdpYve4Gz5cSmjGXA",
+          "t2FM2EZqQZANA18rbhBGLWbxKcpGk9soAvS",
+          "t2TBZfnXRCmFPc3nSrQcNtnR6AGWNzF9hzz",
+          "t2QMyS1C3jXJ5hcR7zJTPSbWFvMWQEyjVTE",
+          "t2SxA3E34aZJDDxnUxC2gZXBVrXWuoH5v7W",
+          "t2FhR8STLvuKTUPgM586T1LMUG4JAHV2XSt",
+          "t2NScRwr3FHPN8fNSgMKn8ngZG2kgfC8JNt",
+          "t2LYZj3LiCDaCGUXQNXH1ZFPmHiC46wB9se",
+          "t28azskSALVTtgbW63CqDwzXgtWQ56GVVXa"
+    ],
     "txfee": 0.0001,
     "peerMagic": "5a45524f",
     "explorer": {
         "txURL": "#",
         "blockURL": "#",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.btcprivate.org/tx/). The pool will automatically add the transaction id or block id at the end."
+    },
+    "network": {
+      "messagePrefix": "\u0018ZCash Signed Message:\n",
+      "bech32": "bc",
+      "bip32": {
+        "public": 70617039,
+        "private": 70615956
+      },
+      "pubKeyHash": 7461,
+      "scriptHash": 7354,
+      "wif": 239,
+      "consensusBranchId": {
+        "1": 0,
+        "2": 0,
+        "3": 1870033530,
+        "4": 1935765626
+      },
+      "isZcash": true
     }
 }
-

@@ -25,6 +25,8 @@
             "purgeInterval": 300
         },
         "redis": {
+            "_disabled_socket": "/var/run/redis/redis.sock",
+            "_socket": "Set socket to enable UNIX domain sockets, otherwise leave unset and set host and port.",
             "host": "127.0.0.1",
             "port": 6379,
             "password": ""
@@ -55,6 +57,8 @@
     },
 
     "redis": {
+        "_disabled_socket": "/var/run/redis/redis.sock",
+        "_socket": "Set socket to enable UNIX domain sockets, otherwise leave unset and set host and port.",
         "host": "127.0.0.1",
         "port": 6379,
         "password": ""

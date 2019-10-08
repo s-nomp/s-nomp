@@ -1,0 +1,13 @@
+{
+    "name": "anon_testnet",
+    "symbol": "anont",
+    "algorithm": "equihash",
+    "parameters": {
+        "N": 144,
+        "K": 5,
+        "personalization": "AnonyPoW"
+    },
+    "requireShielding": true,
+    "peerMagic": "7a748d38",
+    "txfee": 0.0004
+}

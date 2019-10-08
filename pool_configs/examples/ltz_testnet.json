@@ -1,6 +1,6 @@
 {
     "enabled": false,
-    "coin": "zer.json",
+    "coin": "testnet/ltz.json",
 
     "address": "",
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
@@ -20,22 +20,6 @@
         "": 0.2
     },
 
-    "paymentProcessing": {
-        "enabled": true,
-        "minConf": 10,
-        "paymentMode": "prop",
-        "_comment_paymentMode": "prop, pplnt",
-        "paymentInterval": 20,
-        "minimumPayment": 0.05,
-        "maxBlocksPerPayment": 3,
-        "daemon": {
-            "host": "127.0.0.1",
-            "port": 23811,
-            "user": "rpcuser",
-            "password": "rpcpassword"
-        }
-    },
-
     "tlsOptions": {
         "enabled": false,
         "serverKey": "",
@@ -43,10 +27,27 @@
         "ca": ""
     },
 
+    "paymentProcessing": {
+        "enabled": true,
+        "minConf": 10,
+        "paymentMode": "prop",
+        "_comment_paymentMode": "prop, pplnt",
+        "paymentInterval": 90,
+        "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
+        "minimumPayment": 0.1,
+        "maxBlocksPerPayment": 3,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 39332,
+            "user": "rpcuser",
+            "password": "rpcpassword"
+        }
+    },
+
     "ports": {
         "1234": {
-            "diff": 0.05,
             "tls": false,
+            "diff": 0.5,
             "varDiff": {
                 "minDiff": 0.04,
                 "maxDiff": 36,
@@ -63,7 +64,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 23811,
+            "port": 39332,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -72,7 +73,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 23801,
+        "port": 39333,
         "disableTransactions": true
     },
 
@@ -82,7 +83,7 @@
         "port": 3306,
         "user": "me",
         "password": "mypass",
-        "database": "zer",
+        "database": "ltz_testnet",
         "checkPassword": true,
         "autoCreateWorker": false
     }

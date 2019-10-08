@@ -4,6 +4,7 @@ var net     = require('net');
 
 var MposCompatibility = require('./mposCompatibility.js');
 var ShareProcessor = require('./shareProcessor.js');
+var CreateRedisClient = require('./createRedisClient.js');
 
 module.exports = function(logger){
 
@@ -18,7 +19,7 @@ module.exports = function(logger){
 
     var proxySwitch = {};
 
-    var redisClient = redis.createClient(portalConfig.redis.port, portalConfig.redis.host);
+    var redisClient = CreateRedisClient(portalConfig.redis);
     if (portalConfig.redis.password) {
         redisClient.auth(portalConfig.redis.password);
     }

@@ -50,11 +50,14 @@
         "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP",
         "zrFr5HVm7woVq3oFzkMEdJdbfBchfPAPDsP"
     ],
+    "percentTreasury20pctUpdateReward": 20.0,
+    "treasuryReward20pctUpdateStartBlockHeight":369900,
+    "peerMagic": "bff2cde6",
     "txfee": 0.0004,
 
     "explorer": {
-        "txURL": "https://explorer-testnet.zen-solutions.io/tx/",
-        "blockURL": "https://explorer-testnet.zen-solutions.io/block/",
+        "txURL": "https://explorer-testnet.horizen.global/tx/",
+        "blockURL": "https://explorer-testnet.horizen.global/block/",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }
