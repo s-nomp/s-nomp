@@ -3,6 +3,11 @@
     "symbol": "btcp",
     "algorithm": "equihash",
     "requireShielding": true,
+    "parameters": {
+        "N": 192,
+        "K": 7,
+        "personalization": "BTCP_PoW"
+    },
     "peerMagic": "a8eaa2cd",
     "txfee": 0.0004,
     "explorer": {
@@ -11,4 +16,3 @@
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.btcprivate.org/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }
-
