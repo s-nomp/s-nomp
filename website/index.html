@@ -1,12 +1,17 @@
 <!doctype html>
-
 <html lang="en">
-<head>
+  <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="icon" type="image/png" href="/static/favicon.png"/>
-
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
@@ -22,72 +27,117 @@
     <link rel="stylesheet" href="/static/style.css">
 
     <title>s-nomp</title>
-
-</head>
-
-<body>
-
-<header>
-    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal">
-
-        <a class="pure-menu-heading hot-swapper" href="/"><i class="fa fa-home"></i>&nbsp;s-nomp</a>
-
-        <ul>
-            <li class="{{? it.selected === 'getting_started' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/getting_started">
-                    <i class="fa fa-rocket"></i>&nbsp;
-                    Getting Started
-                </a>
-            </li>
-            <li class="{{? it.selected === 'stats' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/stats">
-                    <i class="fa fa-bar-chart-o"></i>&nbsp;
-                    Graph Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'tbs' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/tbs">
-                    <i class="fa fa-table"></i>&nbsp;
-                    Tab Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'workers' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/workers">
-                    <i class="fa fa-cogs"></i>&nbsp;
-                    Workers Stats
-                </a>
-            </li>
-            <li class="{{? it.selected === 'api' }}pure-menu-selected{{?}}">
-                <a class="hot-swapper" href="/api">
-                    <i class="fa fa-code"></i>&nbsp;
-                    API
-                </a>
-            </li>
-        </ul>
+  </head>
+  <body>
+    <script type="text/javascript"> 
+        function searchKeyPress(e)
+        {
+            // look for window.event in case event isn't passed in
+            e = e || window.event;
+            if (e.keyCode == 13)
+            {
+                document.getElementById('btnSearch').click();
+                return false;
+            }
+            return true;
+        }
+                $(document).ready(function(){
+                        $('.worker-search-btn').click(function(){
+                                window.location = "workers/" + $('.worker-search-input').val();
+                        });
+                });
+        </script>
+    
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/"><img class="logo" src="/static/logo.svg" width=50px height=50px>&nbsp;s-nomp</a><!--put your url here <a href="https://yourpool.com-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item {{? it.selected === 'getting_started' }}pure-menu-selected{{?}}">
+                    <a class="nav-link" href="/getting_started">
+                        <i class="fa fa-rocket"></i>&nbsp;
+                        Getting Started
+                    </a>
+                </li>
+                <li class="nav-item {{? it.selected === 'stats' }}pure-menu-selected{{?}}">
+                    <a class="nav-link" href="/stats">
+                        <i class="fa fa-bar-chart-o"></i>&nbsp;
+                        Graph Stats
+                    </a>
+                </li>
+                <li class="nav-item {{? it.selected === 'tbs' }}pure-menu-selected{{?}}">
+                    <a class="nav-link" href="/tbs">
+                        <i class="fa fa-table"></i>&nbsp;
+                        Tab Stats
+                    </a>
+                </li>
+                <li class="nav-item {{? it.selected === 'workers' }}pure-menu-selected{{?}}">
+                    <a class="nav-link" href="/workers">
+                        <i class="fa fa-cogs"></i>&nbsp;
+                        Workers Stats
+                    </a>
+                </li>
+                <li class="nav-item {{? it.selected === 'payments' }}pure-menu-selected{{?}}">
+                    <a class="nav-link" href="/payments">
+                        <i class="fa fa-btc"></i>&nbsp;
+                        Payments
+                    </a>
+                </li>
+                <li class="nav-item {{? it.selected === 'api' }}pure-menu-selected{{?}}">
+                    <a class="nav-link" href="/api">
+                        <i class="fa fa-code"></i>&nbsp;
+                        API
+                    </a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input type="text" class="form-control worker-search-input mr-sm-2" placeholder="Look Up Worker" aria-label="Search" onkeypress="return searchKeyPress(event);"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-outline-success my-2 my-sm-0 worker-search-btn" type="button">Lookup</button>
+            </span>
+              </form>
+            </div>
+          </nav>
+<!--Page Body Content Renders Here-->
+    <div class="row" style="margin:0px!important;">
+    <div class="col-sm-12">
+        <div class="container-fluid">
+    <main>
+        {{=it.page}}
+    </main>  
+        </div>
     </div>
-</header>
-
-<main>
-    {{=it.page}}
-</main>
-
-
-<footer>
-
-    <div>
-        This site is powered by the open source <a target="_blank" href="https://github.com/s-nomp/s-nomp/">s-nomp</a>
-        project created by Joshua Yabut and the Zclassic Community and is licensed under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>
     </div>
-    <div>
-        <i class="fa fa-heart"></i>&nbsp; Support this project by donating&nbsp;<i class="fa fa-btc"></i>&nbsp;BTC: 18vHMxVzotQ9EPyESrf7Z1hNM9AwJeVHgD
-    </div>
-    <div id="communityFooter">
-        Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="https://zclassic.herokuapp.com">#zclassic IRC</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <iframe src="https://ghbtns.com/github-btn.html?user=s-nomp&repo=s-nomp&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe>
-    </div>
+    <div class="row" style="margin:0px!important;">
+    <footer>
 
-</footer>
-
-</body>
+        <div>
+            This site is powered by the open source <a target="_blank" href="https://github.com/s-nomp/s-nomp/">s-nomp</a>
+            project created by Joshua Yabut and the Zclassic Community and is licensed under the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>
+        </div>
+        <div>
+            <i class="fa fa-heart"></i>&nbsp; Support this project by donating&nbsp;<i class="fa fa-btc"></i>&nbsp;BTC: 18vHMxVzotQ9EPyESrf7Z1hNM9AwJeVHgD
+        </div>
+        <div>
+            <i class="fa fa-check-circle-o"></i>&nbsp; If you like the new look, tip the Vidulum Team&nbsp;<i class="fa fa-arrow-circle-right"></i> &nbsp;VDL: v1EZgCipEo2eVe4yjYpBmcHpAyng1tVG6Gf
+        </div>
+        <div id="communityFooter">
+            Community&nbsp;<i class="fa fa-comment"></i>&nbsp;: &nbsp;<a target="_blank" href="https://zclassic.herokuapp.com">#zclassic IRC</a>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <iframe src="https://ghbtns.com/github-btn.html?user=s-nomp&repo=s-nomp&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="140" height="20"></iframe>
+        </div>
+    
+    </footer>
+</div>
+ <script>$(".nav a").on("click", function(){
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+ });</script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    </body>
 </html>

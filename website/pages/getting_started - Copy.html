@@ -1,12 +1,11 @@
+
 <div id="holder" class="row">
     <div class="col-sm-12">
         <div class="card" style="margin-top:50px;">
             <div class="card-body">
-                <h1><i class="fa fa-link"></i>&nbsp;Getting Started - How to Connect</h1><br/>
-    
-    
-                <div id="menu" class="card">
-                    <div class="card-body">
+                <h2 class="card-title"><i class="fa fa-plug"></i> Getting Started - How to Connect</h2>
+    <div id="menu">
+
         {{? (function(){
                 if (!it.portalConfig.switching) return false;
                 for (var p in it.portalConfig.switching){
@@ -16,6 +15,11 @@
                 return false;
             })()
         }}
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card start-card">
+            <div class="card-body">
+            <div class="card-title">
         <div class="menuHeader">Coin-Switching Ports</div>
         {{?}}
 
@@ -33,8 +37,15 @@
             <a href="#" class="poolOption" data-info="{{=info}}">{{=p}}</a>
         {{ } }}
         </div>
+    </div>
 
-        <div class="menuHeader"><h2>Select Coin for Mining Information</h2></div><hr/>
+        <div class="menuHeader">Coins</div>
+        <div class="miningOptionInstructions">
+            <p>Select a coin for connection details</p>
+            <p>Configurations for each coin are available for advanced miners</p>
+        </div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <div class="menuList" id="coinList">
             {{ for(var pool in it.poolsConfigs) {
                 var info = JSON.stringify({
@@ -44,23 +55,30 @@
                     host: it.portalConfig.website.stratumHost
                 }).replace(/"/g, '&quot;');
             }}
-            <a href="#" class="poolOption" data-info="{{=info}}">{{=pool}}</a>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="coin-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true" 
+            data-info="{{=info}}">{{=pool}}</a>
+        </div>
+    </nav>
             {{ } }}
-        </div>
-        </div>
-    </div>
+        
+            
 
-    <div id="main" class="row">
-        <div class="col-md-4 col-lg-4 col-sm-12">
-        <div class="row">
-          <div>  
-            <h3>Select a coin from the menu above for connection details</h3>
-            <p>Configurations for each coin are available for advanced miners</p>
-            </div>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="coin-tab-1">
+                <div class="container-fluid">    
+    <div id="main">
+        <div class="container-fluid">
+          <div class="row">
+            <h3>Download a miner.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tempus a tortor nec accumsan. 
+                Nullam ligula nibh, ullamcorper quis diam vel, iaculis blandit dui. In hac habitasse platea dictumst. 
+                Sed sed eros pellentesque, luctus nisi sit amet, lobortis mauris. Suspendisse felis eros, tempus in rutrum quis, 
+                bibendum vitae turpis.</p>
         </div>
         <div class="row">
-        <div id="coinInfo" class="hidden">
-            <div><h3><span class="coinInfoName"></span> Configuration:</h3></div>
+        <div id="coinInfo">
+            <h2><span class="coinInfoName"></span> Configuration:</h2>
             <div id="coinInfoRows">
                 <div id="coinInfoRowKeys">
                     <div>Username:</div>
@@ -73,56 +91,30 @@
             </div>
         </div>
         </div>
-    </div>
-    <div class="col-md-8 col-lg-8 col-sm-12">
-    <div class="miner-info-section">
-        <a href="#" class="miningOption" id="nompAppDownload">
-        <div class="card mining-software">
-            <div class="card-body">
-            <div>
-            <div class="card-title">
-                <h2><i class="fa fa-download"></i> Download NOMP App</h2>
-            </div>
-                <p>Our preconfigured app makes mining that easy</p></div>
-            </div>
-         
-    </div>
-        </a>
- </div>
-    </div>
-
-
-        </div>
-<!--Uncomment and add links to Equihash mining software as desired
-    <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12">
-            <div class="card">
-                <div class="card-body">
+        <hr/>
+        <div class="row">
             <div class="container-fluid">
-                                                <h3>Mining Software Quick Links</h3>
-                                                <ul class="miner-software">
-                <li>CPU Miner Nheqminer: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a></li>
-                <li>GPU Miner EWBF NVIDIA: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a></li>
-                <li>GPU Miner Dstm-Zcash NVIDIA:  <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a> </li>
-                <li>GPU Miner Bminer NVIDIA: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a> </li>
-                <li>GPU Miner Claymore AMD: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a> </li>
-                                            </ul>
-                        </div>
-                        
-                </div>
-            </div>
-         </div>
-    </div>-->
-
-</div>
-
-        
-        
+<!--replace these for each coin-->
+                                <h3>Mining Software Quick Links</h3>
+                                <ul class="miner-software">
+<li>CPU Miner Nheqminer: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a></li>
+<li>GPU Miner EWBF NVIDIA: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a></li>
+<li>GPU Miner Dstm-Zcash NVIDIA:  <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a> </li>
+<li>GPU Miner Bminer NVIDIA: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a> </li>
+<li>GPU Miner Claymore AMD: <a href="#"><i class="fa fa-windows"></i> Windows</a> | <a href="#"><i class="fa fa-linux"></i> Linux</a> </li>
+                            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 </div>
 </div>
 </div>
-</div>
+
+
 
 
 <script>
@@ -160,6 +152,13 @@
         showCoinConfig($(this).data('info'));
         $('#coinInfoBackground,#coinInfo').removeClass('hidden');
         $('#coinInfoBackground').css('opacity', 0.7);
+        return false;
+    });
+
+    $('#coinInfoBackground,#coinInfoClose').click(function(event){
+        event.preventDefault();
+        $('#coinInfoBackground,#coinInfo').addClass('hidden');
+        $('#coinInfoBackground').css('opacity', 0.0);
         return false;
     });
 
