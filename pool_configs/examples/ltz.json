@@ -6,10 +6,10 @@
     "_comment_address": "a transparent address to send coinbase rewards to and to transfer to zAddress.",
 
     "zAddress": "",
-    "_comment_zAddress": "a private address used to send coins to tAddress.",
+    "_comment_zAddress": "a private address used to send coins to tAddress. Staring from v3.0.0 this is optional.",
 
     "tAddress": "",
-    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send",
+    "_comment_tAddress": "transparent address used to send payments, make this a different address, otherwise payments will not send. Staring from v3.0.0 this is optional.",
 
     "invalidAddress": "",
     "_comment_invalidAddress": "Invalid addresses will be converted to the above",
