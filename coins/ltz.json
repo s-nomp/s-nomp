@@ -8,7 +8,7 @@
         "K": 5,
         "personalization": "ZcashPoW"
     },
-    "requireShielding": true,
+    "requireShielding": false,
     "txfee": 0.0001,
     "peerMagic": "d8cfcd93",
     "explorer": {

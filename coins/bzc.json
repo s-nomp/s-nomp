@@ -56,13 +56,13 @@
       "t3SAe5q2qTaZyFvQwGDTRLYGVtNpzhi9EyG",
       "t3SAe5q2qTaZyFvQwGDTRLYGVtNpzhi9EyG",
       "t3SAe5q2qTaZyFvQwGDTRLYGVtNpzhi9EyG",
-      "t3SAe5q2qTaZyFvQwGDTRLYGVtNpzhi9EyG",
+      "t3SAe5q2qTaZyFvQwGDTRLYGVtNpzhi9EyG"
     ],
     "txfee": 0.0004,
 
     "explorer": {
-        "txURL": "http://35.204.174.237:3001/insight/tx/",
-        "blockURL": "http://35.204.174.237:3001/insight/block/",
+        "txURL": "http://bzc.avaxchain.com/insight/tx/",
+        "blockURL": "http://bzc.avaxchain.com/insight/block/",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
     }
 }

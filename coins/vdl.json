@@ -3,6 +3,10 @@
     "symbol": "vdl",
     "algorithm": "equihash",
     "requireShielding": true,
+    "VRSBlock": 430000,
+    "VRSEnabled": true,
+    "sapling": true,
+    "overwinter": true,
     "peerMagic": "deadc001",
     "parameters": {
         "N": 192,

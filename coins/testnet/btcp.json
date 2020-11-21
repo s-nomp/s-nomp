@@ -3,6 +3,11 @@
     "symbol": "btcpt",
     "algorithm": "equihash",
     "requireShielding": true,
+        "parameters": {
+        "N": 192,
+        "K": 7,
+        "personalization": "BTCP_PoW"
+    },
     "peerMagic": "f61bf6d6",
     "txfee": 0.0004
 }
