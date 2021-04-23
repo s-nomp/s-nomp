@@ -491,6 +491,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         logger.special(logSystem, logComponent, 'Shielding operation in progress ' + op.id );
                     }
                 });
+                /* Clear stuck operations*/
+                logger.special(logSystem, logComponent, "Running z_operationresult to clear finished operations");
+                batchRPC.push(['z_getoperationresult']);
                 // if there are no completed operations
                 if (batchRPC.length <= 0) {
                     opidTimeout = setTimeout(checkOpids, opid_interval);
