@@ -795,6 +795,15 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         // get transaction category for round
                         round.category = generationTx.category
 
+                        //Consider block mature if block confirmations is >= to confirmations defined in poolOptions
+                        if (round.confirmations >= poolOptions.coin.poolOptions.confirmations || 100) {
+                            round.category = 'generate';
+                        }
+
+                        if (poolOptions.coin.poolOptions.confirmations =< 10) {
+                            logger.warning(logSystem, logComponent, logComponent + ' block confirmations > 10 recommended!');
+                        }
+
                         // get reward for newly generated blocks
                         if (round.category === 'generate' || round.category === 'immature') {
                             round.reward = coinsRound(parseFloat(generationTx.amount || generationTx.value))
