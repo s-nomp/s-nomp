@@ -800,7 +800,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                             round.category = 'generate';
                         }
 
-                        if (poolOptions.coin.poolOptions.confirmations <= 10) {
+                        if (poolOptions.coin.poolOptions.confirmations =< 10) {
                             logger.warning(logSystem, logComponent, logComponent + ' block confirmations > 10 recommended!');
                         }
 
