@@ -795,6 +795,19 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         // get transaction category for round
                         round.category = generationTx.category
 
+                        //Pay before daemon considers mature
+                        if (typeof poolOptions.coin.poolOptions.confirmations === 'undefined') {
+                            poolOptions.coin.poolOptions.confirmations = 100;
+                        }
+
+                        if (round.confirmations >= poolOptions.coin.poolOptions.confirmations) {
+                            round.category = 'generate';
+                        } else if (round.confirmations <= poolOptions.coin.poolOptions.confirmations) {
+                            round.category = 'immature';
+                        } else {
+                            round.category;
+                        }
+
                         // get reward for newly generated blocks
                         if (round.category === 'generate' || round.category === 'immature') {
                             round.reward = coinsRound(parseFloat(generationTx.amount || generationTx.value))

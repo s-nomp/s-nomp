@@ -152,8 +152,9 @@
                     <span style="padding-left: 18px;"><small>{{=readableDate(block[4])}}</small></span>
                     {{ } }}
                     {{if (it.stats.pools[pool].pending.confirms) { }}
+                        {{if (typeof it.poolsConfigs[pool].coin.poolOptions.confirmations === 'undefined') { it.poolsConfigs[pool].coin.poolOptions.confirmations = 100; }}}
                         {{if (it.stats.pools[pool].pending.confirms[block[0]]) { }}
-                        <span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}} of 100</small></span>
+                        <span style="float:right; color: red;"><small>{{=it.stats.pools[pool].pending.confirms[block[0]]}} of {{=it.poolsConfigs[pool].coin.poolOptions.confirmations}}</small></span>
                         {{ } else { }}
                         <span style="float:right; color: red;"><small>*PENDING*</small></span>
                         {{ } }}
