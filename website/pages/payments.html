@@ -55,31 +55,39 @@
 </script>
 {{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
 {{ for(var pool in it.stats.pools) { }}
-<table>
-    <thead>
-    <tr>
-        <th>Blocks</th>
-        <th>Time</th>
-        <th>Miners</th>
-        <th>Shares</th>
-        <th>Amount</th>
-    </tr>
-    </thead>
-        {{ for(var p in it.stats.pools[pool].payments) { }}
-            <tr>
-                <td>
-                    {{ if (it.poolsConfigs[pool].coin.explorer && it.poolsConfigs[pool].coin.explorer.txURL) { }}
-                        <a href="{{=it.poolsConfigs[pool].coin.explorer.txURL + it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks}}</a>
-                    {{ } else { }}
-                        {{=it.stats.pools[pool].payments[p].blocks}}
+<div id="topPool">
+    <div class="poolWrapper">
+        <div class="poolLabel">				
+            Recent Payments
+		</div>
+        <div class="poolMinerTable">
+            <table class="pure-table">
+                <thead>
+                <tr>
+                    <th>Blocks</th>
+                    <th>Time</th>
+                    <th>Miners</th>
+                    <th>Shares</th>
+                    <th>Amount</th>
+                </tr>
+                </thead>
+                    {{ for(var p in it.stats.pools[pool].payments) { }}
+                        <tr class="pure-table-odd">
+                            <td>
+                                {{ if (it.poolsConfigs[pool].coin.explorer && it.poolsConfigs[pool].coin.explorer.txURL) { }}
+                                    <a href="{{=it.poolsConfigs[pool].coin.explorer.txURL + it.stats.pools[pool].payments[p].txid}}" title="View transaction" target="_blank">{{=it.stats.pools[pool].payments[p].blocks.length}}</a>
+                                {{ } else { }}
+                                    {{=it.stats.pools[pool].payments[p].blocks}}
+                                {{ } }}
+                            </td>
+                            <td>{{=readableDate(it.stats.pools[pool].payments[p].time)}}</td>
+                            <td>{{=it.stats.pools[pool].payments[p].miners}}</td>
+                            <td>{{=Math.round(it.stats.pools[pool].payments[p].shares)}}</td>
+                            <td>{{=it.stats.pools[pool].payments[p].paid}} {{=it.stats.pools[pool].symbol}}</td>
+                        </tr>
                     {{ } }}
-                </td>
-                <td>{{=readableDate(it.stats.pools[pool].payments[p].time)}}</td>
-                <td>{{=it.stats.pools[pool].payments[p].miners}}</td>
-                <td>{{=Math.round(it.stats.pools[pool].payments[p].shares)}}</td>
-                <td>{{=it.stats.pools[pool].payments[p].paid}} {{=it.stats.pools[pool].symbol}}</td>
-            </tr>
-        {{ } }}
-</table>
+            </table>
+        </div>
+    </div>
 </div>
 {{ } }}
