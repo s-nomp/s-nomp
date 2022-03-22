@@ -4,99 +4,155 @@
     "algorithm": "equihash",
     "requireShielding": true,
     "payFoundersReward": true,
-    "percentFoundersReward": 8.5,
-    "maxFoundersRewardBlockHeight": 839999,
-    "foundersRewardAddressChangeInterval": 17500,
-    "vFoundersRewardAddress": [
-        "zssEdGnZCQ9G86LZFtbynMn1hYTVhn6eYCL",
-        "zsrCsXXmUf8k59NLasEKfxA7us3iNvaPATz",
-        "zsnLPsWMXW2s4w9EmFSwtSLRxL2LhPcfdby",
-        "zshdovbcPfUAfkPeEE2qLbKnoue9RsbVokU",
-        "zsqmq97JAKCCBFRGvxgv6FiJgQLCZBDp62S",
-        "zskyFVFA7VRYX8EGdXmYN75WaBB25FmiL3g",
-        "zsmncLmwEUdVmAGPUrUnNKmPGXyej7mbmdM",
-        "zsfa9VVJCEdjfPbku4XrFcRR8kTDm2T64rz",
-        "zsjdMnfWuFi46VeN2HSXVQWEGsnGHgVxayY",
-        "zseb8wRQ8rZ722oLX5B8rx7qwZiBRb9mdig",
-        "zsjxkovhqiMVggoW7jvSRi3NTSD3a6b6qfd",
-        "zsokCCSU3wvZrS2G6mEDpJ5cH49E7sDyNr1",
-        "zt12EsFgkABHLMRXA7JNnpMqLrxsgCLnVEV",
-        "zt39mvuG9gDTHX8A8Qk45rbk3dSdQoJ8ZAv",
-        "zssTQZs5YxDGijKC86dvcDxzWogWcK7n5AK",
-        "zsywuMoQK7Bved2nrXs56AEtWBhpb88rMzS",
-        "zsxVS2w7h1fHFX2nQtGm4372pd4DSHzq9ee",
-        "zsupGi7ro3uC8CEVwm9r7vrdVUZaXQnHF6T",
-        "zshVZvW47dA5AB3Sqk1h7ytwWJeUJUJxxaE",
-        "zsubBCjvDx252MKFsL4Dcf5rJU9Z9Upqr1N",
-        "zsweaST3NcU4hfgkVULfCsfEq41pjgMDgcW",
-        "zswz6Rxb1S33fUpftETZwtGiVSeYxNKq2xc",
-        "zswnpHtiBbrvYDzbhPQshkgvLSfYhDMRJ4S",
-        "zsjSYAWaEYj35Ht7aXrRJUGY6Dc8qCmgYqu",
-        "zsvMv8fGroWR8epbSiGDCJHmfe6ec2uFQrt",
-        "zsujxCT56BExQDAwKwktBjtnopYnw8BiKbg",
-        "zsxeXc2FTAzmUmeZmqVsKVdwTMSvzyns4rT",
-        "zsuLqgABNudD8bVPbVGeUjGqapuoXp68i7F",
-        "zsoc39J1dCFK1U8kckZznvQkv8As7sajYLz",
-        "zt21NFdu1KRPJ7VRKtrWugM2Jqe5ePNmU4T",
-        "zsp15qbVcbx9ifcjKe6XZEJTvzsFUZ2BHLT",
-        "zso2KvqH6yxLQEYggHdmfL3Tcd5V6E9tqhp",
-        "zsnFG2W5ZHRYh3QucNze4mp31tBkemtfxdj",
-        "zsex2CGJtxHyHbpLXm7kESBmp3vWRqUkJMy",
-        "zsvtFv96nrgrXKUbtNe2BpCt8aQEp5oJ7F8",
-        "zsk5KitThmhK9KBa1KDybPgEmGSFTHzhMVA",
-        "zsuy4n48c4NsJyaCZEzwdAKULM1FqbB6Y4z",
-        "zsgtQVMpX2zNMLvHHG2NDwfqKoaebvVectJ",
-        "zszQqXRSPGdqsWw4iaMTNN6aJz4JjEzSdCF",
-        "zst6dBLrTtaMQBX7BLMNjKLTGcP11PBmgTV",
-        "zshD9r6Eb6dZGdzYW2HCb9CzkMokCT1NGJR",
-        "zswUaj1TboEGmvSfF7fdoxWyH3RMx7MBHHo",
-        "zsv8s4Poi5GxCsbBrRJ97Vsvazp84nrz5AN",
-        "zsmmxrKU6dqWFwUKow1iyovg3gxrgXpEivr",
-        "zskh1221aRC9WEfb5a59WxffeW34McmZZsw",
-        "zssAhuj57NnVm4yNFT6o8muRctABkUaBu3L",
-        "zsi5Yr4Z8HwBvdBqQE8gk7ahExDu95J4oqZ",
-        "zsy6ryEaxfk8emJ8bGVB7tmwRwBL8cfSqBW"
-    ],
-    "percentTreasuryReward": 12.0,
-    "treasuryRewardStartBlockHeight": 139200,
-    "treasuryRewardAddressChangeInterval": 50000,
-    "vTreasuryRewardAddress": [
-        "zsyF68hcYYNLPj5i4PfQJ1kUY6nsFnZkc82",
-        "zsfULrmbX7xbhqhAFRffVqCw9RyGv2hqNNG",
-        "zsoemTfqjicem2QVU8cgBHquKb1o9JR5p4Z",
-        "zt339oiGL6tTgc9Q71f5g1sFTZf6QiXrRUr"
-    ],
-    "percentTreasuryUpdateReward": 10.0,
-    "treasuryRewardUpdateStartBlockHeight": 344700,
-    "treasuryRewardUpdateAddressChangeInterval": 50000,
-    "vTreasuryRewardUpdateAddress": [
-        "zszpcLB6C5B8QvfDbF2dYWXsrpac5DL9WRk",
-        "zszpcLB6C5B8QvfDbF2dYWXsrpac5DL9WRk",
-        "zszpcLB6C5B8QvfDbF2dYWXsrpac5DL9WRk",
-        "zszpcLB6C5B8QvfDbF2dYWXsrpac5DL9WRk"
-    ],
-    "percentSecureNodesReward": 10.0,
-    "vSecureNodesRewardAddress": [
-        "zsxWnyDbU8pk2Vp98Uvkx5Nh33RFzqnCpWN",
-        "zsxWnyDbU8pk2Vp98Uvkx5Nh33RFzqnCpWN",
-        "zsxWnyDbU8pk2Vp98Uvkx5Nh33RFzqnCpWN",
-        "zsxWnyDbU8pk2Vp98Uvkx5Nh33RFzqnCpWN"
-    ],
-    "percentSuperNodesReward": 10.0,
-    "vSuperNodesRewardAddress": [
-        "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE",
-        "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE",
-        "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE",
-        "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE"
-    ],
-    "percentTreasury20pctUpdateReward": 20.0,
-    "treasuryReward20pctUpdateStartBlockHeight": 455555,
     "peerMagic": "63617368",
     "txfee": 0.0004,
-
     "explorer": {
-        "txURL": "https://explorer.horizen.global/tx/",
-        "blockURL": "https://explorer.horizen.global/block/",
+        "txURL": "https://explorer.horizen.io/tx/",
+        "blockURL": "https://explorer.horizen.io/block/",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
-    }
+    },
+    "forks": [
+        {
+            "activationHeight": 0,
+            "_comment": "https://github.com/HorizenOfficial/zen/blob/5092410f135b71efaddf8ddab170de662568b79a/src/zen/forks/fork0_originalfork.cpp"
+        },
+        {
+            "activationHeight": 110001,
+            "_comment": "https://github.com/HorizenOfficial/zen/blob/5092410f135b71efaddf8ddab170de662568b79a/src/zen/forks/fork1_chainsplitfork.cpp",
+            "treasury": {
+                "changeInterval": 17500,
+                "addresses": [
+                    "zssEdGnZCQ9G86LZFtbynMn1hYTVhn6eYCL",
+                    "zsrCsXXmUf8k59NLasEKfxA7us3iNvaPATz",
+                    "zsnLPsWMXW2s4w9EmFSwtSLRxL2LhPcfdby",
+                    "zshdovbcPfUAfkPeEE2qLbKnoue9RsbVokU",
+                    "zsqmq97JAKCCBFRGvxgv6FiJgQLCZBDp62S",
+                    "zskyFVFA7VRYX8EGdXmYN75WaBB25FmiL3g",
+                    "zsmncLmwEUdVmAGPUrUnNKmPGXyej7mbmdM",
+                    "zsfa9VVJCEdjfPbku4XrFcRR8kTDm2T64rz",
+                    "zsjdMnfWuFi46VeN2HSXVQWEGsnGHgVxayY",
+                    "zseb8wRQ8rZ722oLX5B8rx7qwZiBRb9mdig",
+                    "zsjxkovhqiMVggoW7jvSRi3NTSD3a6b6qfd",
+                    "zsokCCSU3wvZrS2G6mEDpJ5cH49E7sDyNr1",
+                    "zt12EsFgkABHLMRXA7JNnpMqLrxsgCLnVEV",
+                    "zt39mvuG9gDTHX8A8Qk45rbk3dSdQoJ8ZAv",
+                    "zssTQZs5YxDGijKC86dvcDxzWogWcK7n5AK",
+                    "zsywuMoQK7Bved2nrXs56AEtWBhpb88rMzS",
+                    "zsxVS2w7h1fHFX2nQtGm4372pd4DSHzq9ee",
+                    "zsupGi7ro3uC8CEVwm9r7vrdVUZaXQnHF6T",
+                    "zshVZvW47dA5AB3Sqk1h7ytwWJeUJUJxxaE",
+                    "zsubBCjvDx252MKFsL4Dcf5rJU9Z9Upqr1N",
+                    "zsweaST3NcU4hfgkVULfCsfEq41pjgMDgcW",
+                    "zswz6Rxb1S33fUpftETZwtGiVSeYxNKq2xc",
+                    "zswnpHtiBbrvYDzbhPQshkgvLSfYhDMRJ4S",
+                    "zsjSYAWaEYj35Ht7aXrRJUGY6Dc8qCmgYqu",
+                    "zsvMv8fGroWR8epbSiGDCJHmfe6ec2uFQrt",
+                    "zsujxCT56BExQDAwKwktBjtnopYnw8BiKbg",
+                    "zsxeXc2FTAzmUmeZmqVsKVdwTMSvzyns4rT",
+                    "zsuLqgABNudD8bVPbVGeUjGqapuoXp68i7F",
+                    "zsoc39J1dCFK1U8kckZznvQkv8As7sajYLz",
+                    "zt21NFdu1KRPJ7VRKtrWugM2Jqe5ePNmU4T",
+                    "zsp15qbVcbx9ifcjKe6XZEJTvzsFUZ2BHLT",
+                    "zso2KvqH6yxLQEYggHdmfL3Tcd5V6E9tqhp",
+                    "zsnFG2W5ZHRYh3QucNze4mp31tBkemtfxdj",
+                    "zsex2CGJtxHyHbpLXm7kESBmp3vWRqUkJMy",
+                    "zsvtFv96nrgrXKUbtNe2BpCt8aQEp5oJ7F8",
+                    "zsk5KitThmhK9KBa1KDybPgEmGSFTHzhMVA",
+                    "zsuy4n48c4NsJyaCZEzwdAKULM1FqbB6Y4z",
+                    "zsgtQVMpX2zNMLvHHG2NDwfqKoaebvVectJ",
+                    "zszQqXRSPGdqsWw4iaMTNN6aJz4JjEzSdCF",
+                    "zst6dBLrTtaMQBX7BLMNjKLTGcP11PBmgTV",
+                    "zshD9r6Eb6dZGdzYW2HCb9CzkMokCT1NGJR",
+                    "zswUaj1TboEGmvSfF7fdoxWyH3RMx7MBHHo",
+                    "zsv8s4Poi5GxCsbBrRJ97Vsvazp84nrz5AN",
+                    "zsmmxrKU6dqWFwUKow1iyovg3gxrgXpEivr",
+                    "zskh1221aRC9WEfb5a59WxffeW34McmZZsw",
+                    "zssAhuj57NnVm4yNFT6o8muRctABkUaBu3L",
+                    "zsi5Yr4Z8HwBvdBqQE8gk7ahExDu95J4oqZ",
+                    "zsy6ryEaxfk8emJ8bGVB7tmwRwBL8cfSqBW"
+                ],
+                "pct": 8.5
+            }
+        },
+        {
+            "activationHeight": 139200,
+            "_comment": "https://github.com/HorizenOfficial/zen/blob/5092410f135b71efaddf8ddab170de662568b79a/src/zen/forks/fork3_communityfundandrpfixfork.cpp",
+            "treasury": {
+                "changeInterval": 50000,
+                "addresses": [
+                    "zsyF68hcYYNLPj5i4PfQJ1kUY6nsFnZkc82",
+                    "zsfULrmbX7xbhqhAFRffVqCw9RyGv2hqNNG",
+                    "zsoemTfqjicem2QVU8cgBHquKb1o9JR5p4Z",
+                    "zt339oiGL6tTgc9Q71f5g1sFTZf6QiXrRUr"
+                ],
+                "pct": 12
+            }
+        },
+        {
+            "activationHeight": 344700,
+            "_comment": "https://github.com/HorizenOfficial/zen/blob/5092410f135b71efaddf8ddab170de662568b79a/src/zen/forks/fork4_nulltransactionfork.cpp",
+            "treasury": {
+                "addresses": [
+                    "zszpcLB6C5B8QvfDbF2dYWXsrpac5DL9WRk"
+                ],
+                "pct": 10
+            },
+            "securenodes": {
+                "addresses": [
+                    "zsxWnyDbU8pk2Vp98Uvkx5Nh33RFzqnCpWN"
+                ],
+                "pct": 10
+            },
+            "supernodes": {
+                "addresses": [
+                    "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE"
+                ],
+                "pct": 10
+            }
+        },
+        {
+            "activationHeight": 455555,
+            "_comment": "https://github.com/HorizenOfficial/zen/blob/5092410f135b71efaddf8ddab170de662568b79a/src/zen/forks/fork5_shieldfork.cpp",
+            "treasury": {
+                "addresses": [
+                    "zszpcLB6C5B8QvfDbF2dYWXsrpac5DL9WRk"
+                ],
+                "pct": 20
+            },
+            "securenodes": {
+                "addresses": [
+                    "zsxWnyDbU8pk2Vp98Uvkx5Nh33RFzqnCpWN"
+                ],
+                "pct": 10
+            },
+            "supernodes": {
+                "addresses": [
+                    "zsnL6pKdzvZ1BPVzALUoqw2KsY966XFs5CE"
+                ],
+                "pct": 10
+            }
+        },
+        {
+            "activationHeight": 1127000,
+            "_comment": "https://github.com/HorizenOfficial/zen/blob/5092410f135b71efaddf8ddab170de662568b79a/src/zen/forks/fork9_sidechainversionfork.cpp",
+            "treasury": {
+                "addresses": [
+                    "zshX5BAgUvNgM1VoBVKZyFVVozTDjjJvRxJ"
+                ],
+                "pct": 20
+            },
+            "securenodes": {
+                "addresses": [
+                    "zsx68qSKMNoc1ZPQpGwNFZXVzgf27KN6a9u"
+                ],
+                "pct": 10
+            },
+            "supernodes": {
+                "addresses": [
+                    "zszMgcogAqz49sLHGV22YCDFSvwzwkfog4k"
+                ],
+                "pct": 10
+            }
+        }
+    ]
 }
