@@ -30,7 +30,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/s-nomp/s-nomp.git"
+        "url": "https://github.com/Seal-Clubber/s-nomp.git"
     },
     "dependencies": {
         "async": "^2.6.1",
@@ -48,12 +48,10 @@
         "nonce": "^1.0.4",
         "redis": "^2.8.0",
         "request": "^2.88.0",
-        "stratum-pool": "git+https://github.com/s-nomp/node-stratum-pool.git"
+        "multi-hashing": "git+https://github.com/Seal-Clubber/node-multi-hashing.git",
+        "stratum-pool": "git+https://github.com/Seal-Clubber/Ravencoin-stratum-server.git"
     },
     "engines": {
         "node": ">=8.11"
-    },
-    "scripts": {
-        "start": "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/node_modules/stratum-pool/node_modules/equihashverify/build/Release/:$PWD/node_modules/equihashverify/build/Release/ node init.js"
     }
 }
