@@ -150,11 +150,11 @@ module.exports = function(logger){
                 shareProcessor.handleShare(isValidShare, isValidBlock, data);
             };
         }
-
-        var authorizeFN = function (ip, port, workerName, password, callback) {
-            handlers.auth(port, workerName, password, function(authorized){
-
-                var authString = authorized ? 'Authorized' : 'Unauthorized ';
+        
+        var authorizeFN = function(ip, port, workerName, password, extraNonce1, version, callback) {
+		handlers.auth(port, workerName, password, function(authorized) {
+		
+			var authString = authorized ? 'Authorized' : 'Unauthorized ';
 
                 logger.debug(logSystem, logComponent, logSubCat, authString + ' ' + workerName + ':' + password + ' [' + ip + ']');
                 callback({
