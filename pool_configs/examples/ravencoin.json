@@ -21,7 +21,7 @@
 
     "paymentProcessing": {
         "enabled": true,
-        "minConf": 30,
+        "minConf": 100,
         "paymentMode": "pplnt",
         "_comment_paymentMode": "prop, pplnt, solo",
         "pplnt": 0.51,
