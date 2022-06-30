@@ -22,8 +22,9 @@
     "paymentProcessing": {
         "enabled": true,
         "minConf": 30,
-        "paymentMode": "prop",
-        "_comment_paymentMode": "prop, pplnt",
+        "paymentMode": "pplnt",
+        "_comment_paymentMode": "prop, pplnt, solo",
+        "pplnt": 0.51,
         "paymentInterval": 120,
         "minimumPayment": 1,
         "coinPrecision": 8,
