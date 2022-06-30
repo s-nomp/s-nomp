@@ -2,6 +2,9 @@
     "name": "ravencoin",    
     "symbol": "RVN",    
     "algorithm": "kawpow",
+    "poolOptions": {
+        "confirmations": 100
+    },
     "wallet": "https://github.com/RavenProject/Ravencoin/releases",
     "explorer":"https://rvn.cryptoscope.io/",
     "explorerGetBlockJSON": "https://rvn.cryptoscope.io/api/getrawtransaction/?txid=",
