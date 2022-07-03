@@ -62,6 +62,12 @@ git clone https://github.com/s-nomp/s-nomp.git s-nomp
 cd s-nomp
 npm update
 npm install
+
+(
+npm install sha3
+npm install logger
+npm install bignum
+)
 ```
 
 ##### Pool config
