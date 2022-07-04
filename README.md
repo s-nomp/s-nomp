@@ -55,7 +55,8 @@ node [path to cli.js] [coin name in config] [block hash symbol]
 ```
 Example: inside `zclassic.conf` add the line
 ```
-blocknotify=node /home/user/s-nomp/scripts/cli.js blocknotify zclassic %s
+blocknotify=node /home/user/s-nomp/scripts/cli.js blocknotify ravencoin %s
+blocknotify=/home/pool/s-nomp/scripts/blocknotify 127.0.0.1:17117 ravencoin %s
 ```
 
 Alternatively, you can use a more efficient block notify script written in pure C. Build and usage instructions
