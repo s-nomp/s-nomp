@@ -64,6 +64,7 @@ are commented in [scripts/blocknotify.c](scripts/blocknotify.c).
 ```
 blocknotify=/home/pool/s-nomp/scripts/blocknotify 127.0.0.1:17117 ravencoin %s
 ```
+also set `"blockRefreshInterval": 500,` to `0` in `s-nomp/config.json`
 
 
 #### 3) Start the portal
