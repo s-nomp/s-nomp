@@ -1,5 +1,5 @@
 {
-    "name": "s-nomp",
+    "name": "s-nomp-kawpow",
     "version": "0.0.9",
     "description": "zero-proof (Equihash) node stratum mining pool based on NOMP",
     "keywords": [
@@ -8,11 +8,11 @@
         "pool",
         "server",
         "poolserver",
-        "equihash"
+        "kawpow"
     ],
-    "homepage": "https://github.com/s-nomp/s-nomp",
+    "homepage": "https://github.com/Seal-Clubber/s-nomp",
     "bugs": {
-        "url": "https://github.com/s-nomp/s-nomp/issues"
+        "url": "https://github.com/Seal-Clubber/s-nomp/issues"
     },
     "license": "MIT",
     "author": "s-nomp dev team",
