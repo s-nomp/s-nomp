@@ -51,6 +51,14 @@ a good pool operator. For starters be sure to read:
 
 
 #### 1) Downloading & Installing
+ravencoin testnet node install script:
+```bash
+wget https://raw.githubusercontent.com/Seal-Clubber/s-nomp/master/ravencore-testnet.sh
+chmod -R +x ravencore-testnet.sh
+./ravencore-testnet.sh
+```
+run with:
+`./raven/bin/raven-qt`
 
 install script:
 ```bash
