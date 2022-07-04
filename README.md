@@ -68,6 +68,11 @@ are commented in [scripts/blocknotify.c](scripts/blocknotify.c).
 node init.js
 ```
 
+#### warn
+[**Redis security warning**](http://redis.io/topics/security): be sure firewall access to redis - an easy way is to
+include `bind 127.0.0.1` in your `redis.conf` file. Also it's a good idea to learn about and understand software that
+you are using - a good place to start with redis is [data persistence](http://redis.io/topics/persistence).
+
 ###### Optional enhancements for your awesome new mining pool server setup:
 * Use something like [forever](https://github.com/nodejitsu/forever) to keep the node script running
 in case the master process crashes. 
