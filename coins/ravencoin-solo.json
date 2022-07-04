@@ -1,0 +1,16 @@
+{
+    "name": "ravencoin-solo",    
+    "symbol": "RVN",    
+    "algorithm": "kawpow",
+    "poolOptions": {
+        "confirmations": 100
+    },
+    "wallet": "https://github.com/RavenProject/Ravencoin/releases",
+    "explorer":"https://rvn.cryptoscope.io/",
+    "explorerGetBlockJSON": "https://rvn.cryptoscope.io/api/getrawtransaction/?txid=",
+    "explorerGetBlock": "https://rvn.cryptoscope.io/blocks/",
+    "explorerGetTX": "https://rvn.cryptoscope.io/tx/?txid=",
+    "explorerGetAddress": "https://rvn.cryptoscope.io/address/?address=",
+    "blockTime": 60,
+    "blockChange": 1   
+}
