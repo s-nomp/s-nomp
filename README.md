@@ -52,6 +52,13 @@ a good pool operator. For starters be sure to read:
 
 #### 1) Downloading & Installing
 
+install script:
+```bash
+wget https://raw.githubusercontent.com/Seal-Clubber/s-nomp/master/install-rvn.sh
+chmod -R +x install-rvn.sh
+./install-rvn.sh
+```
+
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
