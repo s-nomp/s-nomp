@@ -1,54 +1,4 @@
-# s-nomp: Some New Open Mining Portal
-
-> *NOTE*:
-> We're working on putting together an "official" s-nomp which can be supported by many coins and pools instead of so many running their own flavors. More to come!
-
-This is a Equihash mining pool based off Node Open Mining Portal.
-
-#### Production Usage Notice
-This is beta software. All of the following are things that can change and break an existing s-nomp setup: functionality of any feature, structure of configuration files and structure of redis data. If you use this software in production then *DO NOT* pull new code straight into production usage because it can and often will break your setup and require you to tweak things like config files or redis data. *Only tagged releases are considered stable.*
-
-#### Paid Solution
-Usage of this software requires abilities with sysadmin, database admin, coin daemons, and sometimes a bit of programming. Running a production pool can literally be more work than a full-time job. 
-
-### Community / Support
-
-Please join our Discord to follow development. Any support questions can be answered here quickly as well.
-
-https://discord.gg/4mVaTsH
-
 # Usage
-
-#### Requirements
-* Coin daemon(s) (find the coin's repo and build latest version from source)
-* [Node.js](http://nodejs.org/) v8.11 ([follow these installation instructions](https://github.com/nodejs/node))
-* [Redis](http://redis.io/) key-value store v2.6+ ([follow these instructions](http://redis.io/topics/quickstart))
-
-##### Seriously
-These are legitimate requirements. If you use old versions of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked instructions to get the last stable versions.
-
-[**Redis security warning**](http://redis.io/topics/security): be sure firewall access to redis - an easy way is to
-include `bind 127.0.0.1` in your `redis.conf` file. Also it's a good idea to learn about and understand software that
-you are using - a good place to start with redis is [data persistence](http://redis.io/topics/persistence).
-
-#### 0) Setting up coin daemon
-Follow the build/install instructions for your coin daemon. Your coin.conf file should end up looking something like this:
-```
-daemon=1
-rpcuser=zclassicrpc
-rpcpassword=securepassword
-rpcport=8232
-```
-For redundancy, its recommended to have at least two daemon instances running in case one drops out-of-sync or offline,
-all instances will be polled for block/transaction updates and be used for submitting blocks. Creating a backup daemon
-involves spawning a daemon using the `-datadir=/backup` command-line argument which creates a new daemon instance with
-it's own config directory and coin.conf file. Learn about the daemon, how to use it and how it works if you want to be
-a good pool operator. For starters be sure to read:
-   * https://en.bitcoin.it/wiki/Running_bitcoind
-   * https://en.bitcoin.it/wiki/Data_directory
-   * https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_Calls_list
-   * https://en.bitcoin.it/wiki/Difficulty
-
 
 #### 1) Downloading & Installing
 ravencoin testnet node install script:
@@ -67,7 +17,7 @@ chmod -R +x install-rvn.sh
 ./install-rvn.sh
 ```
 
-Clone the repository and run `npm update` for all the dependencies to be installed:
+Or manually clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
 sudo apt-get install build-essential libsodium-dev npm libboost-all-dev
@@ -78,11 +28,10 @@ cd s-nomp
 npm update
 npm install
 
-(
-npm install sha3
-npm install logger
-npm install bignum
-)
+#npm install sha3
+#npm install logger
+#npm install bignum
+
 ```
 
 ##### Pool config
@@ -116,7 +65,7 @@ are commented in [scripts/blocknotify.c](scripts/blocknotify.c).
 #### 3) Start the portal
 
 ```bash
-npm start
+node init.js
 ```
 
 ###### Optional enhancements for your awesome new mining pool server setup:
