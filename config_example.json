@@ -9,6 +9,10 @@
         "enabled": true,
         "forks": "auto"
     },
+    "blockNotifyListener": {
+    	"enable": false,
+    	"port": 17117
+    },
 
     "defaultPoolConfigs": {
         "blockRefreshInterval": 500,
