@@ -3,8 +3,8 @@
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt-get install -y build-essential libsodium-dev npm libboost-all-dev
-sudo apt install -y redis-server git net-tools
+sudo apt-get install -y build-essential libsodium-dev npm libboost-all-dev redis-server git
+sudo apt install -y net-tools
 
 sudo npm install n -g
 sudo n stable
