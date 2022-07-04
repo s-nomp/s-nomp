@@ -39,7 +39,7 @@
         "enabled": true,
         "host": "0.0.0.0",
         "port": 8080,
-        "stratumHost": "cryppit.com",
+        "stratumHost": "IP_OR_DNS_OF_STRATUM_SERVER",
         "stats": {
             "updateInterval": 30,
             "historicalRetention": 14400,
