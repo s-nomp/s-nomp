@@ -30,7 +30,7 @@
         "coinPrecision": 8,
         "daemon": {
             "host": "127.0.0.1",
-            "port": 8766,
+            "port": 8888,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -56,7 +56,7 @@
     "daemons": [
         {
             "host": "127.0.0.1",
-            "port": 8766,
+            "port": 8888,
             "user": "rpcuser",
             "password": "rpcpassword"
         }
@@ -65,7 +65,7 @@
     "p2p": {
         "enabled": false,
         "host": "127.0.0.1",
-        "port": 8767,
+        "port": 19333,
         "disableTransactions": true
     },
 
