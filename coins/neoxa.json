@@ -1,0 +1,10 @@
+
+{
+    "name": "neoxamainnet",    
+    "symbol": "NEOX",    
+    "algorithm": "kawpow",
+    
+    "blockTime": 60,
+    "blockChange": 1
+    
+}
