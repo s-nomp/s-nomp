@@ -1,3 +1,5 @@
+Bug: Testnet only works with addresses that start with `n`
+
 # Usage
 
 #### 1) Downloading & Installing
