@@ -5,6 +5,8 @@
     "poolOptions": {
         "confirmations": 100
     },
+    "peerMagic": "5241564e",
+    "peerMagicTestnet": "52564e54",
     "wallet": "https://github.com/RavenProject/Ravencoin/releases",
     "explorer":"https://rvn.cryptoscope.io/",
     "explorerGetBlockJSON": "https://rvn.cryptoscope.io/api/getrawtransaction/?txid=",
