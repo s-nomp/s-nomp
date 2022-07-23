@@ -1,11 +1,11 @@
 #!/bin/sh
 
-wget https://github.com/hans-schmidt/Ravencoin/releases/download/v4.8.5test1/linux.zip
+wget https://github.com/hans-schmidt/Ravencoin/releases/download/v4.9.0test1/linux.zip
 unzip linux.zip
 rm linux.zip
-tar -xf raven-4.8.5test1-01cfb1912-x86_64-linux-gnu.tar.gz 
-mv raven-4.8.5test1-01cfb1912 raven
-rm raven-4.8.5test1-01cfb1912*
+tar -xf raven-4.9.0test1-0addc4f8b-x86_64-linux-gnu.tar.gz 
+mv raven-4.9.0test1-0addc4f8b raven
+rm raven-4.9.0test1-0addc4f8b*
 mkdir -p ~/.raven/
 touch ~/.raven/raven.conf
 echo "rpcuser=user1" > ~/.raven/raven.conf
