@@ -5,3 +5,4 @@ node_modules/
 pool_configs/*.json
 .vs/
 package-lock.json
+*_finalRedisCommands.txt
