@@ -122,5 +122,8 @@
         "txURL": "https://explorer.btcz.rocks/tx/",
         "blockURL": "https://explorer.btcz.rocks/block/",
         "_comment_explorer": "This is the coin's explorer full base url for transaction and blocks i.e. (https://explorer.coin.com/tx/). The pool will automatically add the transaction id or block id at the end."
+    },
+    "poolOptions": {
+        "confirmations": 100
     }
 }

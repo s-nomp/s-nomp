@@ -64,6 +64,65 @@
         "password": ""
     },
 
+    "availableMiners": {
+        "miniz": {
+            "enabled": true,
+            "name": "MiniZ",
+            "url": "https://miniz.ch/download/"
+        },
+        "gminer": {
+            "enabled": true,
+            "name": "Gminer",
+            "url": "https://bitcointalk.org/index.php?topic=5034735.0"
+        },
+        "lolminer": {
+            "enabled": false,
+            "name": "lolMiner",
+            "url": "https://bitcointalk.org/index.php?topic=4724735.0"
+        },
+        "ewbf": {
+            "enabled": true,
+            "name": "EWBF",
+            "url": "https://bitcointalk.org/index.php?topic=4466962.0"
+        }
+    },
+
+    "availableStratums": {
+        "US": {
+            "enabled": true,
+            "stratumHost": "us.example.com",
+            "availablePorts": {
+                "1001": {
+                    "tls": false
+                },
+                "2001": {
+                    "tls": true
+                }
+            }
+        },
+        "EU": {
+            "enabled": true,
+            "stratumHost": "eu.example.com",
+            "availablePorts": {
+                "1001": {
+                    "tls": false
+                },
+                "2001": {
+                    "tls": true
+                }
+            }
+        },
+        "Asia": {
+            "enabled": true,
+            "stratumHost": "asia.example.com",
+            "availablePorts": {
+                "1001": {
+                    "tls": false
+                }
+            }
+        }
+    },
+
     "switching": {
         "switch1": {
             "enabled": false,
