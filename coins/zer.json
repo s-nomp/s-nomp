@@ -49,5 +49,8 @@
         "4": 1935765626
       },
       "isZcash": true
+    },
+    "poolOptions": {
+        "confirmations": 720
     }
 }
