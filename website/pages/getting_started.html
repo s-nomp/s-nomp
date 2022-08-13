@@ -68,7 +68,7 @@
     }
 
     .miningOption:first-child{
-        background-color: #2d2d2d;
+        background-color: #0eafc7;
     }
     .miningOption:last-child{
         background-color: #b064e1;
@@ -81,7 +81,6 @@
     }
     .miningOptionInstructions{
         flex: 1 1 auto;
-        padding: 20px;
     }
 
     .miningOptionInstructions > div:first-child{
@@ -105,6 +104,7 @@
         background-color: #ebf4fa;
         color: #5c5c5c;
         display: inline-block;
+        width: 35px;
         font-style: italic;
     }
 
@@ -128,7 +128,7 @@
         left: 50%;
         margin-left: -375px;
         position: absolute;
-        background-color: #2d2d2d;
+        background-color: #f06350;
     }
     #coinInfo .coinInfoName{
         text-transform: capitalize;
@@ -177,11 +177,6 @@
     }
     #coinInfoClose:hover{
         color: #50f0e3;
-    }
-    .poolMinerTable {
-    }
-    table {
-        width: 100%;
     }
 </style>
 
@@ -232,40 +227,24 @@
     </div>
 
     <div id="main">
+        <a href="#" class="miningOption" id="nompAppDownload">
+            <div class="miningOptionNum">1.</div>
+            <div class="miningOptionInstructions">
+                <div>Download NOMP App</div>
+                <div>Our preconfigured app makes mining that easy</div>
+            </div>
+        </a>
+        <div id="orHolder">
+            <div id="orLine"></div>
+            <div id="orText">or</div>
+        </div>
         <a href="#" class="miningOption" id="coinGlowTrigger">
+            <div class="miningOptionNum">2.</div>
             <div class="miningOptionInstructions">
                 <div>Select a coin for connection details</div>
                 <div>Configurations for each coin are available for advanced miners</div>
             </div>
         </a>
-        <div id="orHolder">
-            <div id="orLine"></div>
-            <div id="orText">Available Miners</div>
-        </div>
-        <div class="poolMinerTable">
-            <table class="pure-table">
-                <thead>
-                    <tr>
-                        <th>Miner</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{ 
-                        for (var miner in it.portalConfig.availableMiners){ 
-                            if(it.portalConfig.availableMiners[miner].enabled === true) {
-                    }}
-                        <tr class="pure-table-odd">
-                            <td>{{=it.portalConfig.availableMiners[miner].name}}</td>
-                            <td><a href="{{=it.portalConfig.availableMiners[miner].url}}">Download</a></td>
-                        </tr>
-                    {{ 
-                            }
-                        }
-                    }}
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 
@@ -281,7 +260,7 @@
         </div>
         <div id="coinInfoRowValues">
             <div id="coinInfoUsername"></div>
-            <div>x</div>
+            <div>anything</div>
         </div>
     </div>
 </div>
@@ -292,29 +271,11 @@
 
         var htmlKeys = '<div class="coinInfoData">Algorithm:</div>';
         var htmlValues = '<div class="coinInfoData">' + info.algo + '</div>';
-        {{ 
-            for(var stratum in it.portalConfig.availableStratums) {
-                if(it.portalConfig.availableStratums[stratum].enabled == true) { 
-                    var stratumHost = it.portalConfig.availableStratums[stratum].stratumHost;
-                    var ports = it.portalConfig.availableStratums[stratum].availablePorts;
-                    for ( var ports in it.portalConfig.availableStratums[stratum].availablePorts) {
-                        for(var tls in it.portalConfig.availableStratums[stratum].availablePorts[ports]) {
-                            if(it.portalConfig.availableStratums[stratum].availablePorts[ports][tls] == true) { 
-                                var secure = "(TLS)"; 
-                            } else {
-                                var secure = "";
-                            }
-                            }}
-                                htmlKeys += '<div class="coinInfoData">Stratum {{=secure}}<span class="coinInfoSubtle"></span>:</div>';
-                                htmlValues += '<div class="coinInfoData">{{=stratumHost}}:{{=ports}}</div>';
-                            {{
-                        }
-                    }
-                }
-            }
-        }}
 
-
+        for (var port in info.ports){
+            htmlKeys += '<div class="coinInfoData">URL <span class="coinInfoSubtle">(difficulty ' + info.ports[port].diff + ')</span>:</div>';
+            htmlValues += '<div class="coinInfoData">stratum+tcp://' + info.host + ':' + port + '</div>';
+        }
 
         if (info.coin)
             $('#coinInfoUsername').text('your ' + info.coin.name + ' wallet address');
@@ -346,6 +307,12 @@
         event.preventDefault();
         $('#coinInfoBackground,#coinInfo').addClass('hidden');
         $('#coinInfoBackground').css('opacity', 0.0);
+        return false;
+    });
+
+    $('#nompAppDownload').click(function(event){
+        event.preventDefault();
+        alert('NOMP App development still in progress...');
         return false;
     });
 </script>
