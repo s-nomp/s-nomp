@@ -40,7 +40,7 @@
         "compression": "^1.7.3",
         "dateformat": "^3.0.3",
         "dot": "^1.1.2",
-        "express": "^4.16.3",
+        "express": "^4.17.3",
         "extend": "^3.0.2",
         "mysql": "^2.16.0",
         "node-json-minify": "^1.0.0",
