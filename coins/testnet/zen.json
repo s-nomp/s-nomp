@@ -2,7 +2,7 @@
     "name": "zen_testnet",
     "symbol": "zent",
     "algorithm": "equihash",
-    "requireShielding": true,
+    "requireShielding": false,
     "payFoundersReward": true,
     "peerMagic": "bff2cde6",
     "txfee": 0.0004,
@@ -149,6 +149,28 @@
             "supernodes": {
                 "addresses": [
                     "zrSRNSqeBNEtXqn8NkAgJ9gwhLTJmXjKqoX"
+                ],
+                "pct": 10
+            }
+        },
+        {
+            "activationHeight": 1313400,
+            "_comment": "https://github.com/HorizenOfficial/zen/commit/eb6de8492bfcf9215cab155873a3b8cc4ee26ff2",
+            "treasury": {
+                "addresses": [
+                    "zrA11hUpuPNofRm3nhSrwBYZ3886B22zgX5"
+                ],
+                "pct": 20
+            },
+            "securenodes": {
+                "addresses": [
+                    "zrKHh4dNiRCqUe4F9iDUiQcyp9soH86Sx2L"
+                ],
+                "pct": 10
+            },
+            "supernodes": {
+                "addresses": [
+                    "zrDdMQS7nbn5d3o3Ufk1cQnjZPAxJEMBJ36"
                 ],
                 "pct": 10
             }
