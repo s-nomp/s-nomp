@@ -33,7 +33,7 @@
         "url": "https://github.com/s-nomp/s-nomp.git"
     },
     "dependencies": {
-        "async": "^2.6.1",
+        "async": "^2.6.4",
         "bignum": "^0.13.0",
         "body-parser": "^1.18.3",
         "colors": "^1.3.1",
