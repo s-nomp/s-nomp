@@ -2,7 +2,7 @@
     "name": "horizen",
     "symbol": "zen",
     "algorithm": "equihash",
-    "requireShielding": true,
+    "requireShielding": false,
     "payFoundersReward": true,
     "peerMagic": "63617368",
     "txfee": 0.0004,
@@ -153,6 +153,28 @@
             "supernodes": {
                 "addresses": [
                     "zszMgcogAqz49sLHGV22YCDFSvwzwkfog4k"
+                ],
+                "pct": 10
+            }
+        },
+        {
+            "activationHeight": 1426200,
+            "_comment": "https://github.com/HorizenOfficial/zen/commit/eb6de8492bfcf9215cab155873a3b8cc4ee26ff2, https://github.com/HorizenOfficial/zen/commit/c85b62cf90cf12e7be5ca03686edc9f08b5bdb0e",
+            "treasury": {
+                "addresses": [
+                    "zsq5TpKdHRTXTaeKeToTiPTE4Re4279nUj3"
+                ],
+                "pct": 20
+            },
+            "securenodes": {
+                "addresses": [
+                    "zstp5e9WBs5wUQcrNHx2S1UmkaN4koPVBBf"
+                ],
+                "pct": 10
+            },
+            "supernodes": {
+                "addresses": [
+                    "zsvR2ihXmtjGrmAyFWytLdj76VvdFxVUJpP"
                 ],
                 "pct": 10
             }
