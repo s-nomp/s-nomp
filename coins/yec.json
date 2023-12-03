@@ -10,7 +10,7 @@
     "requireShielding": true,
     "payFoundersReward": true,
     "percentFoundersReward": 5,
-    "maxFoundersRewardBlockHeight": 1849999,
+    "maxFoundersRewardBlockHeight": 9E15,
     "foundersRewardAddressChangeInterval": 17917,
     "vYcashFoundersRewardAddress": [
         "s1hfWJ4ej1H3s8XCUb7YnrU68K64AsGVUHE",
