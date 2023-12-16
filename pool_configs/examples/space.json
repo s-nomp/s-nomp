@@ -1,0 +1,92 @@
+{
+    "enabled": false,
+    "coin": "space.json",
+
+    "address": "",
+    "_comment_address": "pools spacecoin address; ex, RC7X8pGZ5GJH5hCHFb6skbsrfg5oEHjc2y",
+
+    "zAddress": "",
+    "_comment_zAddress": "shielding not required in spacecoin, not used",
+
+    "tAddress": "",
+    "_comment_tAddress": "set to same as pools spacecoin address; ex, RC7X8pGZ5GJH5hCHFb6skbsrfg5oEHjc2y",
+
+    "invalidAddress":"",
+    "_comment_invalidAddress": "Invalid addresses will be converted to the above",
+
+    "walletInterval": 1,
+    "_comment_walletInterval": "Used to cache spacecoin coin stats, shielding not performed.",
+
+    "rewardRecipients": {
+        "": 0.2
+    },
+
+    "tlsOptions": {
+        "enabled": false,
+        "serverKey": "",
+        "serverCert": "",
+        "ca": ""
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "minConf": 10,
+        "paymentMode": "prop",
+        "_comment_paymentMode": "prop, pplnt",
+        "paymentInterval": 90,
+        "_comment_paymentInterval": "Interval in seconds to check and perform payments.",
+        "minimumPayment": 0.1,
+        "maxBlocksPerPayment": 3,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 35593,
+            "user": "rpcuser",
+            "password": "rpcpassword"
+        }
+    },
+
+    "ports": {
+        "1234": {
+            "tls": false,
+            "diff": 0.5,
+            "varDiff": {
+                "minDiff": 0.04,
+                "maxDiff": 36,
+                "targetTime": 15,
+                "retargetTime": 60,
+                "variancePercent": 30
+            }
+        }
+    },
+
+    "poolId": "main",
+    "_comment_poolId": "use it for region identification: eu, us, asia or keep default if you have one stratum instance for one coin",
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": 35593,
+            "user": "rpcuser",
+            "password": "rpcpassword"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 35592,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "space",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    }
+
+}
