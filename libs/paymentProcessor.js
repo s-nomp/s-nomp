@@ -782,7 +782,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                         }
 
                         // get the coin base generation tx
-                        const generationTx = tx.result.details.filter(tx => tx.address === poolOptions.address)[0]
+                        let generationTx = tx.result.details.filter(tx => tx.address === poolOptions.address)[0]
 
                         if (!generationTx && tx.result.details.length === 1) {
                             generationTx = tx.result.details[0]
