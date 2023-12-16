@@ -471,7 +471,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     if (op.status == "success" || op.status == "failed") {
                         // clear operation id result
                         var opid_index = opids.indexOf(op.id);
-                        if (opid_index > -1) {
+                        if (opid_index > -1 || op.method == "saplingconsolidation") {
                             // clear operation id count
                             batchRPC.push(['z_getoperationresult', [[op.id]]]);
                             opidCount--;
