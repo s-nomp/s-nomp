@@ -21,11 +21,15 @@ https://discord.gg/4mVaTsH
 
 #### Requirements
 * Coin daemon(s) (find the coin's repo and build latest version from source)
-* [Node.js](http://nodejs.org/) v8.11 ([follow these installation instructions](https://github.com/nodejs/node))
-* [Redis](http://redis.io/) key-value store v2.6+ ([follow these instructions](http://redis.io/topics/quickstart))
+* [Node.js](http://nodejs.org/) v20.x LTS ([follow these installation instructions](https://github.com/nodejs/node))
+* [Redis](http://redis.io/) key-value store v5.0+ ([follow these instructions](http://redis.io/topics/quickstart))
+* [PM2](https://pm2.keymetrics.io/) v5.1.2+ for process management
+* Ubuntu 24.04 LTS or compatible Linux distribution
 
 ##### Seriously
 These are legitimate requirements. If you use old versions of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked instructions to get the last stable versions.
+
+**Note**: Node.js 20.x LTS is required for compatibility with Ubuntu 24.04 and modern security patches. Node 8.11 is EOL and no longer supported.
 
 [**Redis security warning**](http://redis.io/topics/security): be sure firewall access to redis - an easy way is to
 include `bind 127.0.0.1` in your `redis.conf` file. Also it's a good idea to learn about and understand software that
@@ -52,21 +56,57 @@ a good pool operator. For starters be sure to read:
 
 #### 1) Downloading & Installing
 
-Clone the repository and run `npm update` for all the dependencies to be installed:
+First, install system dependencies and Node.js:
 
 ```bash
-sudo apt-get install build-essential libsodium-dev npm libboost-all-dev
+sudo apt-get install build-essential libsodium-dev npm libboost-all-dev redis-server
 sudo npm install n -g
 sudo n stable
-git clone https://github.com/s-nomp/s-nomp.git s-nomp
-cd s-nomp
-npm update
-npm install
 ```
+
+Clone the repository and run the installation script:
+
+```bash
+git clone https://github.com/raw391/s-nomp.git s-nomp
+cd s-nomp
+bash scripts/install.sh
+```
+
+The installation script will:
+- Check all dependencies (Node.js 20+, Redis, build tools)
+- Install npm packages
+- Build native modules (equihashverify, bignum)
+- Patch jobManager.js for Node.js 20.x compatibility (makes verushash optional)
+- Verify PM2 is available
+
+#### 2) Configuration
 
 ##### Pool config
 Take a look at the example json file inside the `pool_configs` directory. Rename it to `zclassic.json` and change the
 example fields to fit your setup.
+
+The `pool_configs` directory contains example configurations for various coins. Each file shows:
+- Daemon connection settings (host, port, user, password)
+- Pool payout addresses (transparent address, z-address if applicable)
+- Port configuration for miners
+- Payment processing settings
+- Fee percentages
+
+##### Main config
+Copy and edit the main configuration file:
+```bash
+cp config_example.json config.json
+```
+
+Edit `config.json` to configure:
+- Redis connection settings
+- Website host and port
+- Clustering options
+- Logging preferences
+
+##### Examples directory
+The `examples/` directory contains helpful configuration examples:
+- **example_nginx** - Nginx reverse proxy configuration for running the pool website behind nginx (recommended for SSL/TLS)
 
 ```
 Please Note that: 1 Difficulty is actually 8192, 0.125 Difficulty is actually 1024.
@@ -92,18 +132,40 @@ Alternatively, you can use a more efficient block notify script written in pure 
 are commented in [scripts/blocknotify.c](scripts/blocknotify.c).
 
 
-#### 3) Start the portal
+#### 3) Start the pool
 
+##### Using PM2 (Recommended for Production)
+
+PM2 is a production process manager that keeps your pool running and automatically restarts it if it crashes:
+
+```bash
+pm2 start ecosystem.config.js
+pm2 save
+pm2 startup  # Follow the instructions to enable PM2 on system boot
+```
+
+To view logs:
+```bash
+pm2 logs s-nomp
+```
+
+To stop/restart:
+```bash
+pm2 stop s-nomp
+pm2 restart s-nomp
+```
+
+##### Using npm start (Development/Testing)
+
+For development or testing, you can run directly:
 ```bash
 npm start
 ```
 
 ###### Optional enhancements for your awesome new mining pool server setup:
-* Use something like [forever](https://github.com/nodejitsu/forever) to keep the node script running
-in case the master process crashes. 
 * Use something like [redis-commander](https://github.com/joeferner/redis-commander) to have a nice GUI
 for exploring your redis database.
-* Use something like [logrotator](http://www.thegeekstuff.com/2010/07/logrotate-examples/) to rotate log 
+* Use something like [logrotator](http://www.thegeekstuff.com/2010/07/logrotate-examples/) to rotate log
 output from s-nomp.
 * Use [New Relic](http://newrelic.com/) to monitor your s-nomp instance and server performance.
 

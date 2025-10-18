@@ -616,12 +616,15 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     // build rounds object from :blocksPending
                     var rounds = results[1].map(function(r){
                         var details = r.split(':');
+                        // Check if block has mode indicator (6th field)
+                        var mode = details[5] || 'pplnt'; // default to pplnt for old blocks
                         return {
                             blockHash: details[0],
                             txHash: details[1],
                             height: details[2],
                             minedby: details[3],
                             time: details[4],
+                            mode: mode, // 'solo' or 'pplnt'
                             duplicate: false,
                             serialized: r
                         };
@@ -989,51 +992,68 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
                                     /* calculate immature balances */
                                     case 'immature':
-                                        var feeSatoshi = coinsToSatoshies(fee);
+                                        // Different pool fees for SOLO (1%) vs PPLNT (0.5%)
+                                        var poolFeePercent = round.mode === 'solo' ? 0.01 : 0.005;
+                                        var poolFeeSatoshi = Math.round(coinsToSatoshies(round.reward) * poolFeePercent);
+                                        var feeSatoshi = coinsToSatoshies(fee); // tx fee
                                         var immature = coinsToSatoshies(round.reward);
                                         var totalShares = parseFloat(0);
                                         var sharesLost = parseFloat(0);
 
-                                        // adjust block immature .. tx fees
-                                        immature = Math.round(immature - feeSatoshi);
+                                        // adjust block immature .. pool fee and tx fees
+                                        immature = Math.round(immature - poolFeeSatoshi - feeSatoshi);
 
-                                        // total up shares for round
-                                        for (var workerAddress in workerShares){
-                                            var worker = workers[workerAddress] = (workers[workerAddress] || {});
-                                            var shares = parseFloat((workerShares[workerAddress] || 0));
-                                            // if pplnt mode
-                                            if (pplntEnabled === true && maxTime > 0) {
-                                                var tshares = shares;
-                                                var lost = parseFloat(0);
-                                                var address = workerAddress.split('.')[0];
-                                                if (workerTimes[address] != null && parseFloat(workerTimes[address]) > 0) {
-                                                    var timePeriod = roundTo(parseFloat(workerTimes[address] || 1) / maxTime , 2);
-                                                    if (timePeriod > 0 && timePeriod < pplntTimeQualify) {
-                                                        var lost = shares - (shares * timePeriod);
-                                                        sharesLost += lost;
-                                                        shares = Math.max(shares - lost, 0);
+                                        // Handle SOLO blocks differently
+                                        if (round.mode === 'solo') {
+                                            // For SOLO blocks, entire immature reward goes to finder
+                                            var finder = round.minedby;
+                                            var worker = workers[finder] = (workers[finder] || {});
+                                            worker.immature = (worker.immature || 0) + immature;
+                                            worker.roundShares = 1; // Symbolic share count for SOLO
+                                            totalShares = 1;
+
+                                            logger.debug(logSystem, logComponent, 'SOLO immature block ' + round.height +
+                                                ' reward of ' + satoshisToCoins(immature) + ' assigned to ' + finder);
+                                        } else {
+                                            // PPLNT mode - distribute based on shares
+                                            // total up shares for round
+                                            for (var workerAddress in workerShares){
+                                                var worker = workers[workerAddress] = (workers[workerAddress] || {});
+                                                var shares = parseFloat((workerShares[workerAddress] || 0));
+                                                // if pplnt mode
+                                                if (pplntEnabled === true && maxTime > 0) {
+                                                    var tshares = shares;
+                                                    var lost = parseFloat(0);
+                                                    var address = workerAddress.split('.')[0];
+                                                    if (workerTimes[address] != null && parseFloat(workerTimes[address]) > 0) {
+                                                        var timePeriod = roundTo(parseFloat(workerTimes[address] || 1) / maxTime , 2);
+                                                        if (timePeriod > 0 && timePeriod < pplntTimeQualify) {
+                                                            var lost = shares - (shares * timePeriod);
+                                                            sharesLost += lost;
+                                                            shares = Math.max(shares - lost, 0);
+                                                        }
                                                     }
                                                 }
+                                                worker.roundShares = shares;
+                                                totalShares += shares;
                                             }
-                                            worker.roundShares = shares;
-                                            totalShares += shares;
-                                        }
 
-                                        //console.log('--IMMATURE DEBUG--------------');
-                                        //console.log('performPayment: '+performPayment);
-                                        //console.log('blockHeight: '+round.height);
-                                        //console.log('blockReward: '+Math.round(immature));
-                                        //console.log('blockConfirmations: '+round.confirmations);
+                                            //console.log('--IMMATURE DEBUG--------------');
+                                            //console.log('performPayment: '+performPayment);
+                                            //console.log('blockHeight: '+round.height);
+                                            //console.log('blockReward: '+Math.round(immature));
+                                            //console.log('blockConfirmations: '+round.confirmations);
 
-                                        // calculate rewards for round
-                                        var totalAmount = 0;
-                                        for (var workerAddress in workerShares){
-                                            var worker = workers[workerAddress] = (workers[workerAddress] || {});
-                                            var percent = parseFloat(worker.roundShares) / totalShares;
-                                            // calculate workers immature for this round
-                                            var workerImmatureTotal = Math.round(immature * percent);
-                                            worker.immature = (worker.immature || 0) + workerImmatureTotal;
-                                            totalAmount += workerImmatureTotal;
+                                            // calculate rewards for round
+                                            var totalAmount = 0;
+                                            for (var workerAddress in workerShares){
+                                                var worker = workers[workerAddress] = (workers[workerAddress] || {});
+                                                var percent = parseFloat(worker.roundShares) / totalShares;
+                                                // calculate workers immature for this round
+                                                var workerImmatureTotal = Math.round(immature * percent);
+                                                worker.immature = (worker.immature || 0) + workerImmatureTotal;
+                                                totalAmount += workerImmatureTotal;
+                                            }
                                         }
 
                                         //console.log('----------------------------');
@@ -1041,64 +1061,81 @@ function SetupForPool(logger, poolOptions, setupFinished){
 
                                     /* calculate reward balances */
                                     case 'generate':
-                                        var feeSatoshi = coinsToSatoshies(fee);
+                                        // Different pool fees for SOLO (1%) vs PPLNT (0.5%)
+                                        var poolFeePercent = round.mode === 'solo' ? 0.01 : 0.005;
+                                        var poolFeeSatoshi = Math.round(coinsToSatoshies(round.reward) * poolFeePercent);
+                                        var feeSatoshi = coinsToSatoshies(fee); // tx fee
                                         var reward = coinsToSatoshies(round.reward);
                                         var totalShares = parseFloat(0);
                                         var sharesLost = parseFloat(0);
 
-                                        // adjust block reward .. tx fees
-                                        reward = Math.round(reward - feeSatoshi);
+                                        // adjust block reward .. pool fee and tx fees
+                                        reward = Math.round(reward - poolFeeSatoshi - feeSatoshi);
 
-                                        // total up shares for round
-                                        for (var workerAddress in workerShares){
-                                            var worker = workers[workerAddress] = (workers[workerAddress] || {});
-                                            var shares = parseFloat((workerShares[workerAddress] || 0));
-                                            // if pplnt mode
-                                            if (pplntEnabled === true && maxTime > 0) {
-                                                var tshares = shares;
-                                                var lost = parseFloat(0);
-                                                var address = workerAddress.split('.')[0];
-                                                if (workerTimes[address] != null && parseFloat(workerTimes[address]) > 0) {
-                                                    var timePeriod = roundTo(parseFloat(workerTimes[address] || 1) / maxTime , 2);
-                                                    if (timePeriod > 0 && timePeriod < pplntTimeQualify) {
-                                                        var lost = shares - (shares * timePeriod);
-                                                        sharesLost += lost;
-                                                        shares = Math.max(shares - lost, 0);
-                                                        logger.warning(logSystem, logComponent, 'PPLNT: Reduced shares for '+workerAddress+' round:' + round.height + ' maxTime:'+maxTime+'sec timePeriod:'+roundTo(timePeriod,6)+' shares:'+tshares+' lost:'+lost+' new:'+shares);
+                                        // Handle SOLO blocks differently
+                                        if (round.mode === 'solo') {
+                                            // For SOLO blocks, entire reward goes to finder
+                                            var finder = round.minedby;
+                                            var worker = workers[finder] = (workers[finder] || {});
+                                            worker.reward = (worker.reward || 0) + reward;
+                                            worker.roundShares = 1; // Symbolic share count for SOLO
+                                            worker.totalShares = parseFloat(worker.totalShares || 0) + 1;
+
+                                            logger.special(logSystem, logComponent, 'SOLO block reward of ' + satoshisToCoins(reward) +
+                                                ' assigned to finder ' + finder + ' for block ' + round.height);
+                                        } else {
+                                            // PPLNT mode - distribute based on shares
+                                            // total up shares for round
+                                            for (var workerAddress in workerShares){
+                                                var worker = workers[workerAddress] = (workers[workerAddress] || {});
+                                                var shares = parseFloat((workerShares[workerAddress] || 0));
+                                                // if pplnt mode
+                                                if (pplntEnabled === true && maxTime > 0) {
+                                                    var tshares = shares;
+                                                    var lost = parseFloat(0);
+                                                    var address = workerAddress.split('.')[0];
+                                                    if (workerTimes[address] != null && parseFloat(workerTimes[address]) > 0) {
+                                                        var timePeriod = roundTo(parseFloat(workerTimes[address] || 1) / maxTime , 2);
+                                                        if (timePeriod > 0 && timePeriod < pplntTimeQualify) {
+                                                            var lost = shares - (shares * timePeriod);
+                                                            sharesLost += lost;
+                                                            shares = Math.max(shares - lost, 0);
+                                                            logger.warning(logSystem, logComponent, 'PPLNT: Reduced shares for '+workerAddress+' round:' + round.height + ' maxTime:'+maxTime+'sec timePeriod:'+roundTo(timePeriod,6)+' shares:'+tshares+' lost:'+lost+' new:'+shares);
+                                                        }
+                                                        if (timePeriod > 1.0) {
+                                                            err = true;
+                                                            logger.error(logSystem, logComponent, 'Time share period is greater than 1.0 for '+workerAddress+' round:' + round.height + ' blockHash:' + round.blockHash);
+                                                            return;
+                                                        }
+                                                        worker.timePeriod = timePeriod;
                                                     }
-                                                    if (timePeriod > 1.0) {
-                                                        err = true;
-                                                        logger.error(logSystem, logComponent, 'Time share period is greater than 1.0 for '+workerAddress+' round:' + round.height + ' blockHash:' + round.blockHash);
-                                                        return;
-                                                    }
-                                                    worker.timePeriod = timePeriod;
                                                 }
+                                                worker.roundShares = shares;
+                                                worker.totalShares = parseFloat(worker.totalShares || 0) + shares;
+                                                totalShares += shares;
                                             }
-                                            worker.roundShares = shares;
-                                            worker.totalShares = parseFloat(worker.totalShares || 0) + shares;
-                                            totalShares += shares;
-                                        }
 
-                                        //console.log('--REWARD DEBUG--------------');
-                                        //console.log('performPayment: '+performPayment);
-                                        //console.log('blockHeight: '+round.height);
-                                        //console.log('blockReward: ' + Math.round(reward));
-                                        //console.log('blockConfirmations: '+round.confirmations);
+                                            //console.log('--REWARD DEBUG--------------');
+                                            //console.log('performPayment: '+performPayment);
+                                            //console.log('blockHeight: '+round.height);
+                                            //console.log('blockReward: ' + Math.round(reward));
+                                            //console.log('blockConfirmations: '+round.confirmations);
 
-                                        // calculate rewards for round
-                                        var totalAmount = 0;
-                                        for (var workerAddress in workerShares){
-                                            var worker = workers[workerAddress] = (workers[workerAddress] || {});
-                                            var percent = parseFloat(worker.roundShares) / totalShares;
-                                            if (percent > 1.0) {
-                                                err = true;
-                                                logger.error(logSystem, logComponent, 'Share percent is greater than 1.0 for '+workerAddress+' round:' + round.height + ' blockHash:' + round.blockHash);
-                                                return;
+                                            // calculate rewards for round
+                                            var totalAmount = 0;
+                                            for (var workerAddress in workerShares){
+                                                var worker = workers[workerAddress] = (workers[workerAddress] || {});
+                                                var percent = parseFloat(worker.roundShares) / totalShares;
+                                                if (percent > 1.0) {
+                                                    err = true;
+                                                    logger.error(logSystem, logComponent, 'Share percent is greater than 1.0 for '+workerAddress+' round:' + round.height + ' blockHash:' + round.blockHash);
+                                                    return;
+                                                }
+                                                // calculate workers reward for this round
+                                                var workerRewardTotal = Math.round(reward * percent);
+                                                worker.reward = (worker.reward || 0) + workerRewardTotal;
+                                                totalAmount += workerRewardTotal;
                                             }
-                                            // calculate workers reward for this round
-                                            var workerRewardTotal = Math.round(reward * percent);
-                                            worker.reward = (worker.reward || 0) + workerRewardTotal;
-                                            totalAmount += workerRewardTotal;
                                         }
 
                                         //console.log('----------------------------');
