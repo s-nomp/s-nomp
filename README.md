@@ -76,6 +76,43 @@ Whenever a miner submits a share, the pool counts the difficulty and keeps addin
 ie: Miner 1 mines at 0.1 difficulty and finds 10 shares, the pool sees it as 1 share. Miner 2 mines at 0.5 difficulty and finds 5 shares, the pool sees it as 2.5 shares. 
 ```
 
+##### Wallet-backed payouts
+
+For shielded payouts, point `paymentProcessing.daemon` at the wallet's authenticated RPC
+endpoint and enable `paymentProcessing.enabled`. Use a coin configuration with
+`requireShielding: true` and wallet-owned `address` (coinbase), `zAddress` (Sapling), and
+a distinct `tAddress` (transparent payout funds).
+
+Set the coin's `txfee` in whole-coin units (default `0.0004`),
+`paymentProcessing.minConf` (default `10`, minimum `1`), and `walletInterval` in minutes.
+The per-block `txfee` budget is deducted once from miner rewards and must cover
+shielding, unshielding and the final transparent payout. For one coinbase input,
+one Sapling note and one miner, ZIP 317 fees total
+`0.00015 + 0.00015 + 0.0001 = 0.0004`.
+The Zcash coin configurations set `unshieldFee: 0.00015`, distinct from that
+per-block budget. Other coins retain a `0.0001` reserve. Explicit RPC confirmations
+and fees are passed only when `unshieldFee` or `privacyPolicy` is configured;
+unconfigured wallets retain the original two-argument call and wallet defaults.
+Balances at or below the reserve are not sent. The processor tracks shielding
+operation IDs so completion releases the next transfer.
+
+The Zcash unshielding fee covers at most two Sapling spends and one transparent
+output. Larger batches require sizing both `unshieldFee` and the per-block
+`txfee` budget; wallet defaults cannot override the explicitly passed fee.
+The Zcash coin configurations set `privacyPolicy: "AllowRevealedRecipients"`;
+the recipient and amount are public.
+
+The wallet must support `validateaddress`, `z_validateaddress`, `getbalance`,
+`listunspent`, `gettransaction`, `getblock`, `sendmany`, `z_shieldcoinbase`,
+`z_getbalance`, `z_sendmany`, `z_getoperationstatus`, and `z_getoperationresult`.
+The processor also queries `getmininginfo` and `getnetworkinfo` for statistics,
+and tolerates an absent `getaccount` method.
+For wallet APIs without a privacy-policy argument, leave `privacyPolicy` unset.
+
+Run `npm test` for callback-flow regression checks on Node.js 8.11 or newer.
+No installed dependencies, wallet, Redis server, or network access are required.
+
+
 
 ##### [Optional, recommended] Setting up blocknotify
 1. In `config.json` set the port and password for `blockNotifyListener`
