@@ -272,7 +272,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     callback(true);
                 }
                 else {
-                    var opid = (result.response || result[0].response);
+                    var opid = (result.response || result[0].response).opid;
                     opidCount++;
                     opids.push(opid);
                     logger.special(logSystem, logComponent, 'Shielding balance ' + amount);
@@ -291,7 +291,9 @@ function SetupForPool(logger, poolOptions, setupFinished){
             logger.error(logSystem, logComponent, 'zBalance === NaN for sendZToT');
             return;
         }
-        if ((zBalance - 10000) <= 0)
+        // The transfer fee is distinct from the per-block shielding and payout budget.
+        var unshieldFee = parseFloat(poolOptions.coin.unshieldFee) || 0.0001;
+        if ((zBalance - coinsToSatoshies(unshieldFee)) <= 0)
             return;
 
         // do not allow more than a single z_sendmany operation at a time
@@ -300,9 +302,13 @@ function SetupForPool(logger, poolOptions, setupFinished){
             return;
         }
 
-        var amount = satoshisToCoins(zBalance - 10000);
+        var amount = satoshisToCoins(zBalance - coinsToSatoshies(unshieldFee));
 
         var params = [poolOptions.zAddress, [{'address': poolOptions.tAddress, 'amount': amount}]];
+        if (poolOptions.coin.unshieldFee !== undefined || poolOptions.coin.privacyPolicy)
+            params.push(minConfShield, unshieldFee);
+        if (poolOptions.coin.privacyPolicy)
+            params.push(poolOptions.coin.privacyPolicy);
         daemon.cmd('z_sendmany', params,
             function (result) {
                 //Check if payments failed because wallet doesn't have enough coins to pay for tx fees

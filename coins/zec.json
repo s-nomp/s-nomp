@@ -5,6 +5,8 @@
     "overwinter": true,
     "sapling": true,
     "requireShielding": true,
+    "privacyPolicy": "AllowRevealedRecipients",
+    "unshieldFee": 0.00015,
     "payFoundersReward": true,
     "percentFoundersReward": 20,
     "maxFoundersRewardBlockHeight": 849999,
