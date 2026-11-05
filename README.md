@@ -64,6 +64,9 @@ npm update
 npm install
 ```
 
+The minimum supported `bignum` version is `0.13.1`, which removes the unsafe
+prebuilt-binary download described in [GHSA-7cgc-fjv4-52x6](https://github.com/advisories/GHSA-7cgc-fjv4-52x6).
+
 ##### Pool config
 Take a look at the example json file inside the `pool_configs` directory. Rename it to `zclassic.json` and change the
 example fields to fit your setup.
